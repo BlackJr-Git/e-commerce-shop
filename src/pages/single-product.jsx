@@ -1,8 +1,9 @@
 import SingleProductCard from "@/components/single-product-card" ;
 import { productsData } from "@/data";
-import { Products } from "@/components";
+import { Products , SingleProductInfo } from "@/components";
 import { useParams } from "react-router-dom";
 // import productsData from "@/data";
+
 
 
 function SingleProduct() {
@@ -17,7 +18,7 @@ let product = productsData.find((product) => product.name === name) ;
       </div>
 
       <div>
-        
+      <SingleProductInfo product={product} />
       </div>
 
       <Products productData={productsData.slice(1,5)} title={"Produits similaires"} />
