@@ -1,14 +1,15 @@
-import { HeroBanner ,Products, Services, WhyUs } from '../components'; 
+import { HeroBanner ,Products, Services, SideCart, WhyUs } from '../components'; 
 import { productsData } from '@/data';
 
 
 function Home() {
   return (
-    <main>
+    <main className='relative'>
       <HeroBanner />
       <Services />
       <Products title={'Nos Produits '} productData={productsData}/>
       <WhyUs />
+      <SideCart />
     </main>
   )
 }

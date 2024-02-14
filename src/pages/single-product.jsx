@@ -18,7 +18,7 @@ let product = productsData.find((product) => product.name === name) ;
       </div>
 
       <div>
-      <SingleProductInfo product={product} />
+      <SingleProductInfo product={product} />  
       </div>
 
       <Products productData={productsData.slice(1,5)} title={"Produits similaires"} />
