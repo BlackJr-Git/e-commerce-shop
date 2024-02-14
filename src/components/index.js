@@ -12,4 +12,8 @@ export { default as WhyUs } from "./why-us/why-us";
 export { default as Footer } from "./footer/footer";
 export { default as Newsletter } from "./newsletter";
 export { default as NewsletterForm } from "./newsletter-form";
-export { default as Layout } from './layout'
+export { default as Layout } from "./layout";
+export { default as ShopHeader } from "./shop/shop-header";
+export { default as ProductFilter } from "./product-filter";
+export { default as ProductSearchBar } from "./product-search-bar" ;
+export { default as SingleProductCard } from './single-product-card' ;

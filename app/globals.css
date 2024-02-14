@@ -139,3 +139,10 @@
   }
 
 }
+
+.shop-header{
+  background: url("src/assets/images/cart-nawtech.jpg");
+  background-repeat: no-repeat ;
+  background-position: center;
+  background-size: cover ;
+}

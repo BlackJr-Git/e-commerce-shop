@@ -1,11 +1,19 @@
-
+import { ShopHeader, ProductFilter, Products } from "../components";
+import { productsData } from "@/data";
 
 function Shop() {
   return (
-    <main>
-      <h1>Voici la page boutique</h1>
+    <main className="max-w-7xl m-auto flex items-start gap-6 mb-20 mt-7 relative">
+      <div className="bg-slate-200 w-1/5 h-screen rounded-2xl sticky ">
+        <ProductFilter />
+      </div>
+        <div className="w-4/5">
+          <ShopHeader></ShopHeader>
+
+          <Products productData={productsData} />
+        </div>
     </main>
-  )
+  );
 }
 
 export default Shop ;

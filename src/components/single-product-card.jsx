@@ -1,0 +1,58 @@
+import { useState } from "react";
+import { Button } from "./ui/button";
+
+function SingleProductCard({ product }) {
+  const [numberOfProduct, setNumberOfProduct] = useState(1);
+  
+  function addNumberOfProduct(e) {
+    e.preventDefault()
+    setNumberOfProduct(numberOfProduct + 1)
+    setTotalPrice(totalPrice + product.price )
+  }
+  function removeNumberOfProduct(e) {
+    if (numberOfProduct !== 1) {
+      e.preventDefault()
+      setNumberOfProduct(numberOfProduct - 1)
+      setTotalPrice(totalPrice - product.price )
+    }
+  }
+
+  const [totalPrice, setTotalPrice] = useState(product.price)
+
+
+  return (
+    <div className="flex justify-center gap-6 py-12 max-w-7xl m-auto">
+      <div className=" w-4/12">
+        <img className="rounded-2xl" src={product.images} alt={product.name} />
+      </div>
+      <div className="w-4/12">
+        <div className="flex items-start flex-col justify-start gap-7 pb-12 border-b border-solid border-slate-700">
+          <h3 className="text-3xl"> {product.name} </h3>
+          <p className="flex items-center justify-start gap-6">
+            {" "}
+            <span className="text-3xl font-bold">$ {totalPrice}</span> +
+            Livraison gratuite{" "}
+          </p>
+        </div>
+        <div className="flex items-center justify-start gap-6 py-6 mb-6 border-b border-solid border-slate-700">
+          <div className="flex justify-start items-center border border-solid border-slate-700 w-fit">
+            <button className="bg-slate-200 border-r border-solid border-slate-700 px-3" onClick={removeNumberOfProduct}>
+              -
+            </button>
+            <p className="bg-white px-4"> {numberOfProduct} </p>
+            <button className="bg-slate-200 border-l border-solid border-slate-700 px-3" onClick={addNumberOfProduct}>
+              +
+            </button>
+          </div>
+          <div>
+            <Button className="w-50 font-bold text-lg px-10">
+              Ajouter au panier
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default SingleProductCard;

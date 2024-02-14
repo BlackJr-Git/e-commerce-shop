@@ -1,4 +1,5 @@
 import { HeroBanner ,Products, Services, WhyUs } from '../components'; 
+import { productsData } from '@/data';
 
 
 function Home() {
@@ -6,7 +7,7 @@ function Home() {
     <main>
       <HeroBanner />
       <Services />
-      <Products />
+      <Products title={'Nos Produits '} productData={productsData}/>
       <WhyUs />
     </main>
   )

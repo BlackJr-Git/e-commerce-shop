@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 function ProductCard() {
   return (
@@ -24,7 +25,7 @@ function ProductCard() {
   );
 }
 
-export default Pcard ;
+export default Pcard;
 
 import {
   Card,
@@ -35,21 +36,29 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-function Pcard({productData}) {
+function Pcard({ productData }) {
   return (
-    <Card className='w-64'>
+    <Card className="w-64">
       <CardContent>
-      <img
-          className="rounded-2xl"
-          src= {productData.image}
-          alt={productData.productName}
-        />
+        <Link to={`/produits/${productData.name}`}>
+          <img
+            className="rounded-2xl"
+            src={productData.images}
+            alt={productData.name}
+          />
+        </Link>
       </CardContent>
       <CardHeader>
-        <CardTitle className="font-bold text-xl"> {productData.productName} </CardTitle>
-        <CardDescription className="text-lg font-semibold"> {`$ ${productData.productPrice}`} </CardDescription>
+        <CardTitle className="font-bold text-xl ">
+          {" "}
+          {productData.name}{" "}
+        </CardTitle>
+        <CardDescription className="text-lg font-semibold">
+          {" "}
+          {`$ ${productData.price}`}{" "}
+        </CardDescription>
       </CardHeader>
-      <CardFooter className='flex items-center justify-center'>
+      <CardFooter className="flex items-center justify-center">
         <Button className="font-bold">Ajouter au Panier</Button>
       </CardFooter>
     </Card>
