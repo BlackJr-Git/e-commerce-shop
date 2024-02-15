@@ -36,7 +36,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-function Pcard({ productData }) {
+function Pcard({ productData, handleClick }) {
   return (
     <Card className="w-64">
       <CardContent>
@@ -59,7 +59,7 @@ function Pcard({ productData }) {
         </CardDescription>
       </CardHeader>
       <CardFooter className="flex items-center justify-center">
-        <Button className="font-bold">Ajouter au Panier</Button>
+        <Button className="font-bold" onClick={handleClick}  >Ajouter au Panier</Button>
       </CardFooter>
     </Card>
   );

@@ -2,7 +2,7 @@ import { ServiceCard } from "../";
 
 function Services() {
   return (
-    <section className="bg-slate-200 py-24">
+    <section className="bg-slate-100 py-24">
       <div className="max-w-7xl m-auto  flex justify-center gap-8 px-4 flex-wrap">
         <ServiceCard
           icon={"cart-outline"}

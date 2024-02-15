@@ -1,11 +1,12 @@
 import { Button } from "./ui/button";
-import { InputWithButton } from ".";
+import { Link } from "react-router-dom";
+// import { InputWithButton } from ".";
 
 function HeroBanner() {
   return (
     <div className="hero-banner max-w-7xl m-auto rounded-2xl p-6 mb-24 ">
       <div className="products-image rounded-2xl bg-white max-w-full max-h-full md:"></div>
-      <div className="hero-title flex flex-col  justify-between gap-3 bg-slate-200 p-7 rounded-2xl">
+      <div className="hero-title flex flex-col  justify-between gap-3 bg-slate-100 p-7 rounded-2xl">
         <div className="flex flex-col gap-7">
           <h1 className="text-5xl font-bold text-slate-950">
             Trouvez les dernières innovations tech chez Nawtech !
@@ -17,7 +18,7 @@ function HeroBanner() {
         </div>
         <div className="flex flex-col  gap-3">
           <Button className="font-bold text-xl h-12">Acheter Maintenant</Button>
-          <Button variant="outline">Voir Plus</Button>
+          <Button variant="outline"> <Link to={"/boutique"}>Voir Plus</Link> </Button>
         </div>
       </div>
       <div className="service-image rounded-2xl bg-white">
@@ -29,7 +30,7 @@ function HeroBanner() {
       </div>
       <div className="call-to-action flex flex-col  gap-3">
         <a
-          className=" w-full bg-teal-500 rounded-2xl flex items-center justify-center font-bold text-4xl text-center"
+          className=" w-full h-full bg-teal-500 rounded-2xl flex items-center justify-center font-bold text-4xl text-center"
           href="#"
         >
           SHOP NOW

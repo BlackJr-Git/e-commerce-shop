@@ -1,7 +1,7 @@
 
 function WhysUs() {
   return (
-    <section className="bg-slate-200 my-24 ">
+    <section className="bg-slate-100 my-24 ">
       <div className="max-w-7xl m-auto flex justify-center items-center">
         <div className="p-6 flex flex-col items-center gap-14">
             <h3 className="text-4xl font-bold">Pourquoi nous et pas d'autres?</h3>
