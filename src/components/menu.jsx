@@ -27,7 +27,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Menu() {
+export default function Menu({handleClick}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -112,7 +112,7 @@ export default function Menu() {
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-          <HeaderIcons></HeaderIcons>
+          <HeaderIcons handleClick={handleClick}></HeaderIcons>
           </a>
         </div>
       </nav>

@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { samsungS23Ultra } from "./assets";
 
 export const useStore = create((set) => ({
   currentUser: "Junior Asosa",
@@ -9,4 +8,3 @@ export const useStore = create((set) => ({
   }
 }));
 
-// export default useStore ;

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
-function Icon({iconName }) {
+function Icon({iconName, handleClick }) {
     return (
-      <div className="font-semibold text-xl">
+      <div onClick={handleClick} className="font-semibold text-xl">
         <ion-icon name={iconName}></ion-icon>
       </div>
     );

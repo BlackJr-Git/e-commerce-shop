@@ -1,4 +1,13 @@
-import { iphone13, iphoneXs, samsungS22plus, samsungS23 } from "@/assets";
+import {
+  iphone11Pro,
+  iphone11ProMax,
+  iphone12,
+  iphone12ProMax,
+  iphone13,
+  iphoneXs,
+  samsungS22plus,
+  samsungS23,
+} from "@/assets";
 import { iphone11, samsungS23Ultra, iphone14ProMax, iphoneXr } from "@/assets";
 
 const productsData = [
@@ -89,6 +98,23 @@ const productsData = [
     Étiquettes: "Iphone 13",
   },
   {
+    ID: 4928,
+    UGS: "",
+    name: "IPhone 11 Pro Max",
+    isPublished: true,
+    isHighlited: 0,
+    description:
+      "L'iPhone 11 Pro Max est la version grand format de l'iPhone 11 Pro. Successeur direct de l'iPhone XS\n\\nMax, il dispose d'un écran OLED de 6,5 pouces, un SoC Apple A13 Bionic et un triple capteur photo\n\\narrière.",
+    weight: 226,
+    height: 158,
+    width: 77.8,
+    discountPrice: "",
+    price: 470.0,
+    categories: "Apple, Apple > Iphone, Smartphone",
+    Étiquettes: "Iphone 11pro Max",
+    images: iphone11ProMax,
+  },
+  {
     ID: 6,
     name: "Samsung S23",
     price: 1059.0,
@@ -138,6 +164,57 @@ const productsData = [
     width: 70.9,
     discountPrice: "",
     Étiquettes: "Iphone XS",
+  },
+  {
+    ID: 4705,
+    UGS: "",
+    name: "IPhone 12",
+    isPublished: true,
+    isHighlited: true,
+    description:
+      "L'<b>iPhone </b>12 d'Apple est équipé d'un écran OLED de 6,true pouces. Ce smartphone dispose de la nouvelle puce A14 Bionic gravée en 5 nm et, en photo, embarque d'un double module caméra avec capteur grand-angle et capteur ultra grand-angle (12 Mpix + 12 Mpix).",
+    weight: 164,
+    height: 146.7,
+    width: 71.5,
+    discountPrice: "",
+    price: 499.0,
+    categories: "Apple, Apple > Iphone, Smartphone",
+    Étiquettes: "Iphone 12",
+    images: iphone12,
+  },
+  {
+    ID: 4732,
+    UGS: "",
+    name: "IPhone 11 Pro",
+    isPublished: true,
+    isHighlited: 0,
+    description:
+      "L'iPhone 11 Pro est le flagship de la douzième génération du célèbre smartphone d'Apple. Successeur direct de l'iPhone XS, il dispose d'un écran OLED de 5,8 pouces, un SoC Apple A13 Bionic et un triple capteur photo arrière.",
+    weight: 188,
+    height: 144,
+    width: 714,
+    discountPrice: "",
+    price: 489.0,
+    categories: "Apple, Apple > Iphone, Smartphone",
+    Étiquettes: "Iphone 11pro",
+    images: iphone11Pro,
+  },
+  {
+    ID: 4950,
+    UGS: "",
+    name: "IPhone 12 Pro Max",
+    isPublished: true,
+    isHighlited: 0,
+    description:
+      "L'iPhone 12 Pro Max est le modèle grand-format haut de gamme de la 14e génération de\n\\nsmartphone d'Apple. Il est équipé d'un écran de 6,7 pouces OLED HDR 60 Hz, d'un triple capteur\n\\nphoto avec ultra grand-angle et téléobjectif (x5 optique) et d'un SoC Apple A14 Bionic compatible 5G\n\\n(sub-6 GHz).",
+    weight: 226,
+    height: 16.08,
+    width: 7.81,
+    discountPrice: "",
+    price: 769.0,
+    categories: "Apple, Apple > Iphone, Smartphone",
+    Étiquettes: "Iphone 12pro Max",
+    images: iphone12ProMax,
   },
 ];
 
