@@ -18,4 +18,4 @@ export { default as ProductFilter } from "./product-filter";
 export { default as ProductSearchBar } from "./product-search-bar";
 export { default as SingleProductCard } from "./single-product-card";
 export { default as SingleProductInfo } from "./single-products-info";
-export { default as SideCart } from "./side-cart";
+export { default as SideCart } from "./side-cart"; 

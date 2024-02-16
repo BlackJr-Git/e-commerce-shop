@@ -35,8 +35,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useStore } from "@/appStore";
 
 function Pcard({ productData, handleClick }) {
+  const { productsAddedToCart , updateCart } = useStore();
+
+  function addToCart() {
+    const newCart = [...productsAddedToCart, productData ]
+    updateCart(newCart) ,
+    console.log(productsAddedToCart);
+  }
+
   return (
     <Card className="w-64">
       <CardContent>
@@ -58,8 +67,9 @@ function Pcard({ productData, handleClick }) {
           {`$ ${productData.price}`}{" "}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex items-center justify-center">
+      <CardFooter  className="flex items-center justify-center">
         <Button className="font-bold" onClick={handleClick}  >Ajouter au Panier</Button>
+        <button onClick={addToCart}>ADD</button>
       </CardFooter>
     </Card>
   );
