@@ -1,11 +1,12 @@
 import { Button } from "./ui/button";
 import { useStore } from "@/appStore";
+import { Link } from "react-router-dom";
 
 function SideCart({ className, handleClick }) {
   const { productsAddedToCart } = useStore();
   return (
     <div className={className}>
-      {productsAddedToCart ? (
+      {productsAddedToCart != [] ? (
         <>
           <div className="p-4 flex items-center justify-between border-b border-slate-200">
             <h3 className="font-semibold text-xl ">Panier</h3>
@@ -29,9 +30,9 @@ function SideCart({ className, handleClick }) {
 
           <div className="flex flex-col items-center justify-center gap-3 border-t border-slate-200 py-3">
             <Button variant="outline" className="w-11/12 font-medium">
-              Voir le panier
+              <Link to={"/cart"}>Voir le panier</Link> 
             </Button>
-            <Button className="w-11/12 font-bold">COMMANDER</Button>
+            <Button className="w-11/12 font-bold"> <Link to={"/cart"}>COMMANDER</Link> </Button>
           </div>
         </>
       ) : (

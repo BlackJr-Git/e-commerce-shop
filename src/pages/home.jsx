@@ -17,7 +17,9 @@ function Home() {
     <main className='relative'>
       <HeroBanner />
       <Services />
+      <div className='bg-slate-100'>
       <Products title={'Nos Produits '} productData={productsData} />
+      </div>
       <WhyUs />
       {displayCart 
         ? <SideCart handleClick={removeCart} className={"ease-in duration-500  h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"} /> 
