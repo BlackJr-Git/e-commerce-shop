@@ -5,7 +5,7 @@ import { SideCart } from "./index";
 import { useState } from "react";
 
 function Layout() {
-  const [ displayCart, setDisplayCart ] = useState(true)
+  const [ displayCart, setDisplayCart ] = useState(false)
   
   function toggleCart() {
     setDisplayCart(!displayCart)
