@@ -1,24 +1,30 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { useStore } from "@/appStore";
 
 function SingleProductCard({ product }) {
+  const { productsAddedToCart, updateCart } = useStore();
+
+  function addToCart() {
+    const newCart = [...productsAddedToCart, product];
+    updateCart(newCart);
+  }
   const [numberOfProduct, setNumberOfProduct] = useState(1);
-  
+
   function addNumberOfProduct(e) {
-    e.preventDefault()
-    setNumberOfProduct(numberOfProduct + 1)
-    setTotalPrice(totalPrice + product.price )
+    e.preventDefault();
+    setNumberOfProduct(numberOfProduct + 1);
+    setTotalPrice(totalPrice + product.price);
   }
   function removeNumberOfProduct(e) {
     if (numberOfProduct !== 1) {
-      e.preventDefault()
-      setNumberOfProduct(numberOfProduct - 1)
-      setTotalPrice(totalPrice - product.price )
+      e.preventDefault();
+      setNumberOfProduct(numberOfProduct - 1);
+      setTotalPrice(totalPrice - product.price);
     }
   }
 
-  const [totalPrice, setTotalPrice] = useState(product.price)
-
+  const [totalPrice, setTotalPrice] = useState(product.price);
 
   return (
     <div className="flex justify-center gap-6 py-12 max-w-7xl m-auto">
@@ -36,16 +42,25 @@ function SingleProductCard({ product }) {
         </div>
         <div className="flex items-center justify-start gap-6 py-6 mb-6 border-b border-solid border-slate-700">
           <div className="flex justify-start items-center border border-solid border-slate-700 w-fit">
-            <button className="bg-slate-200 border-r border-solid border-slate-700 px-3" onClick={removeNumberOfProduct}>
+            <button
+              className="bg-slate-200 border-r border-solid border-slate-700 px-3"
+              onClick={removeNumberOfProduct}
+            >
               -
             </button>
             <p className="bg-white px-4"> {numberOfProduct} </p>
-            <button className="bg-slate-200 border-l border-solid border-slate-700 px-3" onClick={addNumberOfProduct}>
+            <button
+              className="bg-slate-200 border-l border-solid border-slate-700 px-3"
+              onClick={addNumberOfProduct}
+            >
               +
             </button>
           </div>
           <div>
-            <Button className="w-50 font-bold text-lg px-10">
+            <Button
+              className="w-50 font-bold text-lg px-10"
+              onClick={addToCart}
+            >
               Ajouter au panier
             </Button>
           </div>

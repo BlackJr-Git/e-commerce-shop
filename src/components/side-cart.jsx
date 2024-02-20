@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 import { Button } from "./ui/button";
 import { useStore } from "@/appStore";
 import { Link } from "react-router-dom";
 
 function SideCart({ className, handleClick }) {
-  const { productsAddedToCart } = useStore();
+  const { productsAddedToCart } = useStore();  
+  // console.log(productsAddedToCart);  
+  let totalPrice = 0 
+  productsAddedToCart.forEach(product => {
+    totalPrice = totalPrice + product.price
+  });
   return (
     <div className={className}>
       {productsAddedToCart != [] ? (
@@ -21,11 +27,11 @@ function SideCart({ className, handleClick }) {
           <div className="h-full overflow-y-scroll overflow-x-hidden">
             {productsAddedToCart.map((product) => (
               <SideCartProduct product={product} key={product.ID} />
-            ))}
+            ))} 
           </div>
 
           <div className="h-14 border-t border-slate-200 px-3 flex items-center justify-between">
-            <p className="font-semibold">Sous-total : </p> <p>$ 1239</p>
+            <p className="font-semibold">Sous-total : </p> <p>$ {totalPrice} </p>
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 border-t border-slate-200 py-3">

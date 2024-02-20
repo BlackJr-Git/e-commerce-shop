@@ -8,7 +8,7 @@ function Footer() {
     <section className="bg-slate-200 ">
       <footer className="max-w-7xl py-24 flex flex-wrap justify-between border border-t-slate-300 footer container gap-6">
         <Logo />
-        <ToTheBuyerLinks />
+        {/* <ToTheBuyerLinks /> */}
         <AboutLinks />
         <CatalogLinks />
         <WorkTime />
