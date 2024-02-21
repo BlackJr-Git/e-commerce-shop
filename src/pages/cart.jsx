@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/appStore";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useEffect,useState } from "react";
+import { cartPriceSum } from "@/utils";
+
 
 function Cart() {
   return (
@@ -98,10 +101,10 @@ function TotalCart() {
 
   const { productsAddedToCart } = useStore();
   // const [totalPrice , setTotalPrice ] = useState(0)
-  let totalPrice = 0 
-  productsAddedToCart.forEach(product => {
-    totalPrice = totalPrice + product.price
-  });
+  const [totalPrice, setTotalPrice ] = useState(0)
+  useEffect(() => {
+    setTotalPrice(cartPriceSum(productsAddedToCart))
+  }, [productsAddedToCart]); 
 
   return (
     <div className="max-w-6xl m-auto p-7 border border-slate-200 mb-6">
@@ -127,7 +130,7 @@ function TotalCart() {
           </tr>
         </tbody>
         <tfoot>
-          <td colSpan={"2"}><Button className="font-semibold w-full p-6">COMMANDER</Button></td>
+          <td colSpan={"2"}><Button className="font-semibold w-full p-6"><Link to={"/checkout"}>COMMANDER</Link></Button></td>
         </tfoot>
       </table>
     </div>

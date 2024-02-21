@@ -2,14 +2,16 @@
 import { Button } from "./ui/button";
 import { useStore } from "@/appStore";
 import { Link } from "react-router-dom";
+import { useEffect,useState } from "react";
+import { cartPriceSum } from "@/utils";
 
 function SideCart({ className, handleClick }) {
   const { productsAddedToCart } = useStore();  
   // console.log(productsAddedToCart);  
-  let totalPrice = 0 
-  productsAddedToCart.forEach(product => {
-    totalPrice = totalPrice + product.price
-  });
+  const [totalPrice, setTotalPrice ] = useState(0)
+  useEffect(() => {
+    setTotalPrice(cartPriceSum(productsAddedToCart))
+  }, [productsAddedToCart]); 
   return (
     <div className={className}>
       {productsAddedToCart != [] ? (

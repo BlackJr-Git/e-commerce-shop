@@ -42,8 +42,7 @@ function Pcard({ productData }) {
 
   function addToCart() {
     const newCart = [...productsAddedToCart, productData ]
-    updateCart(newCart) ,
-    console.log(productsAddedToCart);
+    updateCart(newCart) 
   }
 
   return (
