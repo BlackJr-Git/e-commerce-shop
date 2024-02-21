@@ -12,4 +12,6 @@ export { default as iphone11ProMax } from "./images/products/iPhone/Iphone-11-Pr
 
 export { default as iphone12 } from "./images/products/iPhone/IPhone-12-nawtech.jpg";
 export { default as iphone11Pro } from "./images/products/iPhone/IPhone-11-Pro-nawtech.jpg";
-export { default as iphone12ProMax } from "./images/products/iPhone/IPhone-12-Pro-Max-nawtech.jpg"
+export { default as iphone12ProMax } from "./images/products/iPhone/IPhone-12-Pro-Max-nawtech.jpg";
+
+export { default as caretUp } from "./images/caret-up-outline.svg";
