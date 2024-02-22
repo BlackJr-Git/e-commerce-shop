@@ -2,10 +2,18 @@ import { Footer } from "./index";
 import { Outlet } from "react-router-dom/dist";
 import Menu from "./menu";
 import { SideCart } from "./index";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useStore } from "@/appStore";
+import user from "@/data/users";
 
 function Layout() {
-  const [ displayCart, setDisplayCart ] = useState(false)
+  const [ displayCart, setDisplayCart ] = useState(false) ;
+  const { currentUser , updateUser } = useStore();
+
+  useEffect(() => {
+    updateUser(user)
+    // console.log(currentUser); 
+  },[updateUser, currentUser]); 
   
   function toggleCart() {
     setDisplayCart(!displayCart)

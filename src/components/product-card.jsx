@@ -21,7 +21,7 @@ function Pcard({ productData }) {
   }
 
   return (
-    <Card className="w-60">
+    <Card className="w-72">
       <CardContent>
         <Link to={`/produits/${productData.name}`}>
           <img

@@ -15,3 +15,4 @@ export { default as iphone11Pro } from "./images/products/iPhone/IPhone-11-Pro-n
 export { default as iphone12ProMax } from "./images/products/iPhone/IPhone-12-Pro-Max-nawtech.jpg";
 
 export { default as caretUp } from "./images/caret-up-outline.svg";
+export { default as BradleyAvatar } from "./profile-photo.png";

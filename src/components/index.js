@@ -21,3 +21,4 @@ export { default as SingleProductInfo } from "./single-products-info";
 export { default as SideCart } from "./side-cart";
 export { default as CheckoutForm } from "./checkout-form";
 export { default as CheckoutDetails } from "./checkout-details";
+export { default as UserAvatar } from './user-avatar' ;
