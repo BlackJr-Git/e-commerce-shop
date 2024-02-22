@@ -4,6 +4,7 @@ import { useStore } from "@/appStore";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { cartPriceSum } from "@/utils";
+import { useToast } from "./ui/use-toast";
 
 function SideCart({ className, handleClick }) {
   const { productsAddedToCart } = useStore();
@@ -59,12 +60,18 @@ export default SideCart;
 
 function SideCartProduct({ product }) {
   const { productsAddedToCart, updateCart } = useStore();
+  const { toast } = useToast() 
 
   function deleteProductFromCart() {
     let newCart = productsAddedToCart.filter(
       (element) => element.ID !== product.ID
     );
     updateCart(newCart);
+    toast({
+      variant : "destructive",
+      title: "Produits supprimer du panier",
+      description: product.name ,
+    })
   }
 
   return (

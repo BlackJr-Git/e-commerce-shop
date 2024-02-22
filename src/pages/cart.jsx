@@ -2,20 +2,20 @@
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/appStore";
 import { Link } from "react-router-dom";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { cartPriceSum } from "@/utils";
 
-
 function Cart() {
+  const { productsAddedToCart } = useStore();
   return (
     <main className="bg-slate-100">
       <div className="max-w-7xl m-auto ">
         <h1 className="text-4xl text-center font-bold py-12">Panier</h1>
-        <CartTable />
+        {productsAddedToCart[0] ? <CartTable /> : <EmptyCartMessage />}
         <div className="w-full flex items-center justify-center max-w-6xl m-auto">
           <div className="w-2/4"></div>
           <div className="w-2/4">
-            <TotalCart />
+            {productsAddedToCart[0] ? <TotalCart /> : <></>}
           </div>
         </div>
       </div>
@@ -46,7 +46,6 @@ function CartTable() {
         </tbody>
         <tfoot>
           <tr className="border border-slate-200 text-left ">
-            
             <td colSpan={"2"} className="p-2 flex items-center gap-3">
               <input
                 className="border border-slate-200 p-2 rounded-lg"
@@ -98,13 +97,12 @@ function CartProduct({ product }) {
 }
 
 function TotalCart() {
-
   const { productsAddedToCart } = useStore();
   // const [totalPrice , setTotalPrice ] = useState(0)
-  const [totalPrice, setTotalPrice ] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
-    setTotalPrice(cartPriceSum(productsAddedToCart))
-  }, [productsAddedToCart]); 
+    setTotalPrice(cartPriceSum(productsAddedToCart));
+  }, [productsAddedToCart]);
 
   return (
     <div className="max-w-6xl m-auto p-7 border border-slate-200 mb-6">
@@ -130,9 +128,25 @@ function TotalCart() {
           </tr>
         </tbody>
         <tfoot>
-          <td colSpan={"2"}><Button className="font-semibold w-full p-6"><Link to={"/checkout"}>COMMANDER</Link></Button></td>
+          <td colSpan={"2"}>
+            <Button className="font-semibold w-full p-6">
+              <Link to={"/checkout"}>COMMANDER</Link>
+            </Button>
+          </td>
         </tfoot>
       </table>
+    </div>
+  );
+}
+
+function EmptyCartMessage() {
+  return (
+    <div className="flex items-center justify-center gap-6 mb-24">
+      <p className="text-2xl">Votre panier est vide</p>
+      <Button className="max-w-96">
+        {" "}
+        <Link to={"/boutique"}>Continuer vos achats</Link>{" "}
+      </Button>
     </div>
   );
 }
