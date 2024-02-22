@@ -10,14 +10,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useToast } from "@/components/ui/use-toast"
+
 
 
 function Pcard({ productData }) {
   const { productsAddedToCart , updateCart } = useStore();
-
+  const { toast } = useToast() 
   function addToCart() {
     const newCart = [...productsAddedToCart, productData ]
     updateCart(newCart) 
+    toast({
+      title: "Produit ajouté au panier avec succes",
+      description: productData.name ,
+    })
   }
 
   return (
