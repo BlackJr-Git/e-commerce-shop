@@ -111,9 +111,9 @@ export default function Menu({handleClick}) {
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <div className="text-sm font-semibold leading-6 text-gray-900">
           <HeaderIcons handleClick={handleClick}></HeaderIcons>
-          </a>
+          </div>
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -185,7 +185,7 @@ export default function Menu({handleClick}) {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  <HeaderIcons></HeaderIcons>
+                  <HeaderIcons handleClick={handleClick}></HeaderIcons>
                 </a>
               </div>
             </div>

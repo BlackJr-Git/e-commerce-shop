@@ -58,16 +58,32 @@ function SideCart({ className, handleClick }) {
 export default SideCart;
 
 function SideCartProduct({ product }) {
+  const { productsAddedToCart, updateCart } = useStore();
+
+  function deleteProductFromCart() {
+    let newCart = productsAddedToCart.filter(
+      (element) => element.ID !== product.ID
+    );
+    updateCart(newCart);
+  }
+
   return (
-    <div className=" mx-3 flex items-center gap-4 border-b border-slate-200 p-2 w-full">
-      <div>
-        <img className="w-16" src={product.images} alt="" />
+    <div className=" mx-3 flex items-center justify-between gap-4 border-b border-slate-200 p-2 w-full">
+      <div className="flex gap-4">
+        <div>
+          <img className="w-16" src={product.images} alt="" />
+        </div>
+        <div>
+          <p className="font-semibold">{product.name}</p>
+          <p className="">$ {product.price} </p>
+        </div>
       </div>
-      <div>
-        <p className="font-semibold">{product.name}</p>
-        <p>Couleur : rouge</p>
-        <p className="">$ {product.price} </p>
-      </div>
+      <button
+        onClick={deleteProductFromCart}
+        className="flex items-center justify-center mr-6 cursor-pointer w-5 h-full text-xl"
+      >
+        <ion-icon name="trash-outline"></ion-icon>
+      </button>
     </div>
   );
 }
@@ -92,7 +108,7 @@ function EmptyCart({ handleClick }) {
       <div className="flex flex-col items-center justify-center gap-3 border-t border-slate-200 py-3">
         <Button className="w-11/12 font-bold">
           {" "}
-          <Link to={"/shop"}>Continuer vos achats</Link>{" "}
+          <Link to={"/boutique"}>Continuer vos achats</Link>{" "}
         </Button>
       </div>
     </>

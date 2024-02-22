@@ -8,7 +8,7 @@ function Shop() {
         <ProductFilter />
       </div>
       <div className="w-5/6">
-        {/* <ShopHeader></ShopHeader> */}
+        <ShopHeader></ShopHeader>
 
         <Products productData={productsData} />
       </div>
