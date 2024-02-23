@@ -24,3 +24,5 @@ export { default as CheckoutDetails } from "./checkout-details";
 export { default as UserAvatar } from "./user-avatar";
 export { default as AnimatedPages } from "./AnimatedPages";
 export { default as ScrollToTop } from "./ScrollToTop";
+export { default as Warranty } from "./warranty";
+export { default as WarrantyCard } from "./warranty-card";

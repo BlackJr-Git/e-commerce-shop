@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { AnimatedPages } from ".";
+import { motion } from "framer-motion";
 
 function SingleProductInfo({ product }) {
   const [infoDisplayed, setInfoDisplayed] = useState(
@@ -26,27 +27,27 @@ function SingleProductInfo({ product }) {
   return (
     <div className="max-w-7xl m-auto my-12">
       <nav className="flex items-center justify-start gap-6 my-6 border-t border-t-slate-200">
-        <li
+        <motion.li
           className={
             isActive.isDescriptionActive
               ? "font-bold text-xl cursor-pointer border-t-4 border-t-slate-500"
               : "font-bold text-xl cursor-pointer"
           }
-          onClick={displayDescription}
+          onClick={displayDescription} 
         >
           Desciption
-        </li>
+        </motion.li>
 
-        <li
+        <motion.li
           className={
             isActive.isCompInfoActive
               ? "font-bold text-xl cursor-pointer border-t-4 border-t-slate-500"
               : "font-bold text-xl cursor-pointer"
           }
-          onClick={displayComplementaryInfo}
+          onClick={displayComplementaryInfo} 
         >
           Informations Complementaires
-        </li>
+        </motion.li>
 
         <li className="font-bold text-xl cursor-pointer">Avis(0) </li>
       </nav>
@@ -101,4 +102,16 @@ function Informations({ product }) {
       </div>
     </AnimatedPages>
   );
+}
+
+
+function ProductReviews() {
+  return (
+    <AnimatedPages>
+      <form>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        
+      </form>
+    </AnimatedPages>
+  )
 }

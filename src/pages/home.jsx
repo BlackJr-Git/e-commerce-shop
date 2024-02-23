@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HeroBanner, Products, Services, SideCart, WhyUs } from "../components";
+import { HeroBanner, Products, Services, SideCart, WhyUs,Warranty } from "../components";
 import { productsData } from "@/data";
 import { AnimatedPages } from "../components";
 
@@ -19,6 +19,7 @@ function Home() {
           <Products title={"Nos Produits "} productData={productsData} />
         </div>
         <WhyUs />
+        <Warranty />
         {displayCart ? (
           <SideCart
             handleClick={removeCart}

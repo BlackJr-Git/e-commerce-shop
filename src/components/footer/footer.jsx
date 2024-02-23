@@ -1,5 +1,5 @@
 import { Logo, Newsletter }from "../";
-import {CatalogLinks, AboutLinks, ToTheBuyerLinks} from "./footer-links" ;
+import {CatalogLinks, AboutLinks} from "./footer-links" ;
 import WorkTime from "./work-time";
 
 
@@ -20,3 +20,4 @@ function Footer() {
 }
 
 export default Footer ;
+
