@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useStore } from "@/appStore";
+import { useToast } from "./ui/use-toast";
 
 function SingleProductCard({ product }) {
   const { productsAddedToCart, updateCart } = useStore();
+  const { toast } = useToast();
 
   function addToCart() {
     const newCart = [...productsAddedToCart, product];
     updateCart(newCart);
+    toast({
+      title: "Produit ajouté au panier avec succes",
+      description: product.name,
+    });
   }
   const [numberOfProduct, setNumberOfProduct] = useState(1);
 
