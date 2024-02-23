@@ -100,7 +100,7 @@
 
 .products-image {
   grid-area: products-image;
-  background-image: url("src/assets/images/phone-banner.svg");
+  background-image: url("/src/assets/images/phone-banner.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -149,7 +149,7 @@
 
 
 .shop-header {
-  background: url("src/assets/images/cart-nawtech.jpg");
+  background: url("/src/assets/images/cart-nawtech.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

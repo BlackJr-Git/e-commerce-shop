@@ -18,7 +18,7 @@ function WhysUs() {
         <div className="relative">
           <img
             className="rounded-xl"
-            src="src/assets/images/hand-trust-nawtech.jpg"
+            src="/src/assets/images/hand-trust-nawtech.jpg"
             alt=""
           />
         </div>
