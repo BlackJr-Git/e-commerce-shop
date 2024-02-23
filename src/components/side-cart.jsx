@@ -8,7 +8,6 @@ import { useToast } from "./ui/use-toast";
 
 function SideCart({ className, handleClick }) {
   const { productsAddedToCart } = useStore();
-  // console.log(productsAddedToCart);
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     setTotalPrice(cartPriceSum(productsAddedToCart));

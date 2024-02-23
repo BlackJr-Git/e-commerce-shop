@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { cartPriceSum } from "@/utils";
 import { AnimatedPages } from "@/components";
+import { useToast } from "@/components/ui/use-toast";
 
 function Cart() {
   const { productsAddedToCart } = useStore();
@@ -68,11 +69,25 @@ function CartTable() {
 }
 
 function CartProduct({ product }) {
+  const { productsAddedToCart,updateCart } = useStore();
+  const { toast } = useToast() 
+
+  function deleteProductFromCart() {
+    let newCart = productsAddedToCart.filter(
+      (element) => element.ID !== product.ID
+    );
+    updateCart(newCart);
+    toast({
+      variant : "destructive",
+      title: "Produits supprimer du panier",
+      description: product.name ,
+    })
+  }
   return (
     <tr className="border border-slate-200 text-left ">
       <td className="p-2 flex items-center gap-4 text-2xl text-slate-400">
         {" "}
-        <ion-icon name="close-circle-outline"></ion-icon>
+        <button onClick={deleteProductFromCart}><ion-icon name="close-circle-outline"></ion-icon></button>
         <img className="w-24" src={product.images} alt="" />{" "}
       </td>
       <td className="p-2"> {product.name} </td>
