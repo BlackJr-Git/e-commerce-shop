@@ -136,13 +136,17 @@
 @media (max-width: 640px) {
   .hero-banner {
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-areas:
-      "hero-title hero-title hero-title hero-title hero-title hero-title products-image products-image products-image products-image products-image products-image"
-      "hero-title hero-title hero-title hero-title hero-title hero-title products-image products-image products-image products-image products-image products-image"
+      "hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title"
       "service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image";
   }
+
+  .products-image{
+    display: none;
+  }
 }
+
 
 .shop-header {
   background: url("src/assets/images/cart-nawtech.jpg");
