@@ -31,8 +31,8 @@ function Layout() {
       <Menu handleClick={toggleCart} />
         <Outlet />
         {displayCart 
-        ? <SideCart handleClick={removeCart} className={"ease-in duration-500 z-50  h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"} /> 
-        : <SideCart handleClick={removeCart} className={"ease-in duration-500 z-50 translate-x-full  h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"}/> 
+        ? <SideCart handleClick={removeCart} className={"ease-in duration-500 z-[100]  h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"} /> 
+        : <SideCart handleClick={removeCart} className={"ease-in duration-500 z-[100] translate-x-full  h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"}/> 
         }
         <Toaster />
       <Footer />

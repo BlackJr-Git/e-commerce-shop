@@ -27,20 +27,20 @@ function SingleProductCard({ product }) {
   const [totalPrice, setTotalPrice] = useState(product.price);
 
   return (
-    <div className="flex justify-center gap-6 py-12 max-w-7xl m-auto">
-      <div className=" w-4/12">
+    <div className="md:flex-row flex-col flex justify-center gap-6 py-12 max-w-7xl m-auto">
+      <div className=" w-10/12  md:w-4/12 m-auto">
         <img className="rounded-2xl" src={product.images} alt={product.name} />
       </div>
-      <div className="w-4/12">
+      <div className="w-10/12 md:w-4/12 m-auto">
         <div className="flex items-start flex-col justify-start gap-7 pb-12 border-b border-solid border-slate-700">
-          <h3 className="text-3xl"> {product.name} </h3>
-          <p className="flex items-center justify-start gap-6">
+          <h3 className="text-3xl m-auto md:m-0"> {product.name} </h3>
+          <p className="flex items-center justify-start gap-6 m-auto md:m-0">
             {" "}
             <span className="text-3xl font-bold">$ {totalPrice}</span> +
             Livraison gratuite{" "}
           </p>
         </div>
-        <div className="flex items-center justify-start gap-6 py-6 mb-6 border-b border-solid border-slate-700">
+        <div className="flex md:flex-row flex-col items-center justify-start gap-6 py-6 mb-6 border-b border-solid border-slate-700">
           <div className="flex justify-start items-center border border-solid border-slate-700 w-fit">
             <button
               className="bg-slate-200 border-r border-solid border-slate-700 px-3"

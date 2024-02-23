@@ -26,14 +26,15 @@ function SingleProductInfo({ product }) {
 
   return (
     <div className="max-w-7xl m-auto my-12">
-      <nav className="flex items-center justify-start gap-6 my-6 border-t border-t-slate-200">
+      <nav className="flex flex-col md:flex-row justify-start gap-6 my-6 border-t border-t-slate-200">
         <motion.li
           className={
             isActive.isDescriptionActive
-              ? "font-bold text-xl cursor-pointer border-t-4 border-t-slate-500"
-              : "font-bold text-xl cursor-pointer"
+              ? "font-bold text-xl text-center cursor-pointer border-t-4 border-t-slate-500"
+              : "font-bold text-xl text-center cursor-pointer"
           }
           onClick={displayDescription} 
+          
         >
           Desciption
         </motion.li>
@@ -41,17 +42,17 @@ function SingleProductInfo({ product }) {
         <motion.li
           className={
             isActive.isCompInfoActive
-              ? "font-bold text-xl cursor-pointer border-t-4 border-t-slate-500"
-              : "font-bold text-xl cursor-pointer"
+              ? "font-bold text-xl text-center cursor-pointer border-t-4 border-t-slate-500"
+              : "font-bold text-xl text-center cursor-pointer"
           }
           onClick={displayComplementaryInfo} 
         >
           Informations Complementaires
         </motion.li>
 
-        <li className="font-bold text-xl cursor-pointer">Avis(0) </li>
+        <li className="font-bold text-xl text-center cursor-pointer">Avis(0) </li>
       </nav>
-      <div>{infoDisplayed}</div>
+      <div className="">{infoDisplayed}</div>
     </div>
   );
 }
@@ -65,7 +66,7 @@ export default SingleProductInfo;
 function Description({ product }) {
   return (
     <AnimatedPages>
-      <div>
+      <div className="px-6">
         <p>{product.description}</p>
       </div>
     </AnimatedPages>
@@ -75,7 +76,7 @@ function Description({ product }) {
 function Informations({ product }) {
   return (
     <AnimatedPages>
-      <div className="w-full">
+      <div className="w-full px-12">
         <table className="w-full">
           <tbody className="border border-slate-200 ">
             <tr className="border border-slate-200 text-left ">
