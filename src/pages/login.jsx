@@ -1,12 +1,11 @@
-
-import React from 'react'
+import { AnimatedPages } from "@/components";
 
 function Login() {
   return (
-    <div>
-      
-    </div>
-  )
+    <AnimatedPages>
+      <div></div>
+    </AnimatedPages>
+  );
 }
 
-export default Login ;
+export default Login;

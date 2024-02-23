@@ -29,7 +29,7 @@ function Pcard({ productData }) {
   return (
     <Card className="w-72">
       <CardContent>
-        <Link to={`/produits/${productData.name}`}>
+        <Link to={`/produits/${productData.UGS}`}>
           <img
             className="rounded-2xl"
             src={productData.images}

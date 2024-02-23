@@ -26,7 +26,7 @@ const productsData = [
     Étiquettes: "Samsung S23 ULTRA",
     isPublished: true,
     isHighlited: true,
-    UGS: "",
+    UGS: "Samsung-S23-Ultra",
   },
 
   {
@@ -37,7 +37,7 @@ const productsData = [
       "L'iPhone 14 Pro Max est l'un des iPhone de la 16e génération du smartphone d'Apple. Il introduit un nouvel écran OLED de 6,7 pouces avec un poinçon dynamique pour le capteur FaceID et la caméra frontale ainsi qu'une fréquence de rafraîchissement dynamique de 120 Hz à true Hz pour le Always on Display. Il possède également un nouveau SoC Apple A16 gravé en 4 nm et un nouveau triple capteur photo de 48+12+12 mégapixels avec téléobjectif X3 et ultra grand-angle",
     images: iphone14ProMax,
     categories: ["Smartphone", "Iphone"],
-    UGS: "",
+    UGS: "IPhone-14-Pro-Max",
     isPublished: true,
     isHighlited: true,
     weight: 240,
@@ -52,7 +52,7 @@ const productsData = [
     price: 889.0,
     images: samsungS22plus,
     categories: ["Smartphone", "Samsung"],
-    UGS: "",
+    UGS: "Samsung-S22+",
     isPublished: true,
     isHighlited: true,
     description:
@@ -69,7 +69,7 @@ const productsData = [
     price: 279.0,
     images: iphoneXr,
     categories: ["Smartphone", "Iphone"],
-    UGS: "",
+    UGS: "IPhone-XR",
     isPublished: true,
     isHighlited: true,
     description:
@@ -86,7 +86,7 @@ const productsData = [
     price: 709.0,
     images: iphone13,
     categories: ["Smartphone", "Iphone"],
-    UGS: "",
+    UGS: "IPhone-13",
     isPublished: true,
     isHighlited: true,
     description:
@@ -99,7 +99,7 @@ const productsData = [
   },
   {
     ID: 4928,
-    UGS: "",
+    UGS: "IPhone-11-Pro-Max",
     name: "IPhone 11 Pro Max",
     isPublished: true,
     isHighlited: 0,
@@ -120,7 +120,7 @@ const productsData = [
     price: 1059.0,
     images: samsungS23,
     categories: ["Smartphone", "Samsung"],
-    UGS: "",
+    UGS: "Samsung-S23",
     isPublished: true,
     isHighlited: true,
     description:
@@ -137,7 +137,7 @@ const productsData = [
     price: 429.0,
     images: iphone11,
     categories: ["Smartphone", "Iphone"],
-    UGS: "",
+    UGS: "IPhone-11",
     isPublished: true,
     isHighlited: true,
     description:
@@ -154,7 +154,7 @@ const productsData = [
     price: 339.0,
     images: iphoneXs,
     categories: ["Smartphone", "Iphone"],
-    UGS: "",
+    UGS: "IPhone-Xs",
     isPublished: true,
     isHighlited: 0,
     description:
@@ -167,7 +167,7 @@ const productsData = [
   },
   {
     ID: 4705,
-    UGS: "",
+    UGS: "IPhone-12",
     name: "IPhone 12",
     isPublished: true,
     isHighlited: true,
@@ -184,7 +184,7 @@ const productsData = [
   },
   {
     ID: 4732,
-    UGS: "",
+    UGS: "IPhone-11-Pro",
     name: "IPhone 11 Pro",
     isPublished: true,
     isHighlited: 0,
@@ -201,7 +201,7 @@ const productsData = [
   },
   {
     ID: 4950,
-    UGS: "",
+    UGS: "IPhone-12-Pro-Max",
     name: "IPhone 12 Pro Max",
     isPublished: true,
     isHighlited: 0,

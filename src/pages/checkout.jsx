@@ -5,6 +5,7 @@ import { useState } from "react";
 import { CheckoutForm, CheckoutDetails } from "@/components";
 import { useStore } from "@/appStore";
 import { Button } from "@/components/ui/button";
+import { AnimatedPages } from "@/components";
 
 function Checkout() {
   const { currentUser, productsAddedToCart } = useStore();
@@ -32,41 +33,49 @@ function Checkout() {
     console.log("data :", data);
   };
   return (
-    <main className="bg-slate-100">
-      <div className="max-w-6xl m-auto">
-        <h1 className="text-4xl text-center font-bold py-12">
-          Confirmation de la commande
-        </h1>
-        <div className="flex items-center gap-3 p-6 border-t-4 border-slate-600">
-          {currentUser.name ? (
-            <></>
-          ) : (
-            <>
-              <ion-icon name="person"></ion-icon>
-              <p>Déjà client ?</p>{" "}
-              <Link className="font-medium" to={"./"}>
-                Cliquez ici pour vous connecter
-              </Link>
-            </>
-          )}
-        </div>
-
-        {productsAddedToCart[0] ? <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex items-between justify-center"
-        >
-          <div className="w-3/5 p-6">
-            <h2 className="text-xl font-bold py-6">Details de facturation</h2>
+    <AnimatedPages>
+      <main className="bg-slate-100">
+        <div className="max-w-6xl m-auto">
+          <h1 className="text-4xl text-center font-bold py-12">
+            Confirmation de la commande
+          </h1>
+          <div className="flex items-center gap-3 p-6 border-t-4 border-slate-600">
             {currentUser.name ? (
-              <CheckoutUserInfo />
+              <></>
             ) : (
-              <CheckoutForm registerFunction={register}></CheckoutForm>
+              <>
+                <ion-icon name="person"></ion-icon>
+                <p>Déjà client ?</p>{" "}
+                <Link className="font-medium" to={"./"}>
+                  Cliquez ici pour vous connecter
+                </Link>
+              </>
             )}
           </div>
-          <CheckoutDetails registerFunction={register}></CheckoutDetails>
-        </form> : <EmptyCartMessage></EmptyCartMessage> }
-      </div>
-    </main>
+
+          {productsAddedToCart[0] ? (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex items-between justify-center"
+            >
+              <div className="w-3/5 p-6">
+                <h2 className="text-xl font-bold py-6">
+                  Details de facturation
+                </h2>
+                {currentUser.name ? (
+                  <CheckoutUserInfo />
+                ) : (
+                  <CheckoutForm registerFunction={register}></CheckoutForm>
+                )}
+              </div>
+              <CheckoutDetails registerFunction={register}></CheckoutDetails>
+            </form>
+          ) : (
+            <EmptyCartMessage></EmptyCartMessage>
+          )}
+        </div>
+      </main>
+    </AnimatedPages>
   );
 }
 

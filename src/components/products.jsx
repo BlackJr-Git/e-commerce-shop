@@ -1,9 +1,5 @@
-// import { title } from "process";
+/* eslint-disable react/prop-types */
 import { ProductCard } from ".";
-// import { productsData } from "@/data";
-// import { fetchData } from '../utils/fetch-data'
-
-// const data = await fetchData()
 
 // let productsData = data.filter((product) => product.price != "" ) ;
 

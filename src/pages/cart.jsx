@@ -4,10 +4,12 @@ import { useStore } from "@/appStore";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { cartPriceSum } from "@/utils";
+import { AnimatedPages } from "@/components";
 
 function Cart() {
   const { productsAddedToCart } = useStore();
   return (
+    <AnimatedPages>
     <main className="bg-slate-100">
       <div className="max-w-7xl m-auto ">
         <h1 className="text-4xl text-center font-bold py-12">Panier</h1>
@@ -20,6 +22,7 @@ function Cart() {
         </div>
       </div>
     </main>
+    </AnimatedPages>
   );
 }
 

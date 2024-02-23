@@ -1,9 +1,10 @@
-import React from "react";
+import { AnimatedPages } from "@/components";
 
 function Errors404() {
   return (
+    <AnimatedPages>
     <div className="m-auto max-w-7xl">
-      <h1 className=""> Erreur 404 - Page Non Trouvée </h1>
+      <h1 className="text-2xl "> Erreur 404 - Page Non Trouvée </h1>
       <p>
         Nous sommes désolés, mais la page que vous recherchez semble
         introuvable. Il se peut qu'elle ait été déplacée, renommée ou supprimée.
@@ -22,6 +23,7 @@ function Errors404() {
         causer.
       </p>
     </div>
+    </AnimatedPages>
   );
 }
 
