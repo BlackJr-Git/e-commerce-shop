@@ -17,14 +17,17 @@ function HeroBanner() {
               assurés par des experts de premier plan dans le domaine.
             </p>
           </div>
-          <div className="flex flex-col  gap-3">
-            <Button className="font-bold text-xl h-12">
-              Acheter Maintenant
-            </Button>
-            <Button variant="outline">
+          <div className="flex flex-col gap-3">
+            <Link to={"/boutique"}>
               {" "}
-              <Link to={"/boutique"}>Voir Plus</Link>{" "}
-            </Button>
+              <Button className="font-bold text-xl h-12">
+                Acheter Maintenant
+              </Button>{" "}
+            </Link>{" "}
+            <Link to={"/boutique"}>
+              {" "}
+              <Button className="w-full" variant="outline"> Voir Plus </Button>{" "}
+            </Link>{" "}
           </div>
         </div>
         <div className="service-image rounded-2xl bg-white">
@@ -35,13 +38,13 @@ function HeroBanner() {
           />
         </div>
         <div className="call-to-action flex flex-col  gap-3">
-          <a
+          <Link
+            to={"/boutique"}
             className=" w-full h-full bg-teal-500 rounded-2xl flex items-center justify-center font-bold text-4xl text-center"
-            href="#"
           >
             SHOP NOW
             {/* <ion-icon name="bag-handle-outline"></ion-icon> */}
-          </a>
+          </Link>
         </div>
       </div>
     </div>
