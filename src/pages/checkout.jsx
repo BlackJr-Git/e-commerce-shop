@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { CheckoutForm, CheckoutDetails } from "@/components";
 import { useStore } from "@/appStore";
+import { Button } from "@/components/ui/button";
 
 function Checkout() {
-  const { currentUser } = useStore();
+  const { currentUser, productsAddedToCart } = useStore();
   // eslint-disable-next-line no-unused-vars
   const [formData, setFormData] = useState({
     name: "",
@@ -50,7 +51,7 @@ function Checkout() {
           )}
         </div>
 
-        <form
+        {productsAddedToCart[0] ? <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex items-between justify-center"
         >
@@ -62,9 +63,8 @@ function Checkout() {
               <CheckoutForm registerFunction={register}></CheckoutForm>
             )}
           </div>
-
           <CheckoutDetails registerFunction={register}></CheckoutDetails>
-        </form>
+        </form> : <EmptyCartMessage></EmptyCartMessage> }
       </div>
     </main>
   );
@@ -110,6 +110,18 @@ function CheckoutUserInfo() {
           </tr>
         </tbody>
       </table>
+    </div>
+  );
+}
+
+function EmptyCartMessage() {
+  return (
+    <div className="flex items-center justify-center gap-6 pb-24">
+      <p className="text-2xl">Votre panier est vide</p>
+      <Button className="max-w-96">
+        {" "}
+        <Link to={"/boutique"}>Continuer vos achats</Link>{" "}
+      </Button>
     </div>
   );
 }

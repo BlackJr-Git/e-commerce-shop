@@ -21,7 +21,7 @@ export const useStore = create((set) => ({
   updateUser(newUser){
     set({currentUser : newUser})
   },
-  productsAddedToCart: [] ,
+  productsAddedToCart: [] , 
   updateCart(newCart){
     set({productsAddedToCart : newCart})
   },

@@ -141,7 +141,7 @@ function TotalCart() {
 
 function EmptyCartMessage() {
   return (
-    <div className="flex items-center justify-center gap-6 mb-24">
+    <div className="flex items-center justify-center gap-6 pb-24">
       <p className="text-2xl">Votre panier est vide</p>
       <Button className="max-w-96">
         {" "}
