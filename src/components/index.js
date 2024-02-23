@@ -23,3 +23,4 @@ export { default as CheckoutForm } from "./checkout-form";
 export { default as CheckoutDetails } from "./checkout-details";
 export { default as UserAvatar } from "./user-avatar";
 export { default as AnimatedPages } from "./AnimatedPages";
+export { default as ScrollToTop } from "./ScrollToTop";

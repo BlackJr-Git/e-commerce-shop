@@ -41,11 +41,11 @@ function SideCart({ className, handleClick }) {
 
           <div className="flex flex-col items-center justify-center gap-3 border-t border-slate-200 py-3">
             <Button variant="outline" className="w-11/12 font-medium">
-              <Link to={"/cart"}>Voir le panier</Link>
+              <Link onClick={handleClick} to={"/cart"}>Voir le panier</Link>
             </Button>
             <Button className="w-11/12 font-bold">
               {" "}
-              <Link to={"/cart"}>COMMANDER</Link>{" "}
+              <Link onClick={handleClick} to={"/checkout"}>COMMANDER</Link>{" "}
             </Button>
           </div>
         </>

@@ -2,12 +2,12 @@
 //
 
 import { useState } from "react";
+import { AnimatedPages } from ".";
 
-
-
-function SingleProductInfo({product}) {
-  
-  const [infoDisplayed, setInfoDisplayed] = useState(<Description product={product} />);
+function SingleProductInfo({ product }) {
+  const [infoDisplayed, setInfoDisplayed] = useState(
+    <Description product={product} />
+  );
   const [isActive, setIsActive] = useState({
     isDescriptionActive: true,
     isCompInfoActive: false,
@@ -56,44 +56,49 @@ function SingleProductInfo({product}) {
 }
 
 SingleProductInfo.propTypes = {
-  product : Object , 
-}
+  product: Object,
+};
 
 export default SingleProductInfo;
 
-function Description({product}) {
+function Description({ product }) {
   return (
-    <div>
-      <p>
-        {product.description}
-      </p>
-    </div>
+    <AnimatedPages>
+      <div>
+        <p>{product.description}</p>
+      </div>
+    </AnimatedPages>
   );
 }
 
-function Informations({product}) {
+function Informations({ product }) {
   return (
-    <div className="w-full">
-      <table className="w-full">
-        <tbody className="border border-slate-200 ">
-          <tr className="border border-slate-200 text-left ">
-            <th className="border border-slate-200 p-2">Poids</th>
-            <td className="p-2"> {product.weight} g</td>
-          </tr>
-          <tr className="border border-slate-200 text-left">
-            <th className="border border-slate-200 p-2">Dimension</th>
-            <td className="p-2"> {product.height} x {product.width} x 123 mm</td>
-          </tr>
-          <tr className="border border-slate-200 text-left">
-            <th className="border border-slate-200 p-2">Memoire</th>
-            <td className="p-2">64Gb , 128Gb </td>
-          </tr>
-          <tr className="border border-slate-200 text-left">
-            <th className="border border-slate-200 p-2">Couleurs</th>
-            <td className="p-2">Rouge , Bleu , Blanc , Noire </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <AnimatedPages>
+      <div className="w-full">
+        <table className="w-full">
+          <tbody className="border border-slate-200 ">
+            <tr className="border border-slate-200 text-left ">
+              <th className="border border-slate-200 p-2">Poids</th>
+              <td className="p-2"> {product.weight} g</td>
+            </tr>
+            <tr className="border border-slate-200 text-left">
+              <th className="border border-slate-200 p-2">Dimension</th>
+              <td className="p-2">
+                {" "}
+                {product.height} x {product.width} x 123 mm
+              </td>
+            </tr>
+            <tr className="border border-slate-200 text-left">
+              <th className="border border-slate-200 p-2">Memoire</th>
+              <td className="p-2">64Gb , 128Gb </td>
+            </tr>
+            <tr className="border border-slate-200 text-left">
+              <th className="border border-slate-200 p-2">Couleurs</th>
+              <td className="p-2">Rouge , Bleu , Blanc , Noire </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </AnimatedPages>
   );
 }

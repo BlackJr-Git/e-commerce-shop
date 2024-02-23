@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "@/appStore";
 import user from "@/data/users";
 import { Toaster } from "./ui/toaster";
+import { ScrollToTop } from "./index";
 
 function Layout() {
   const [ displayCart, setDisplayCart ] = useState(false) ;
@@ -26,6 +27,7 @@ function Layout() {
 
   return (
     <>
+      <ScrollToTop />
       <Menu handleClick={toggleCart} />
         <Outlet />
         {displayCart 
