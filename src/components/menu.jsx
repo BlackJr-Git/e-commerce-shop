@@ -27,8 +27,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Menu({handleClick}) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export default function Menu({handleClick,mobileMenuOpen, setMobileMenuOpen}) {
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <header className="bg-white px-4">
@@ -116,6 +116,7 @@ export default function Menu({handleClick}) {
           </div>
         </div>
       </nav>
+
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">

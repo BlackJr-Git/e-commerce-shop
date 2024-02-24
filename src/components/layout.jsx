@@ -11,6 +11,7 @@ import { ScrollToTop } from "./index";
 function Layout() {
   const [ displayCart, setDisplayCart ] = useState(false) ;
   const { currentUser , updateUser } = useStore();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     updateUser(user)
@@ -19,6 +20,7 @@ function Layout() {
   
   function toggleCart() {
     setDisplayCart(!displayCart)
+    setMobileMenuOpen(false)
   }
 
   function removeCart() {
@@ -28,7 +30,7 @@ function Layout() {
   return (
     <>
       <ScrollToTop />
-      <Menu handleClick={toggleCart} />
+      <Menu handleClick={toggleCart} mobileMenuOpen={mobileMenuOpen}  setMobileMenuOpen={setMobileMenuOpen}/>
         <Outlet />
         {displayCart 
         ? <SideCart handleClick={removeCart} className={"ease-in duration-500 z-[100]  md:h-screen h-dvh w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"} /> 

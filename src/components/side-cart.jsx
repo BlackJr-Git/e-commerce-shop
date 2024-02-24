@@ -35,17 +35,19 @@ function SideCart({ className, handleClick }) {
 
           <div className="h-14 border-t border-slate-200 px-3 flex items-center justify-between">
             <p className="font-semibold">Sous-total : </p>{" "}
-            <p>$ {totalPrice} </p>
+            <p className="font-semibold">$ {totalPrice} </p>
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 border-t border-slate-200 py-3">
-            <Button variant="outline" className="w-11/12 font-medium">
+            {/* <Button onClick={handleClick} variant="outline" className="w-11/12 font-medium">
               <Link className="w-full" onClick={handleClick} to={"/cart"}> Voir le panier </Link>
-            </Button>
-            <Button className="w-11/12 font-bold">
+            </Button> */}
+            {/* <Button onClick={handleClick} className="w-11/12 font-bold">
               {" "}
               <Link className="w-full" onClick={handleClick} to={"/checkout"}>COMMANDER</Link>{" "}
-            </Button>
+            </Button> */}
+            <button className="w-11/12 font-medium border border-slate-100 rounded-xl p-1 shadow-md"> <Link className="w-full" onClick={handleClick} to={"/cart"}> Voir le panier </Link></button>
+            <button className="w-11/12 font-bold bg-primary p-2 rounded-xl shadow-lg" onClick={handleClick}><Link className="w-full" onClick={handleClick} to={"/checkout"}>COMMANDER</Link></button>
           </div>
         </>
       ) : (
