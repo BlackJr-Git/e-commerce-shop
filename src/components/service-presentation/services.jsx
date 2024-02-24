@@ -3,6 +3,7 @@ import { ServiceCard } from "../";
 function Services() {
   return (
     <section className="bg-slate-50 py-24">
+      <h2 className="text-4xl font-bold pb-24 text-center">Ce que nous vous offrons</h2>
       <div className="max-w-7xl m-auto  flex justify-center gap-8 px-4 flex-wrap">
         <ServiceCard
           icon={"cart-outline"}
@@ -32,44 +33,4 @@ function Services() {
 
 export default Services;
 
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
-export function CarouselSize() {
-  return (
-    <Carousel
-      opts={{
-        align: "start",
-      }}
-      className="w-full max-w-6xl m-auto"
-    >
-      <CarouselContent>
-        {Array.from({ length: 6 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <ServiceCard
-                    icon={"cart-outline"}
-                    serviceTitle={"Boutique"}
-                    description={
-                      "Vos achat de smartphone, ordinateurs et des différents outils informatique."
-                    }
-                  />
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  );
-}

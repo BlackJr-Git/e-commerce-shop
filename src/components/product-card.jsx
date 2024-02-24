@@ -40,7 +40,7 @@ function Pcard({ productData }) {
         </Link>
       </CardContent>
       <CardHeader>
-        <CardTitle className="font-bold text-xl ">
+        <CardTitle className="font-bold text-lg md:text-xl">
           {" "}
           {productData.name}{" "}
         </CardTitle>

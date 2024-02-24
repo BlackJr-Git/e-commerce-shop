@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HeroBanner, Products, Services, SideCart, WhyUs,Warranty } from "../components";
+import { HeroBanner, Products, Services, SideCart, WhyUs,Warranty, ClientCarrousel } from "../components";
 import { productsData } from "@/data";
 import { AnimatedPages } from "../components";
 

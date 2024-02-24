@@ -26,3 +26,4 @@ export { default as AnimatedPages } from "./AnimatedPages";
 export { default as ScrollToTop } from "./ScrollToTop";
 export { default as Warranty } from "./warranty";
 export { default as WarrantyCard } from "./warranty-card";
+export { default as ClientCarrousel } from './clients-carrousel'
