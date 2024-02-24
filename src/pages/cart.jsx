@@ -15,9 +15,9 @@ function Cart() {
       <div className="max-w-7xl m-auto ">
         <h1 className="text-4xl text-center font-bold py-12">Panier</h1>
         {productsAddedToCart[0] ? <CartTable /> : <EmptyCartMessage />}
-        <div className="w-full flex items-center justify-center max-w-6xl m-auto">
-          <div className="w-2/4"></div>
-          <div className="w-2/4">
+        <div className="w-full flex md:flex-row flex-col items-center justify-center max-w-6xl m-auto">
+          <div className="md:w-2/4"></div>
+          <div className="md:w-2/4 w-4/5">
             {productsAddedToCart[0] ? <TotalCart /> : <></>}
           </div>
         </div>

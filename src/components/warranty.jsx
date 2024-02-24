@@ -12,12 +12,12 @@ function Warranty() {
       <div className="m-auto max-w-7xl md:flex-row flex flex-col items-center justify-center gap-14 ">
         <div className="md:flex-row flex-col flex gap-3"> 
           <div className="flex flex-col gap-3">
-            <WarrantyCard title={"Produits Garanties"} description={"Tout nos produits sont certifiés et garantie 1 ans"} icone={<ClipboardDocumentCheckIcon className="text-teal-500"/>} />
-            <WarrantyCard title={'Meilleure qualité'} description={'Nous offrons la meilleurs qualité de produits'} icone={<CheckBadgeIcon className="text-teal-500"/>} />
+            <WarrantyCard title={"Produits Garanties"} description={"Tout nos produits sont certifiés et garantie 1 ans"} icone={<ClipboardDocumentCheckIcon className="text-primary"/>} />
+            <WarrantyCard title={'Meilleure qualité'} description={'Nous offrons la meilleurs qualité de produits'} icone={<CheckBadgeIcon className="text-primary"/>} />
           </div>
           <div className="flex flex-col gap-3">
-            <WarrantyCard title={"Livraison Gratuite"} description={"La livraison est gratuite et rapide"} icone={<TruckIcon className="text-teal-500"/>} />
-            <WarrantyCard title={'Paiement sécurisé'} description={"Payez a la livraison pour toute vos commande"} icone={<CreditCardIcon className="text-teal-500"/>}/>
+            <WarrantyCard title={"Livraison Gratuite"} description={"La livraison est gratuite et rapide"} icone={<TruckIcon className="text-primary"/>} />
+            <WarrantyCard title={'Paiement sécurisé'} description={"Payez a la livraison pour toute vos commande"} icone={<CreditCardIcon className="text-primary"/>}/>
           </div>
         </div>
         <div className="py-6 ">

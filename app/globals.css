@@ -136,7 +136,7 @@
 @media (max-width: 640px) {
   .hero-banner {
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
     grid-template-areas:
       "hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title hero-title"
       "service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image";

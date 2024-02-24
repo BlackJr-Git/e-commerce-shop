@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast"
+import { ToastAction } from "./ui/toast";
 
 
 
@@ -23,11 +24,12 @@ function Pcard({ productData }) {
     toast({
       title: "Produit ajouté au panier avec succes",
       description: productData.name ,
+      action: <ToastAction altText="See Cart"><Link to={"./cart"}>Voir le Panier</Link></ToastAction>
     })
   }
 
   return (
-    <Card className="w-72">
+    <Card className="md:w-72 w-48">
       <CardContent>
         <Link to={`/produits/${productData.UGS}`}>
           <img

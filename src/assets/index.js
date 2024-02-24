@@ -16,3 +16,5 @@ export { default as iphone12ProMax } from "./images/products/iPhone/IPhone-12-Pr
 
 export { default as caretUp } from "./images/caret-up-outline.svg";
 export { default as BradleyAvatar } from "./profile-photo.png";
+export { default as HandTrust } from "./images/hand-trust-nawtech.jpg";
+export { default as NawtechService } from './images/nawtechservices-herojpg.jpg'

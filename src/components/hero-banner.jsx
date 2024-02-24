@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import { NawtechService } from "@/assets";
 // import { InputWithButton } from ".";
 
 function HeroBanner() {
@@ -33,14 +34,14 @@ function HeroBanner() {
         <div className="service-image rounded-2xl bg-white">
           <img
             className="rounded-2xl max-w-full"
-            src="src\assets\images\nawtechservices-herojpg.jpg"
+            src={NawtechService}
             alt=""
           />
         </div>
         <div className="call-to-action flex flex-col  gap-3">
           <Link
             to={"/boutique"}
-            className=" w-full h-full bg-teal-500 rounded-2xl flex items-center justify-center font-bold text-4xl text-center"
+            className=" w-full h-full bg-primary rounded-2xl flex items-center justify-center font-bold text-4xl text-center"
           >
             SHOP NOW
             {/* <ion-icon name="bag-handle-outline"></ion-icon> */}

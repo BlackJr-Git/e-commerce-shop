@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { useStore } from "@/appStore";
 import { useToast } from "./ui/use-toast";
+import { ToastAction } from "./ui/toast";
+import { Link } from "react-router-dom";
 
 function SingleProductCard({ product }) {
   const { productsAddedToCart, updateCart } = useStore();
@@ -13,6 +15,7 @@ function SingleProductCard({ product }) {
     toast({
       title: "Produit ajouté au panier avec succes",
       description: product.name,
+      action: <ToastAction altText="See Cart"><Link to={"./cart"}>Voir le Panier</Link></ToastAction>
     });
   }
   const [numberOfProduct, setNumberOfProduct] = useState(1);
