@@ -19,15 +19,13 @@ function Services() {
             "Nous offrons les meilleurs services informatiques avec des experts en la matière."
           }
         />
-        {/* <ServiceCard
+        <ServiceCard
           icon={"hardware-chip-outline"}
           serviceTitle={"Produits"}
           description={
             "Nous développons des produits sur les nouvelles technologie pour vous faciliter la vie."
           }
-        /> */}
-
-        <CardService />
+        />
       </div>
     </section>
   );

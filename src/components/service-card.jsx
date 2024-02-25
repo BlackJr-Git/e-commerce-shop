@@ -20,11 +20,11 @@ function ServiceCard({icon, serviceTitle, description}) {
         </p>
       </CardContent>
       <CardHeader>
-        <CardTitle className="font-bold text-3xl text-center">{serviceTitle}</CardTitle>
+        <CardTitle className="font-bold text-3xl text-center">Produits</CardTitle>
         <CardDescription className="text-lg font-semibold text-center"> Nous développons des produits sur les nouvelles technologie pour vous faciliter la vie. </CardDescription>
       </CardHeader>
-      <CardFooter className="flex items-center justify-center">
-      <Button variant="outline" className='font-bold'> {`En Savoir Plus {ArrowRightIcon}`} </Button>
+      <CardFooter className="flex items-center justify-center w-full">
+        <Button variant="outline" className='w-full font-bold'> En Savoir Plus <ion-icon name="arrow-forward-outline"></ion-icon></Button>
       </CardFooter>
     </Card>
   )
