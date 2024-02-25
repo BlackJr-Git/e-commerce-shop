@@ -1,10 +1,10 @@
-import { ServiceCard } from "../";
+import { CardService, ServiceCard } from "../";
 
 function Services() {
   return (
     <section className="bg-slate-50 py-24">
       <h2 className="text-4xl font-bold pb-24 text-center">Ce que nous vous offrons</h2>
-      <div className="max-w-7xl m-auto  flex justify-center gap-8 px-4 flex-wrap">
+      <div className="max-w-7xl m-auto  flex justify-center gap-6 n          px-4 flex-wrap">
         <ServiceCard
           icon={"cart-outline"}
           serviceTitle={"Boutique"}
@@ -19,13 +19,15 @@ function Services() {
             "Nous offrons les meilleurs services informatiques avec des experts en la matière."
           }
         />
-        <ServiceCard
+        {/* <ServiceCard
           icon={"hardware-chip-outline"}
           serviceTitle={"Produits"}
           description={
             "Nous développons des produits sur les nouvelles technologie pour vous faciliter la vie."
           }
-        />
+        /> */}
+
+        <CardService />
       </div>
     </section>
   );

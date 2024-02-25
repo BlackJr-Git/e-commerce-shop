@@ -40,8 +40,8 @@ function AvatarPopover() {
   return (
     <Popover>
       <PopoverTrigger>
-        <div className="w-10">
-          <img src={currentUser.avatar} alt={currentUser.name} />
+        <div className="w-10 rounded-full">
+          <img className="rounded-full" src={currentUser.avatar} alt={currentUser.name} />
         </div>
       </PopoverTrigger>
       <PopoverContent>

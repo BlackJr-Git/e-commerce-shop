@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Card,
   CardContent,
@@ -11,7 +12,7 @@ import { Button } from "../ui/button";
 
 function ServiceCard({serviceTitle,description,icon}) {
   return (
-    <Card className="w-72">
+    <Card className="w-1/4">
       <CardContent className="mt-6">
         <p className="text-6xl font-extrabold text-center ">
           <ion-icon name={icon}></ion-icon>
