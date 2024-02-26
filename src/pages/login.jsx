@@ -17,7 +17,7 @@ function Login() {
     texteArray.forEach((element) => {
       let newIndex = alphabet.indexOf(element)  + cle ; 
       if (newIndex > 25) {
-        newIndex = newIndex - 26
+        newIndex = newIndex % 26
       }
       newTab.push(alphabet[newIndex])
     })
@@ -30,7 +30,7 @@ function Login() {
 
   return (
     <AnimatedPages>
-      <div>
+      <div className="max-w-7xl m-auto">
         <h1>Criptage</h1>
         <form  onSubmit={handleSubmit(onSubmit)}>
           <input
