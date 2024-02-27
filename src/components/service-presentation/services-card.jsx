@@ -12,7 +12,7 @@ import { Button } from "../ui/button";
 
 function ServiceCard({serviceTitle,description,icon}) {
   return (
-    <Card className="w-1/4 flex flex-col justify-between">
+    <Card className="md:w-80 w-72 flex flex-col justify-between">
       <CardContent className="mt-6">
         <p className="text-6xl font-extrabold text-center ">
           <ion-icon name={icon}></ion-icon>

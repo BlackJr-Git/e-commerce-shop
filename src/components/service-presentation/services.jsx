@@ -1,10 +1,10 @@
-import { CardService, ServiceCard } from "../";
+import { ServiceCard } from "../";
 
 function Services() {
   return (
     <section className="bg-slate-50 py-24">
       <h2 className="text-4xl font-bold pb-24 text-center">Ce que nous vous offrons</h2>
-      <div className="max-w-7xl m-auto  flex justify-center gap-6 px-4 flex-wrap">
+      <div className="max-w-7xl m-auto  flex flex-wrap justify-center items-center gap-6 px-4">
         <ServiceCard
           icon={"cart-outline"}
           serviceTitle={"Boutique"}
