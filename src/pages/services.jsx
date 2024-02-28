@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { MobileDev, Repaire, WebpageDev } from "@/assets";
 import { AnimatedPages, PageBanner, ServicesCard } from "@/components";
 import { Button } from "@/components/ui/button";

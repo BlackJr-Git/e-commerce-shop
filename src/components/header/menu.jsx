@@ -20,19 +20,19 @@ const products = [
   {
     name: "Developpement Web",
     description: "Get a better understanding of your traffic",
-    link: "/services#dev-web",
+    link: "/product#dev-web",
     icon: CodeBracketIcon,
   },
   {
     name: "Developpement Mobile",
     description: "Your customers’ data will be safe and secure",
-    link: "/services#dev-mobile",
+    link: "/product#dev-mobile",
     icon: DevicePhoneMobileIcon,
   },
   {
     name: "Maintenance",
     description: "Speak directly to your customers",
-    link: "/services#repaire",
+    link: "/product#repaire",
     icon: CogIcon,
   },
   // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
@@ -189,7 +189,7 @@ export default function Menu({
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
+                        Services
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -203,7 +203,8 @@ export default function Menu({
                           <Disclosure.Button
                             key={item.name}
                             as="a"
-                            href={item.href}
+                            // href={item.href}
+                            to = {item.link}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           >
                             {item.name}
