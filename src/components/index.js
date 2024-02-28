@@ -28,4 +28,6 @@ export { default as Warranty } from "./warranty";
 export { default as WarrantyCard } from "./warranty-card";
 export { default as ClientCarrousel } from "./clients-carrousel";
 export { default as PageBanner } from "./page-banner";
-export { default as ServicesCard } from './Services-page/services-card'
+export { default as ServicesCard } from "./Services-page/services-card";
+export { default as ContactForm } from "./contact/contact-form";
+export { default as ContactInfo } from "./contact/contact-info"

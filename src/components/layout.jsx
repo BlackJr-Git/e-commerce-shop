@@ -7,6 +7,7 @@ import { useStore } from "@/appStore";
 import user from "@/data/users";
 import { Toaster } from "./ui/toaster";
 import { ScrollToTop } from "./index";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function Layout() {
   const [displayCart, setDisplayCart] = useState(false);
@@ -30,6 +31,7 @@ function Layout() {
   return (
     <>
       <ScrollToTop />
+      <SpeedInsights />
       <Menu
         handleClick={toggleCart}
         mobileMenuOpen={mobileMenuOpen}

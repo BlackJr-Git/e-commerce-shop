@@ -10,7 +10,7 @@ function Services() {
         <ServicesCard />
         <ServiceSection
           id={"dev-web"}
-          ServiceTitle={"Devellopement Web"}
+          ServiceTitle={"Developpement Web"}
           image={WebpageDev}
           description={
             "Une entreprise a besoin d’un site web car il s’agit de son image en ligne. C’est un moyen de communiquer avec ses clients potentiels et existants, de se présenter, de promouvoir ses produits ou services, de fournir des informations utiles et de se démarquer de la concurrence. Un site web peut aider une entreprise à atteindre un public plus large, à générer des leads et à améliorer sa visibilité en ligne. C’est un investissement qui peut rapporter des résultats à long terme."
@@ -20,7 +20,7 @@ function Services() {
           id={"dev-mobile"}
           flexType={"md:flex-row-reverse"}
           image={MobileDev}
-          ServiceTitle={"Devellopement Mobile"}
+          ServiceTitle={"Developpement Mobile"}
           description={
             "Notre équipe spécialisée en développement mobile crée des applications sur mesure, à la fois esthétiques et fonctionnelles, pour iOS et Android. Nous transformons vos idées en solutions mobiles performantes, optimisées pour une expérience utilisateur exceptionnelle. Grâce à une approche agile et à l’utilisation des dernières technologies, nous garantissons des applications rapides, réactives et sécurisées, adaptées aux besoins spécifiques de votre entreprise."
           }

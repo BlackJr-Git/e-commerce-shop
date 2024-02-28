@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react";
+/* eslint-disable react/prop-types */
+import { Fragment } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import { Logo, HeaderIcons } from "..";
 import {
@@ -17,13 +18,13 @@ import { NavLink, Link } from "react-router-dom";
 
 const products = [
   {
-    name: "Devellopement Web",
+    name: "Developpement Web",
     description: "Get a better understanding of your traffic",
     link: "/services#dev-web",
     icon: CodeBracketIcon,
   },
   {
-    name: "Devellopement Mobile",
+    name: "Developpement Mobile",
     description: "Your customers’ data will be safe and secure",
     link: "/services#dev-mobile",
     icon: DevicePhoneMobileIcon,
