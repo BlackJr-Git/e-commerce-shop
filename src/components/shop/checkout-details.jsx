@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useStore } from "@/appStore";
 import { cartPriceSum } from "@/utils";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function CheckoutDetails({ registerFunction }) {
   const { productsAddedToCart } = useStore();
-  const [totalPrice, setTotalPrice ] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
-    setTotalPrice(cartPriceSum(productsAddedToCart))
-  }, [productsAddedToCart]); 
+    setTotalPrice(cartPriceSum(productsAddedToCart));
+  }, [productsAddedToCart]);
 
   return (
-    <div className=" w-2/5">
+    <div className="md:w-2/5 m-auto w-3/5">
       <div className="max-w-6xl m-auto p-7 mb-6 border-2 border-slate-300">
         <table className="w-full">
           <thead className="w-full font-bold border-b border-slate-200">
@@ -32,7 +32,7 @@ function CheckoutDetails({ registerFunction }) {
             ))}
           </tbody>
           <tfoot className="w-full">
-          <tr className="border-b border-slate-200 ">
+            <tr className="border-b border-slate-200 ">
               <td className="w-40 py-6 font-medium">Sous-Total</td>
               <td className=" py-6 text-right">$ {totalPrice} </td>
             </tr>
@@ -80,10 +80,10 @@ function CheckoutDetails({ registerFunction }) {
 
 function ProductCard({ product }) {
   return (
-      <tr className="">
-        <td className="py-3"> {product.name} </td>
-        <td className="py-3 text-right">$ {product.price} </td>
-      </tr>
+    <tr className="">
+      <td className="py-3"> {product.name} </td>
+      <td className="py-3 text-right">$ {product.price} </td>
+    </tr>
   );
 }
 

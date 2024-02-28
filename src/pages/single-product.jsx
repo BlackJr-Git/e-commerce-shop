@@ -1,4 +1,4 @@
-import SingleProductCard from "@/components/single-product-card";
+import SingleProductCard from "@/components/shop/single-product-card";
 import { productsData } from "@/data";
 import { Products, SingleProductInfo } from "@/components";
 import { useParams } from "react-router-dom";
@@ -18,7 +18,7 @@ function SingleProduct() {
         </div>
 
         <div>
-          <SingleProductInfo product={product} /> 
+          <SingleProductInfo product={product} />
         </div>
 
         <Products

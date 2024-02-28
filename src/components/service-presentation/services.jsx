@@ -21,9 +21,9 @@ function Services() {
         />
         <ServiceCard
           icon={"hardware-chip-outline"}
-          serviceTitle={"Produits"}
+          serviceTitle={"Outils"}
           description={
-            "Nous développons des produits sur les nouvelles technologie pour vous faciliter la vie."
+            "Nous développons des outils sur les nouvelles technologie pour vous faciliter la vie."
           }
         />
       </div>

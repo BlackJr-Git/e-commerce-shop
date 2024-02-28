@@ -2,7 +2,7 @@
 //
 
 import { useState } from "react";
-import { AnimatedPages } from ".";
+import { AnimatedPages } from "..";
 import { motion } from "framer-motion";
 
 function SingleProductInfo({ product }) {
@@ -33,8 +33,7 @@ function SingleProductInfo({ product }) {
               ? "font-bold text-xl text-center cursor-pointer border-t-4 border-t-slate-500"
               : "font-bold text-xl text-center cursor-pointer"
           }
-          onClick={displayDescription} 
-          
+          onClick={displayDescription}
         >
           Desciption
         </motion.li>
@@ -45,12 +44,14 @@ function SingleProductInfo({ product }) {
               ? "font-bold text-xl text-center cursor-pointer border-t-4 border-t-slate-500"
               : "font-bold text-xl text-center cursor-pointer"
           }
-          onClick={displayComplementaryInfo} 
+          onClick={displayComplementaryInfo}
         >
           Informations Complementaires
         </motion.li>
 
-        <li className="font-bold text-xl text-center cursor-pointer">Avis(0) </li>
+        <li className="font-bold text-xl text-center cursor-pointer">
+          Avis(0){" "}
+        </li>
       </nav>
       <div className="">{infoDisplayed}</div>
     </div>
@@ -105,14 +106,12 @@ function Informations({ product }) {
   );
 }
 
-
 function ProductReviews() {
   return (
     <AnimatedPages>
       <form>
         <textarea name="" id="" cols="30" rows="10"></textarea>
-        
       </form>
     </AnimatedPages>
-  )
+  );
 }

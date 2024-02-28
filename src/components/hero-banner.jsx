@@ -6,8 +6,8 @@ import { NawtechService } from "@/assets";
 function HeroBanner() {
   return (
     <div className="bg-slate-100">
-      <div className="hero-banner max-w-7xl m-auto rounded-2xl p-6 py-24 ">
-        <div className="products-image rounded-2xl bg-white max-w-full max-h-full md:"></div>
+      <div className="hero-banner max-w-7xl m-auto rounded-2xl p-6 py-12 ">
+        <div className="products-image rounded-2xl bg-white max-w-full max-h-full"></div>
         <div className="hero-title flex flex-col  justify-between gap-3 bg-slate-900 p-7 rounded-2xl">
           <div className="flex flex-col gap-7">
             <h1 className="text-5xl font-bold text-slate-50">

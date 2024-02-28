@@ -4,4 +4,5 @@ export { default as Errors404 } from "./404-Errors";
 export { default as SingleProduct } from "./single-product";
 export { default as Cart } from "./cart";
 export { default as Checkout } from "./checkout";
-export { default as Login } from "./login"
+export { default as Login } from "./login";
+export { default as Services } from "./services";

@@ -23,8 +23,8 @@ function WhysUs() {
             alt=""
           />
         </div>
-        <div className="p-6 flex flex-col items-left  gap-14">
-          <div className="flex flex-col gap-3 items-center md:block">
+        <div className="p-6 flex flex-col items-left gap-7">
+          <div className="flex flex-col gap-3 items-center md:items-start ">
             <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center drop-shadow-lg">
               <UserGroupIcon className="w-10 text-primary" />
             </div>
@@ -35,7 +35,7 @@ function WhysUs() {
             </p>
           </div>
           
-          <div className="flex flex-col items-center md:block">
+          <div className="flex flex-col gap-3 items-center md:items-start">
             <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center drop-shadow-lg">
               <HandThumbUpIcon className="w-10 text-primary" />
             </div>
@@ -46,7 +46,7 @@ function WhysUs() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center md:block">
+          <div className="flex flex-col gap-3 items-center md:items-start">
             <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center drop-shadow-lg">
               <BoltIcon className="w-10 text-primary" />
             </div>

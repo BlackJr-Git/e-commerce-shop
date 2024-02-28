@@ -1,6 +1,6 @@
 import { Footer } from "./index";
 import { Outlet } from "react-router-dom/dist";
-import Menu from "./menu";
+import Menu from "./header/menu";
 import { SideCart } from "./index";
 import { useEffect, useState } from "react";
 import { useStore } from "@/appStore";
@@ -9,37 +9,52 @@ import { Toaster } from "./ui/toaster";
 import { ScrollToTop } from "./index";
 
 function Layout() {
-  const [ displayCart, setDisplayCart ] = useState(false) ;
-  const { currentUser , updateUser } = useStore();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [displayCart, setDisplayCart] = useState(false);
+  const { currentUser, updateUser } = useStore();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    updateUser(user)
-    // console.log(currentUser); 
-  },[updateUser, currentUser]); 
-  
+    updateUser(user);
+    // console.log(currentUser);
+  }, [updateUser, currentUser]);
+
   function toggleCart() {
-    setDisplayCart(!displayCart)
-    setMobileMenuOpen(false)
+    setDisplayCart(!displayCart);
+    setMobileMenuOpen(false);
   }
 
   function removeCart() {
-    setDisplayCart(false)
+    setDisplayCart(false);
   }
 
   return (
     <>
       <ScrollToTop />
-      <Menu handleClick={toggleCart} mobileMenuOpen={mobileMenuOpen}  setMobileMenuOpen={setMobileMenuOpen}/>
-        <Outlet />
-        {displayCart 
-        ? <SideCart handleClick={removeCart} className={"ease-in duration-500 z-[100]  md:h-screen h-dvh w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"} /> 
-        : <SideCart handleClick={removeCart} className={"ease-in duration-500 z-[100] translate-x-full h-dvh  md:h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"}/> 
-        }
-        <Toaster />
+      <Menu
+        handleClick={toggleCart}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+      />
+      <Outlet />
+      {displayCart ? (
+        <SideCart
+          handleClick={removeCart}
+          className={
+            "ease-in duration-500 z-[100]  md:h-screen h-dvh w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"
+          }
+        />
+      ) : (
+        <SideCart
+          handleClick={removeCart}
+          className={
+            "ease-in duration-500 z-[100] translate-x-full h-dvh  md:h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"
+          }
+        />
+      )}
+      <Toaster />
       <Footer />
     </>
   );
 }
 
-export default Layout ;
+export default Layout;
