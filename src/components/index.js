@@ -6,8 +6,8 @@ export { default as HeroBanner } from "./hero-banner";
 export { default as InputWithButton } from "./Input-with-button";
 export { default as ProductCard } from "./shop/product-card";
 export { default as Products } from "./shop/products";
-export { default as ServiceCard } from "./service-presentation/services-card";
-export { default as Services } from "./service-presentation/services";
+export { default as ServiceCard } from "./service-section/services-card";
+export { default as Services } from "./service-section/services";
 export { default as WhyUs } from "./why-us/why-us";
 export { default as Footer } from "./footer/footer";
 export { default as Newsletter } from "./newsletter";
@@ -27,4 +27,5 @@ export { default as ScrollToTop } from "./ScrollToTop";
 export { default as Warranty } from "./warranty";
 export { default as WarrantyCard } from "./warranty-card";
 export { default as ClientCarrousel } from "./clients-carrousel";
-export { default as PageBanner } from "./page-banner"
+export { default as PageBanner } from "./page-banner";
+export { default as ServicesCard } from './Services-page/services-card'

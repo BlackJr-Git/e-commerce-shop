@@ -1,9 +1,10 @@
-import { PageBanner } from "@/components";
+import { PageBanner, ServicesCard } from "@/components";
 
 function Services() {
   return (
-    <main>
+    <main className="bg-slate-100">
       <PageBanner />
+      <ServicesCard />
     </main>
   )
 }
