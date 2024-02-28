@@ -5,34 +5,34 @@ import {
   Bars3Icon,
   CodeBracketIcon,
   CogIcon,
-  WrenchScrewdriverIcon,
   XMarkIcon,
+  DevicePhoneMobileIcon
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const products = [
   {
-    name: "Devellopement Web/Mobile",
+    name: "Devellopement Web",
     description: "Get a better understanding of your traffic",
-    href: "#",
+    link: "/services#dev-web",
     icon: CodeBracketIcon,
+  },
+  {
+    name: "Devellopement Mobile",
+    description: "Your customers’ data will be safe and secure",
+    link: "/services#dev-mobile",
+    icon: DevicePhoneMobileIcon,
   },
   {
     name: "Maintenance",
     description: "Speak directly to your customers",
-    href: "#",
+    link: "/services#repaire",
     icon: CogIcon,
-  },
-  {
-    name: "Reparation",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: WrenchScrewdriverIcon,
   },
   // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
@@ -107,13 +107,14 @@ export default function Menu({
                         />
                       </div>
                       <div className="flex-auto">
-                        <a
+                        <Link
+                          to={item.link}
                           href={item.href}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
