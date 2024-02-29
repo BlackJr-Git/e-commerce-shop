@@ -20,21 +20,21 @@ const products = [
   {
     name: "Developpement Web",
     description: "Get a better understanding of your traffic",
-    link: "/service",
+    link: "/services",
     icon: CodeBracketIcon,
     href: "#"
   },
   {
     name: "Developpement Mobile",
     description: "Your customers’ data will be safe and secure",
-    link: "/service",
+    link: "/services",
     icon: DevicePhoneMobileIcon,
     href: "#"
   },
   {
     name: "Maintenance",
     description: "Speak directly to your customers",
-    link: "/service",
+    link: "/services",
     icon: CogIcon,
     href: "#"
   },
