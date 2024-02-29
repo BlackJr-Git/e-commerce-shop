@@ -12,7 +12,7 @@ function CheckoutDetails({ registerFunction }) {
   }, [productsAddedToCart]);
 
   return (
-    <div className="md:w-2/5 m-auto w-3/5">
+    <div className="md:w-2/5 m-auto w-4/5">
       <div className="max-w-6xl m-auto p-7 mb-6 border-2 border-slate-300">
         <table className="w-full">
           <thead className="w-full font-bold border-b border-slate-200">
