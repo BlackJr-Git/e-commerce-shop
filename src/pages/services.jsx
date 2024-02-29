@@ -44,6 +44,7 @@ function Services() {
           }
         />
         <div className="flex md:flex-row flex-col bg-slate-50 py-24">
+          
           <ContactInfo />
           <ContactForm />
         </div>
@@ -61,7 +62,7 @@ function ServiceSection({ flexType, ServiceTitle, description, image, id,bgColor
         className={` ${flexType} max-w-7xl m-auto flex md:flex-row flex-col-reverse items-center justify-center flex-wrap `}
       >
         <div className="md:w-1/2  p-6 ">
-          <h2 className="text-4xl font-bold py-6"> {ServiceTitle} </h2>
+          <h2 className="text-4xl font-bold py-6 text-center md:text-left"> {ServiceTitle} </h2>
           <p className="py-6">{description}</p>
           <Button className="font-semibold text-xl h-11">Faire un devis</Button>
         </div>

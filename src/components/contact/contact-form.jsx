@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-
+import { Button } from "../ui/button";
 
 
 function ContactForm() {
@@ -13,7 +13,7 @@ function ContactForm() {
     console.log("data :", data);
   };
   return (
-    <div className="w-1/2 px-12">
+    <div className="md:w-1/2 px-12">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-between gap-3">
           <div className="flex flex-col w-1/2 py-3">
@@ -78,6 +78,9 @@ function ContactForm() {
             cols="30"
             rows="5"
           ></textarea>
+        </div>
+        <div>
+            <Button>Envoyer</Button>
         </div>
       </form>
     </div>

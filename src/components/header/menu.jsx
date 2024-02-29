@@ -207,6 +207,7 @@ export default function Menu({
                           key={item.name}
                           to={item.link}
                           className="block rounded-lg hover:bg-gray-50"
+                          onClick={() => setMobileMenuOpen(false)}
                         >
                           <Disclosure.Button
                             key={item.name}
@@ -226,6 +227,7 @@ export default function Menu({
                 <Link
                   to={'/boutique'}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Boutique
                 </Link>

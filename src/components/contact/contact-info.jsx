@@ -10,7 +10,7 @@ import {
 
 function ContactInfo() {
   return (
-    <div className="w-1/2 px-12">
+    <div className="md:w-1/2 px-12">
       <div className="py-4">
         <h2 className="text-4xl font-bold py-3">Nous Contacter</h2>
         <p>
