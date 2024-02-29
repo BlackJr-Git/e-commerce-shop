@@ -7,7 +7,7 @@ import {
   CodeBracketIcon,
   CogIcon,
   XMarkIcon,
-  DevicePhoneMobileIcon
+  DevicePhoneMobileIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -22,21 +22,21 @@ const products = [
     description: "Get a better understanding of your traffic",
     link: "/services",
     icon: CodeBracketIcon,
-    href: "#"
+    href: "#",
   },
   {
     name: "Developpement Mobile",
     description: "Your customers’ data will be safe and secure",
     link: "/services",
     icon: DevicePhoneMobileIcon,
-    href: "#"
+    href: "#",
   },
   {
     name: "Maintenance",
     description: "Speak directly to your customers",
     link: "/services",
     icon: CogIcon,
-    href: "#"
+    href: "#",
   },
   // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
@@ -149,9 +149,12 @@ export default function Menu({
           >
             Boutique
           </NavLink>
-          <a href="#" className=" font-semibold leading-6 text-gray-900">
+          <NavLink
+            to={"/a-propos"}
+            className=" font-semibold leading-6 text-gray-900"
+          >
             A Propos
-          </a>
+          </NavLink>
           <a href="#" className=" font-semibold leading-6 text-gray-900">
             Contact
           </a>
@@ -204,20 +207,20 @@ export default function Menu({
                       <Disclosure.Panel className="mt-2 space-y-2">
                         {[...products, ...callsToAction].map((item) => (
                           <Link
-                          key={item.name}
-                          to={item.link}
-                          className="block rounded-lg hover:bg-gray-50"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          <Disclosure.Button
                             key={item.name}
-                            as="Link"
-                            // href={item.href}
-                            to = {item.link}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                            to={item.link}
+                            className="block rounded-lg hover:bg-gray-50"
+                            onClick={() => setMobileMenuOpen(false)}
                           >
-                            {item.name}
-                          </Disclosure.Button>
+                            <Disclosure.Button
+                              key={item.name}
+                              as="Link"
+                              // href={item.href}
+                              to={item.link}
+                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                            >
+                              {item.name}
+                            </Disclosure.Button>
                           </Link>
                         ))}
                       </Disclosure.Panel>
@@ -225,18 +228,18 @@ export default function Menu({
                   )}
                 </Disclosure>
                 <Link
-                  to={'/boutique'}
+                  to={"/boutique"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Boutique
                 </Link>
-                <a
-                  href="#"
+                <NavLink
+                  to={"/a-propos"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   A Propos
-                </a>
+                </NavLink>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"

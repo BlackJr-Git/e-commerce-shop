@@ -5,7 +5,17 @@ import "./index.css";
 import "../app/globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "./components/index.js";
-import { Home, Shop,Errors404 , SingleProduct,Cart,Checkout, Login, Services } from "./pages/index.js";
+import {
+  Home,
+  Shop,
+  Errors404,
+  SingleProduct,
+  Cart,
+  Checkout,
+  Login,
+  Services,
+  APropos,
+} from "./pages/index.js";
 
 const router = createBrowserRouter([
   {
@@ -13,16 +23,20 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path : "/",
-        element : <Home /> ,
+        path: "/",
+        element: <Home />,
       },
       {
-        path : "/boutique" , 
-        element : <Shop />  ,
+        path: "/boutique",
+        element: <Shop />,
       },
       {
-        path : "/services", 
-        element : <Services />  ,
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/a-propos",
+        element: <APropos />,
       },
       {
         path: "/produits/:UGS",
@@ -53,4 +67,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-
