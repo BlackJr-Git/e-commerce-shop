@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { MobileDev, Repaire, WebpageDev } from "@/assets";
-import { AnimatedPages, PageBanner, ServicesCard } from "@/components";
+import { AnimatedPages, PageBanner, ServicesCard,ContactForm,ContactInfo } from "@/components";
 import { Button } from "@/components/ui/button";
 
 function Services() {
@@ -34,6 +34,8 @@ function Services() {
             "Une entreprise a besoin d’une maintenance régulière de ses matériels informatiques et de ses sites web pour garantir leur bon fonctionnement et éviter les temps d’arrêt coûteux. Les appareils et les sites web peuvent subir des pannes, des bugs, des failles de sécurité ou des mises à jour nécessaires qui peuvent impacter l’efficacité et la productivité de l’entreprise. Une maintenance régulière permet de résoudre ces problèmes rapidement et de manière proactive, de prévenir les futures pannes et de s’assurer que les matériels et les sites web sont toujours opérationnels."
           }
         />
+
+
       </main>
     </AnimatedPages>
   );
