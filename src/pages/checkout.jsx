@@ -56,9 +56,9 @@ function Checkout() {
           {productsAddedToCart[0] ? (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex items-between justify-center md:flex-row flex-col m-auto"
+              className="flex items-start justify-start m-auto"
             >
-              <div className="w-3/5 p-6 m-auto">
+              <div className="w-3/5 p-6 ">
                 <h2 className="text-xl font-bold py-6">
                   Details de facturation
                 </h2>
