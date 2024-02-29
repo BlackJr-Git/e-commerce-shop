@@ -20,20 +20,23 @@ const products = [
   {
     name: "Developpement Web",
     description: "Get a better understanding of your traffic",
-    link: "/product#dev-web",
+    link: "/service",
     icon: CodeBracketIcon,
+    href: "#"
   },
   {
     name: "Developpement Mobile",
     description: "Your customers’ data will be safe and secure",
-    link: "/product#dev-mobile",
+    link: "/service",
     icon: DevicePhoneMobileIcon,
+    href: "#"
   },
   {
     name: "Maintenance",
     description: "Speak directly to your customers",
-    link: "/product#repaire",
+    link: "/service",
     icon: CogIcon,
+    href: "#"
   },
   // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
@@ -202,7 +205,7 @@ export default function Menu({
                         {[...products, ...callsToAction].map((item) => (
                           <Disclosure.Button
                             key={item.name}
-                            as="a"
+                            as="Link"
                             // href={item.href}
                             to = {item.link}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
@@ -214,12 +217,12 @@ export default function Menu({
                     </>
                   )}
                 </Disclosure>
-                <a
-                  href="#"
+                <Link
+                  to={'/boutique'}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Boutique
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
