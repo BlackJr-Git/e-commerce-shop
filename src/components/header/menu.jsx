@@ -203,6 +203,11 @@ export default function Menu({
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
                         {[...products, ...callsToAction].map((item) => (
+                          <Link
+                          key={item.name}
+                          to={item.link}
+                          className="block rounded-lg hover:bg-gray-50"
+                        >
                           <Disclosure.Button
                             key={item.name}
                             as="Link"
@@ -212,6 +217,7 @@ export default function Menu({
                           >
                             {item.name}
                           </Disclosure.Button>
+                          </Link>
                         ))}
                       </Disclosure.Panel>
                     </>
