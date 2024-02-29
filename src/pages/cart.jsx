@@ -11,18 +11,18 @@ function Cart() {
   const { productsAddedToCart } = useStore();
   return (
     <AnimatedPages>
-    <main className="bg-slate-100">
-      <div className="max-w-7xl m-auto ">
-        <h1 className="text-4xl text-center font-bold py-12">Panier</h1>
-        {productsAddedToCart[0] ? <CartTable /> : <EmptyCartMessage />}
-        <div className="w-full flex md:flex-row flex-col items-center justify-center max-w-6xl m-auto">
-          <div className="md:w-2/4"></div>
-          <div className="md:w-2/4 w-4/5">
-            {productsAddedToCart[0] ? <TotalCart /> : <></>}
+      <main className="bg-slate-100">
+        <div className="max-w-7xl m-auto ">
+          <h1 className="text-4xl text-center font-bold py-12">Panier</h1>
+          {productsAddedToCart[0] ? <CartTable /> : <EmptyCartMessage />}
+          <div className="w-full flex md:flex-row flex-col items-center justify-center max-w-6xl m-auto">
+            <div className="md:w-2/4"></div>
+            <div className="md:w-2/4 w-4/5">
+              {productsAddedToCart[0] ? <TotalCart /> : <></>}
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
     </AnimatedPages>
   );
 }
@@ -35,7 +35,7 @@ function CartTable() {
     <div className="py-12">
       <table className="max-w-6xl w-full m-auto ">
         <thead className="border border-slate-200 bg-slate-50">
-          <tr className="border border-slate-200 text-left ">
+          <tr className="border border-slate-200 text-left flex flex-col md:block items-center">
             <th className="p-2"></th>
             <th className="p-2">Produit</th>
             <th className="p-2">Prix</th>
@@ -49,17 +49,20 @@ function CartTable() {
           ))}
         </tbody>
         <tfoot>
-          <tr className="border border-slate-200 text-left ">
-            <td colSpan={"2"} className="p-2 flex items-center gap-3">
+          <tr className="border border-slate-200 text-left flex flex-col md:block items-center">
+            <td
+              colSpan={"2"}
+              className="p-2 flex items-center gap-3  flex-col md:block "
+            >
               <input
-                className="border border-slate-200 p-2 rounded-lg"
+                className="border border-slate-200 p-2 rounded-lg w-full"
                 placeholder="code promo"
                 type="text"
               />
-              <Button className="font-semibold">APPLIQUER UN CODE PROMO</Button>
+              <Button className="font-semibold w-full">APPLIQUER UN CODE PROMO</Button>
             </td>
-            <td colSpan={"2"} className="p-2 text-right">
-              <Button className="font-semibold">METTRE A JOUR LE PANIER</Button>{" "}
+            <td colSpan={"2"} className="p-2 text-right w-full">
+              <Button className="font-semibold w-full">METTRE A JOUR LE PANIER</Button>{" "}
             </td>
           </tr>
         </tfoot>
@@ -69,8 +72,8 @@ function CartTable() {
 }
 
 function CartProduct({ product }) {
-  const { productsAddedToCart,updateCart } = useStore();
-  const { toast } = useToast() 
+  const { productsAddedToCart, updateCart } = useStore();
+  const { toast } = useToast();
 
   function deleteProductFromCart() {
     let newCart = productsAddedToCart.filter(
@@ -78,16 +81,18 @@ function CartProduct({ product }) {
     );
     updateCart(newCart);
     toast({
-      variant : "destructive",
+      variant: "destructive",
       title: "Produits supprimer du panier",
-      description: product.name ,
-    })
+      description: product.name,
+    });
   }
   return (
-    <tr className="border border-slate-200 text-left ">
+    <tr className="border border-slate-200 text-left flex flex-col md:block items-center ">
       <td className="p-2 flex items-center gap-4 text-2xl text-slate-400">
         {" "}
-        <button onClick={deleteProductFromCart}><ion-icon name="close-circle-outline"></ion-icon></button>
+        <button onClick={deleteProductFromCart}>
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </button>
         <img className="w-24" src={product.images} alt="" />{" "}
       </td>
       <td className="p-2"> {product.name} </td>
