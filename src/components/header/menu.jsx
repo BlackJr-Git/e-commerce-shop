@@ -64,9 +64,9 @@ export default function Menu({
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <NavLink to={"/"} className="-m-1.5 p-1.5">
+          <Link to={"/"} className="-m-1.5 p-1.5">
             <Logo></Logo>
-          </NavLink>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -155,7 +155,10 @@ export default function Menu({
           >
             A Propos
           </NavLink>
-          <NavLink to={'/contact'} className=" font-semibold leading-6 text-gray-900">
+          <NavLink
+            to={"/contact"}
+            className=" font-semibold leading-6 text-gray-900"
+          >
             Contact
           </NavLink>
         </Popover.Group>
@@ -227,25 +230,27 @@ export default function Menu({
                     </>
                   )}
                 </Disclosure>
-                <Link
+                <NavLink
                   to={"/boutique"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Boutique
-                </Link>
+                </NavLink>
                 <NavLink
+                  onClick={() => setMobileMenuOpen(false)}
                   to={"/about"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   A Propos
                 </NavLink>
-                <Link
+                <NavLink
+                  onClick={() => setMobileMenuOpen(false)}
                   to={"/contact"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Contact
-                </Link>
+                </NavLink>
               </div>
               <div className="py-6">
                 <a

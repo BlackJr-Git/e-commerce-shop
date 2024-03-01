@@ -1,14 +1,16 @@
 import { NawtechTeam } from "@/assets";
-import { PageBanner, OurTeam, FollowUs } from "@/components";
+import { PageBanner, OurTeam, FollowUs, AnimatedPages } from "@/components";
 
 function APropos() {
   return (
-    <main>
-      <PageBanner title={"A Propos"} />
-      <AboutSection />
-      <OurTeam />
-      <FollowUs />
-    </main>
+    <AnimatedPages>
+      <main>
+        <PageBanner title={"A Propos"} />
+        <AboutSection />
+        <OurTeam />
+        <FollowUs />
+      </main>
+    </AnimatedPages>
   );
 }
 

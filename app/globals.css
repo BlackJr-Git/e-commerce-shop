@@ -168,3 +168,8 @@
   background-position: center;
   background-size: cover;
 }
+
+.active{
+  color: #00CCCB;
+  border-bottom: 2px solid #00CCCB;
+}

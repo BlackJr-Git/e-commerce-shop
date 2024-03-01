@@ -8,9 +8,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
 // import { title } from "process";
 
-function ServiceCard({serviceTitle,description,icon}) {
+function ServiceCard({serviceTitle,description,icon,link}) {
   return (
     <Card className="md:w-80 w-72 flex flex-col justify-between">
       <CardContent className="mt-6">
@@ -23,7 +24,7 @@ function ServiceCard({serviceTitle,description,icon}) {
         <CardDescription className="text-lg font-semibold text-center"> {description} </CardDescription>
       </CardHeader>
       <CardFooter className="flex items-center justify-center">
-        <Button className='font-bold'>En Savoir Plus</Button>
+        <Link to={link} className="w-full"><Button className='font-bold'>En Savoir Plus</Button></Link>
       </CardFooter>
     </Card>
   );
