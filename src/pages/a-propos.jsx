@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { NawtechTeam } from "@/assets";
 import { PageBanner, OurTeam, FollowUs, AnimatedPages } from "@/components";
 
