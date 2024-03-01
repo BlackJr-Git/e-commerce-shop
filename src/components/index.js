@@ -30,4 +30,7 @@ export { default as ClientCarrousel } from "./clients-carrousel";
 export { default as PageBanner } from "./page-banner";
 export { default as ServicesCard } from "./Services-page/services-card";
 export { default as ContactForm } from "./contact/contact-form";
-export { default as ContactInfo } from "./contact/contact-info"
+export { default as ContactInfo } from "./contact/contact-info";
+export { default as OurTeam } from "./our-team";
+export { default as TeamMemberCard } from "./team-menber-card";
+export { default as FollowUs } from "./follow-us";

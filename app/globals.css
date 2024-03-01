@@ -161,3 +161,10 @@
   background-position: center;
   background-size: cover;
 }
+
+.follow-us-bg{
+  background: url("/src/assets/images/nawtechservices-herojpg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

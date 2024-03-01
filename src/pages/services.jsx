@@ -13,7 +13,7 @@ function Services() {
   return (
     <AnimatedPages>
       <main className="bg-slate-100">
-        <PageBanner />
+        <PageBanner title={"Nos Services"} description={"Notre équipe s’assure que vous recevez la meilleure qualité de service."} />
         <ServicesCard />
         <ServiceSection
           bgColor={'bg-slate-100'}
