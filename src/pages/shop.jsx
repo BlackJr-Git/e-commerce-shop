@@ -9,7 +9,7 @@ function Shop() {
         <div className="bg-slate-200 w-1/6 h-screen rounded-2xl hidden md:block ">
           <ProductFilter />
         </div>
-        <div className="w-5/6 m-auto">
+        <div className="md:w-5/6 m-auto w-full mx-1">
           <ShopHeader></ShopHeader>
 
           <Products productData={productsData} />

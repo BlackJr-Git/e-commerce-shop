@@ -15,6 +15,7 @@ import {
   Login,
   Services,
   APropos,
+  Contact
 } from "./pages/index.js";
 
 const router = createBrowserRouter([
@@ -35,8 +36,12 @@ const router = createBrowserRouter([
         element: <Services />,
       },
       {
-        path: "/a-propos",
+        path: "/about",
         element: <APropos />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/produits/:UGS",

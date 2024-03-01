@@ -7,3 +7,4 @@ export { default as Checkout } from "./checkout";
 export { default as Login } from "./login";
 export { default as Services } from "./services";
 export { default as APropos } from "./a-propos";
+export { default as Contact } from "./contact";

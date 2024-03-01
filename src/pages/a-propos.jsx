@@ -18,7 +18,7 @@ function AboutSection({ flexType, id, bgColor }) {
   return (
     <section className={`${bgColor} py-24`} id={id}>
       <div
-        className={` ${flexType} max-w-7xl m-auto flex md:flex-row flex-col-reverse items-center justify-center flex-wrap `}
+        className={` ${flexType} max-w-7xl m-auto flex md:flex-row flex-col-reverse items-center justify-center`}
       >
         <div className="md:w-1/2 p-6 ">
           <h2 className="md:text-4xl text-3xl font-bold py-6 text-center md:text-left">

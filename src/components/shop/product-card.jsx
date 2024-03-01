@@ -42,16 +42,16 @@ function Pcard({ productData }) {
         </Link>
       </CardContent>
       <CardHeader className='w-full p-0'>
-        <CardTitle className="font-bold text-sm md:text-xl p-2">
+        <CardTitle className="font-bold text-sm md:text-xl px-2">
           {" "}
           {productData.name}{" "}
         </CardTitle>
-        <CardDescription className="text-lg font-semibold w-full p-2">
+        <CardDescription className="text-xl font-semibold w-full px-2 py-3">
           {" "}
           {`$ ${productData.price}`}{" "}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex items-center justify-center w-full p-0">
+      <CardFooter className="flex items-center justify-center w-full p-1">
         <Button className="font-bold text-xs md:text-base w-full" onClick={addToCart}>
           Ajouter au Panier
         </Button>

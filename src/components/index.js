@@ -34,3 +34,4 @@ export { default as ContactInfo } from "./contact/contact-info";
 export { default as OurTeam } from "./our-team";
 export { default as TeamMemberCard } from "./team-menber-card";
 export { default as FollowUs } from "./follow-us";
+export { default as ContactInfoCard } from "./contact-info-card";

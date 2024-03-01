@@ -150,14 +150,14 @@ export default function Menu({
             Boutique
           </NavLink>
           <NavLink
-            to={"/a-propos"}
+            to={"/about"}
             className=" font-semibold leading-6 text-gray-900"
           >
             A Propos
           </NavLink>
-          <a href="#" className=" font-semibold leading-6 text-gray-900">
+          <NavLink to={'/contact'} className=" font-semibold leading-6 text-gray-900">
             Contact
-          </a>
+          </NavLink>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <div className="text-sm font-semibold leading-6 text-gray-900">
@@ -235,17 +235,17 @@ export default function Menu({
                   Boutique
                 </Link>
                 <NavLink
-                  to={"/a-propos"}
+                  to={"/about"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   A Propos
                 </NavLink>
-                <a
-                  href="#"
+                <Link
+                  to={"/contact"}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Contact
-                </a>
+                </Link>
               </div>
               <div className="py-6">
                 <a
