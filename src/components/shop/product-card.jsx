@@ -31,8 +31,8 @@ function Pcard({ productData }) {
   }
 
   return (
-    <Card className="md:w-72 w-44 flex flex-col justify-between items-center">
-      <CardContent className='w-full'>
+    <Card className="md:w-72 w-44 flex flex-col justify-between items-center md:p-6 p-1">
+      <CardContent className='w-full p-0'>
         <Link to={`/produits/${productData.UGS}`}>
           <img
             className="rounded-2xl"
@@ -41,17 +41,17 @@ function Pcard({ productData }) {
           />
         </Link>
       </CardContent>
-      <CardHeader className='w-full'>
-        <CardTitle className="font-bold text-sm md:text-xl">
+      <CardHeader className='w-full p-0'>
+        <CardTitle className="font-bold text-sm md:text-xl p-2">
           {" "}
           {productData.name}{" "}
         </CardTitle>
-        <CardDescription className="text-lg font-semibold w-full">
+        <CardDescription className="text-lg font-semibold w-full p-2">
           {" "}
           {`$ ${productData.price}`}{" "}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex items-center justify-center w-full">
+      <CardFooter className="flex items-center justify-center w-full p-0">
         <Button className="font-bold text-xs md:text-base w-full" onClick={addToCart}>
           Ajouter au Panier
         </Button>
