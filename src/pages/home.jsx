@@ -10,13 +10,15 @@ function Home() {
     setDisplayCart(false);
   }
 
+  let productsDisplay = productsData.slice(0, 8)
+
   return (
     <AnimatedPages>
       <main className="relative">
         <HeroBanner />
         <Services />
         <div className="bg-slate-100">
-          <Products title={"Nos Produits "} productData={productsData} />
+          <Products title={"Nos Produits "} productData={productsDisplay} />
         </div>
         <WhyUs />
         <Warranty />
