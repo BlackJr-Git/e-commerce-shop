@@ -10,7 +10,7 @@ function Products({ title, productData }) {
         <h2 className="text-4xl font-bold py-24 text-center"> {title} </h2>
       )}
       <div className="flex justify-center items-center mx-1">
-        <div className="flex gap-6 justify-center flex-wrap max-w-7xl">
+        <div className="flex gap-2 md:gap-6 justify-center mx-2 flex-wrap max-w-7xl ">
           {productData.map((product) => (
             <ProductCard productData={product} key={product.ID} />
           ))}

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 function ServiceCard({serviceTitle,description,icon,link}) {
   return (
-    <Card className="md:w-80 w-72 flex flex-col justify-between">
+    <Card className="md:w-80 w-72 flex flex-1 flex-col justify-between">
       <CardContent className="mt-6">
         <p className="text-6xl font-extrabold text-center ">
           <ion-icon name={icon}></ion-icon>
