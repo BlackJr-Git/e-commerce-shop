@@ -11,13 +11,13 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function Layout() {
   const [displayCart, setDisplayCart] = useState(false);
-  const { currentUser, updateUser } = useStore();
+  const { updateUser } = useStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     updateUser(user);
     // console.log(currentUser);
-  }, [updateUser, currentUser]);
+  }, [updateUser]);
 
   function toggleCart() {
     setDisplayCart(!displayCart);

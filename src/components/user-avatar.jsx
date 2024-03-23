@@ -4,6 +4,11 @@ import {
   ArrowRightStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 function UserAvatar() {
   return (
@@ -15,13 +20,8 @@ function UserAvatar() {
 
 export default UserAvatar;
 
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-
 function AvatarPopover() {
+  const { currentUser, updateUser } = useStore();
   function deconnectCurrentUser() {
     let newUser = {
       name: "",
@@ -35,9 +35,13 @@ function AvatarPopover() {
       township: "",
       avatar: "",
     };
+    // console.log(newUser);
     updateUser(newUser);
     console.log(currentUser);
   }
+
+
+
   const links = [
     {
       name: "Paramètres",
@@ -53,7 +57,6 @@ function AvatarPopover() {
       handleClick: deconnectCurrentUser,
     },
   ];
-  const { currentUser, updateUser } = useStore();
 
   return (
     <Popover>

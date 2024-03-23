@@ -1,15 +1,21 @@
-import { ShopHeader, ProductFilter, Products } from "../components";
+import {
+  ShopHeader,
+  ProductFilter,
+  Products,
+  AnimatedPages,
+} from "../components";
 import { productsData } from "@/data";
-import { AnimatedPages } from "../components";
 import { useState } from "react";
 
 function Shop() {
-  const [products , setProducts ] = useState(productsData) 
+  const [products, setProducts] = useState(productsData);
   function searchProduct(data) {
     console.log(data.search);
-    setProducts(productsData.filter((product) =>
-      product.name.toLowerCase().includes(data.search.toLowerCase())
-    ))
+    setProducts(
+      productsData.filter((product) =>
+        product.name.toLowerCase().includes(data.search.toLowerCase())
+      )
+    );
   }
   return (
     <AnimatedPages>
