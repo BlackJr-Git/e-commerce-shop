@@ -8,7 +8,7 @@ import {
 
 function Warranty() {
   return (
-    <section className="bg-slate-100 py-24">
+    <section className="bg-slate-100 py-24 px-6">
       <div className="m-auto max-w-7xl xl:max-w-screen-2xl md:flex-row flex flex-col-reverse items-center justify-center gap-14 ">
         <div className="md:flex-row flex-col flex gap-3">
           <div className="flex flex-col gap-3">

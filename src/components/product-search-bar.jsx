@@ -1,23 +1,22 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { productsData } from "@/data";
+// import { productsData } from "@/data";
 
-function ProductSearchBar() {
+function ProductSearchBar({searchProduct}) {
+  // eslint-disable-next-line no-unused-vars
   const [searchValue, setSearchValue] = useState({
     search: "",
   });
 
   const { register, handleSubmit } = useForm({ defaultValues: searchValue });
 
-  const onSubmit = (data) => {
-    console.log("data :", data.search);
-    console.log(productsData);
-    let arrayToDisplay = productsData.filter((product) => product.name.includes(data.search));
-    console.log(arrayToDisplay);             
-  };
+  // const onSubmit = (data) => {
+  //   searchProduct(data)
+  // };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
+    <form onSubmit={handleSubmit(searchProduct)} className="flex flex-col gap-2">
       <input
         {...register("search", {
           required: "Ce champ est obligatoire",
