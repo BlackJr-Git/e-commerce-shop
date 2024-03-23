@@ -6,7 +6,7 @@ import WorkTime from "./work-time";
 function Footer() {
   return (
     <section className="bg-slate-200 ">
-      <footer className="max-w-7xl py-24 flex flex-wrap justify-between border border-t-slate-300 footer container gap-6">
+      <footer className="max-w-7xl xl:max-w-screen-2xl py-24 flex flex-wrap justify-between border border-t-slate-300 footer container gap-6">
         <Logo />
         {/* <ToTheBuyerLinks /> */}
         <AboutLinks />

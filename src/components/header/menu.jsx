@@ -60,7 +60,7 @@ export default function Menu({
   return (
     <header className="bg-white px-4">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between py-6  "
+        className="mx-auto flex max-w-7xl xl:max-w-screen-2xl items-center justify-between py-6  "
         aria-label="Global"
       >
         <div className="flex lg:flex-1">

@@ -8,7 +8,7 @@ import { HandTrust } from "@/assets";
 function WhysUs() {
   return (
     <section className="bg-slate-50 py-24 ">
-      <div className="max-w-7xl m-auto lg:flex justify-center items-center ">
+      <div className="max-w-7xl xl:max-w-screen-2xl m-auto lg:flex justify-center items-center ">
         <div className="p-6 flex flex-col items-center gap-14">
           <h3 className="text-4xl font-bold text-center md:text-left">Pourquoi nous et pas d'autres?</h3>
           <p className="text-center md:text-left">
