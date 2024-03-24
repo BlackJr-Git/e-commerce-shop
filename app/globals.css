@@ -100,7 +100,7 @@
 
 .products-image {
   grid-area: products-image;
-  background-image: url("/src/assets/images/phone-banner.svg");
+  background-image: url("src/assets/phone-image.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

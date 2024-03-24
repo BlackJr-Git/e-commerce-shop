@@ -1,23 +1,46 @@
-import { Footer } from "./index";
+import { Footer,ScrollToTop,SideCart  } from "./index";
 import { Outlet } from "react-router-dom/dist";
 import Menu from "./header/menu";
-import { SideCart } from "./index";
 import { useEffect, useState } from "react";
 import { useStore } from "@/appStore";
-import user from "@/data/users";
+// import user from "@/data/users";
 import { Toaster } from "./ui/toaster";
-import { ScrollToTop } from "./index";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function Layout() {
-  const [displayCart, setDisplayCart] = useState(false);
   const { updateUser } = useStore();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [displayCart, setDisplayCart] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); 
+  const [user, setUser] = useState({})
+
+
 
   useEffect(() => {
+
+    let initialData = "http://localhost:3000/api/users/1"
+    async function fetchData() {
+      try {
+        const response = await fetch(initialData);
+    
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`) ;
+        }
+    
+        const data = await response.json();
+        setUser(data)
+        return data;
+      } catch (error) {
+        console.error('Erreur lors de la récupération des données:', error) ;
+        throw error; 
+      }
+    }
+
+    fetchData()
     updateUser(user);
-    // console.log(currentUser);
-  }, [updateUser]);
+  }, [updateUser,user]);
+  
+
+
 
   function toggleCart() {
     setDisplayCart(!displayCart);

@@ -38,8 +38,6 @@ function MenuSearchBar() {
   return(
     <div className="absolute rounded-2xl flex items-center justify-center border border-slate-200 -right-3">
       <input type="search" className="rounded-2xl bg-transparent px-2"/>
-      {/* <Icon iconName={"search-outline"} /> */}
     </div>
   )
 }
-

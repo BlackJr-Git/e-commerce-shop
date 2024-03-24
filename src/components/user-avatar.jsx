@@ -37,7 +37,6 @@ function AvatarPopover() {
     };
     // console.log(newUser);
     updateUser(newUser);
-    console.log(currentUser);
   }
 
 

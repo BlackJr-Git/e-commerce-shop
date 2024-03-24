@@ -1,6 +1,6 @@
-import { BradleyAvatar } from "@/assets";
 
 const user = {
+  id : 1,
   name: "Asosa",
   firstName: "Junior",
   phone: 851750853,
