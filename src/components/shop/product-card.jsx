@@ -31,7 +31,7 @@ function Pcard({ productData }) {
   }
 
   return (
-    <Card className="flex flex-1 flex-col justify-between items-center md:p-6 p-1">
+    <Card className="flex flex-1 max-w-72 flex-col justify-between items-center md:p-6 p-1">
       <CardContent className='w-full p-0'>
         <Link to={`/produits/${productData.UGS}`}>
           <img
