@@ -1,4 +1,4 @@
-import { logo } from "../assets";
+import { logo } from "../../assets";
 
 function Logo() {
   return (
@@ -8,4 +8,4 @@ function Logo() {
   );
 }
 
-export default Logo ;
+export default Logo;

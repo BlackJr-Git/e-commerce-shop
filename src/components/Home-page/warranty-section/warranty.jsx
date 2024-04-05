@@ -1,4 +1,4 @@
-import { WarrantyCard } from ".";
+import { WarrantyCard } from "../..";
 import {
   ClipboardDocumentCheckIcon,
   CreditCardIcon,

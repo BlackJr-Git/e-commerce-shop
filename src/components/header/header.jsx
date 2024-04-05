@@ -1,5 +1,5 @@
 import Navbar from "./navbar/navbar";
-import Logo from "../logo";
+import Logo from "../ui/logo";
 import HeaderIcons from "./header-icons";
 
 function Header() {
@@ -14,4 +14,4 @@ function Header() {
   );
 }
 
-export default Header ; 
+export default Header;

@@ -1,4 +1,4 @@
-import { ServiceCard } from "..";
+import { ServiceCard } from "../..";
 
 function Services() {
   return (
@@ -8,7 +8,7 @@ function Services() {
       </h2>
       <div className="max-w-7xl m-auto  flex flex-wrap justify-center items-center gap-6 px-4">
         <ServiceCard
-        link={'/boutique'}
+          link={"/boutique"}
           icon={"cart-outline"}
           serviceTitle={"Boutique"}
           description={
@@ -16,7 +16,7 @@ function Services() {
           }
         />
         <ServiceCard
-        link={'/services'}
+          link={"/services"}
           icon={"code-slash-outline"}
           serviceTitle={"Services"}
           description={
@@ -24,7 +24,7 @@ function Services() {
           }
         />
         <ServiceCard
-          link={'/'}
+          link={"/"}
           icon={"hardware-chip-outline"}
           serviceTitle={"Outils"}
           description={

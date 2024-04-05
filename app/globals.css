@@ -100,7 +100,7 @@
 
 .products-image {
   grid-area: products-image;
-  background-image: url("src/assets/phone-image.png");
+  background-image: url("src/assets/images/product-image.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -142,11 +142,10 @@
       "service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image service-image";
   }
 
-  .products-image{
+  .products-image {
     display: none;
   }
 }
-
 
 .shop-header {
   background: url("/src/assets/images/cart-nawtech.jpg");
@@ -155,21 +154,21 @@
   background-size: cover;
 }
 
-.page-banner{
+.page-banner {
   background: url("/src/assets/images/nawtechservices-herojpg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.follow-us-bg{
+.follow-us-bg {
   background: url("/src/assets/images/nawtechservices-herojpg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.active{
-  color: #00CCCB;
-  border-bottom: 2px solid #00CCCB;
+.active {
+  color: #00cccb;
+  border-bottom: 2px solid #00cccb;
 }

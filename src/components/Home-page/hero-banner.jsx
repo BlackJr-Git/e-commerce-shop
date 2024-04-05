@@ -1,7 +1,11 @@
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import { NawtechService } from "@/assets";
 // import { InputWithButton } from ".";
+
+// style={{
+//   backgroundImage: `url(${NawtechService})`,
+// }}
 
 function HeroBanner() {
   return (
@@ -27,16 +31,15 @@ function HeroBanner() {
             </Link>{" "}
             <Link to={"/boutique"}>
               {" "}
-              <Button className="w-full text-slate-50" variant="outline"> Voir Plus </Button>{" "}
+              <Button className="w-full text-slate-50" variant="outline">
+                {" "}
+                Voir Plus{" "}
+              </Button>{" "}
             </Link>{" "}
           </div>
         </div>
         <div className="service-image rounded-2xl bg-white">
-          <img
-            className="rounded-2xl max-w-full"
-            src={NawtechService}
-            alt=""
-          />
+          <img className="rounded-2xl max-w-full" src={NawtechService} alt="" />
         </div>
         <div className="call-to-action flex flex-col  gap-3">
           <Link
