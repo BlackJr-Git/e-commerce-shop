@@ -39,3 +39,6 @@ export { default as ContactInfoCard } from "./contact/contact-info-card";
 // DASHBOARD
 
 export { default as DashboardSideBar } from "./dashboard/dashboard-side-bar";
+export { default as DashboardLayout } from "./dashboard/dashboard-layout";
+export { default as DashboardHeader } from "./dashboard/dashboard-header";
+export { default as NotificationPopover } from "./dashboard/notification-popover";

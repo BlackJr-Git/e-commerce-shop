@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../app/globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Layout } from "./components/index.js";
+import { DashboardLayout, Layout } from "./components/index.js";
 import {
   Home,
   Shop,
@@ -17,7 +17,7 @@ import {
   APropos,
   Contact,
   Dashboard,
-} from "./pages/index.js";
+} from "./pages/index.js"; 
 
 const router = createBrowserRouter([
   {
@@ -68,7 +68,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <DashboardLayout />,
+    children : [
+      {
+        path: "/dashboard/",
+        element: <Dashboard />,
+      },
+    ]
   },
 ]);
 
