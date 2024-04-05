@@ -15,7 +15,8 @@ import {
   Login,
   Services,
   APropos,
-  Contact
+  Contact,
+  Dashboard,
 } from "./pages/index.js";
 
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         element: <Errors404 />,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);
 
