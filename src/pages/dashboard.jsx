@@ -3,7 +3,7 @@ import { DashboardHeader, DashboardContent } from "@/components";
 function Dashboard() {
   return (
     <div className="h-full w-full flex flex-col">
-      <DashboardHeader />
+      <DashboardHeader title={"Dashboard"} />
       <DashboardContent />
     </div>
   );

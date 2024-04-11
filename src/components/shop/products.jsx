@@ -11,7 +11,7 @@ function Products({ title, productData }) {
       )}
       <div className="flex  items-center mx-1">
         <div className="flex gap-2 md:gap-6 justify-center mx-2 flex-wrap max-w-7xl ">
-          {productData.map((product) => (
+          { productData && productData.map((product) => (
             <ProductCard productData={product} key={product.ID} />
           ))}
         </div>
@@ -20,4 +20,4 @@ function Products({ title, productData }) {
   );
 }
 
-export default Products;
+export default Products;   

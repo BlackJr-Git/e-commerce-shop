@@ -2,7 +2,7 @@ import { DashboardHeader } from "../..";
 function ProductsDashboard() {
   return (
     <div>
-      <DashboardHeader />
+      <DashboardHeader title={"Products"} />
     </div>
   );
 }

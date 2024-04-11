@@ -35,6 +35,7 @@ export { default as OurTeam } from "./contact-page/our-team";
 export { default as TeamMemberCard } from "./contact-page/team-menber-card";
 export { default as FollowUs } from "./contact-page/follow-us";
 export { default as ContactInfoCard } from "./contact/contact-info-card";
+export { default as Loading } from "./animations/loading";
 
 // DASHBOARD
 

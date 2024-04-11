@@ -36,7 +36,7 @@ function Pcard({ productData }) {
         <Link to={`/produits/${productData.UGS}`}>
           <img
             className="rounded-2xl"
-            src={productData.images}
+            src={productData.Images}
             alt={productData.name}
           />
         </Link>

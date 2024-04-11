@@ -1,6 +1,6 @@
-const initialData = "src/data/products.json" 
+// const initialData = "src/data/products.json" 
 
-async function fetchData() {
+async function fetchData(initialData) {
     try {
       const response = await fetch(initialData);
   
