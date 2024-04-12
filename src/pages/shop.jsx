@@ -12,8 +12,8 @@ import { fetchData } from "@/utils/fetch-data";
 function Shop() {
   const [products, setProducts] = useState(productsData);
   const [isLoading, setIsLoading] = useState(false);
-  const [isFailed, setIsFailed] = useState(false);
-  const productsDataURI = "http://localhost:3000/api/products?number=12";
+  const [pages, setPages] = useState(1);
+  const productsDataURI = `http://localhost:3000/api/products?number=12&pages=${pages}`;
 
   useEffect(() => {
     const loadProductsData = async () => {
@@ -23,14 +23,13 @@ function Shop() {
         setProducts(data);
       } catch (error) {
         console.error("Failed to fetch data:", error);
-        setIsFailed(true);
       } finally {
         setIsLoading(false);
       }
     };
 
     loadProductsData();
-  }, []);
+  }, [productsDataURI]);
   function searchProduct(data) {
     console.log(data.search);
     setProducts(
@@ -42,17 +41,20 @@ function Shop() {
 
   return (
     <AnimatedPages>
-      <main className="max-w-7xl xl:max-w-screen-2xl m-auto md:flex items-start gap-6 mb-20 mt-7 relative">
+      <main className="max-w-7xl xl:max-w-screen-2xl m-auto md:flex  items-start gap-6 mb-20 mt-7 relative">
         <div className="bg-slate-200 w-1/6 h-screen rounded-2xl hidden md:block ">
           <ProductFilter />
         </div>
-        <div className="md:w-5/6 m-auto w-full mx-1">
+        <div className="md:w-5/6 mx-auto w-full h-full">
           <ShopHeader searchProduct={searchProduct}></ShopHeader>
 
           {isLoading ? (
             <Loading />
           ) : (
-            <Products productData={products.products} />
+            <>
+              <Products productData={products.products} />
+              <PaginationComponent setPages={setPages} />
+            </>
           )}
         </div>
       </main>
@@ -61,3 +63,40 @@ function Shop() {
 }
 
 export default Shop;
+
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
+function PaginationComponent({ setPages }) {
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink onClick={() => setPages(1)}>1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink onClick={() => setPages(2)}>2</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink onClick={() => setPages(3)}>3</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  );
+}
