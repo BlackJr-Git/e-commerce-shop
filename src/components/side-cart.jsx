@@ -79,7 +79,7 @@ function SideCartProduct({ product }) {
     <div className=" mx-3 flex items-center justify-between gap-4 border-b border-slate-200 p-2 w-full">
       <div className="flex gap-4">
         <div>
-          <img className="w-16" src={product.images} alt="" />
+          <img className="w-16" src={product.Images} alt="" />
         </div>
         <div>
           <p className="font-semibold">{product.name}</p>

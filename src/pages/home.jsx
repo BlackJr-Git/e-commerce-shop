@@ -40,9 +40,9 @@ function Home() {
     loadProductsData();
   }, []);
 
-  useEffect(() => {
-    console.log("productsData :", productsData.products);
-  }, [productsData]);
+  // useEffect(() => {
+  //   console.log("productsData :", productsData.products);
+  // }, [productsData]);
 
   // let productsDisplay = productsData.products
   // console.log(productsDisplay);

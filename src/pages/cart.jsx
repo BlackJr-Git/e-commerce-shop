@@ -93,7 +93,7 @@ function CartProduct({ product }) {
         <button onClick={deleteProductFromCart}>
           <ion-icon name="close-circle-outline"></ion-icon>
         </button>
-        <img className="w-24" src={product.images} alt="" />{" "}
+        <img className="w-24" src={product.Images} alt="" />{" "}
       </td>
       <td className="p-2"> {product.name} </td>
       <td className="p-2">$ {product.price} </td>

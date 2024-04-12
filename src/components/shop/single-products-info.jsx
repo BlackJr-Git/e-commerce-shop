@@ -1,26 +1,28 @@
 /* eslint-disable react/prop-types */
-//
-
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { AnimatedPages } from "..";
 import { motion } from "framer-motion";
 
 function SingleProductInfo({ product }) {
+  const [productData, setProductData] = useState(product);
   const [infoDisplayed, setInfoDisplayed] = useState(
-    <Description product={product} />
+    <Description product={productData} />
   );
   const [isActive, setIsActive] = useState({
     isDescriptionActive: true,
     isCompInfoActive: false,
   });
 
+  useEffect(() => {
+    setProductData(product);
+  }, [product]); 
+
   function displayComplementaryInfo() {
-    setInfoDisplayed(<Informations product={product} />);
+    setInfoDisplayed(<Informations product={productData} />);
     setIsActive({ isDescriptionActive: false, isCompInfoActive: true });
   }
-
   function displayDescription() {
-    setInfoDisplayed(<Description product={product} />);
+    setInfoDisplayed(<Description product={productData} />);
     setIsActive({ isCompInfoActive: false, isDescriptionActive: true });
   }
 
@@ -58,23 +60,31 @@ function SingleProductInfo({ product }) {
   );
 }
 
-SingleProductInfo.propTypes = {
-  product: Object,
-};
 
 export default SingleProductInfo;
 
 function Description({ product }) {
+  const [productData, setProductData] = useState(product);
+  useEffect(() => {
+    setProductData(product);
+    console.log(product);
+  }, [product]);
   return (
     <AnimatedPages>
       <div className="px-6">
-        <p>{product.description}</p>
+        <p>{productData.description}</p>
       </div>
     </AnimatedPages>
   );
 }
 
 function Informations({ product }) {
+  const [productData, setProductData] = useState(product);
+  useEffect(() => {
+    setProductData(product);
+    console.log(product);
+  }, [product]);
+
   return (
     <AnimatedPages>
       <div className="w-full px-12">
@@ -82,13 +92,13 @@ function Informations({ product }) {
           <tbody className="border border-slate-200 ">
             <tr className="border border-slate-200 text-left ">
               <th className="border border-slate-200 p-2">Poids</th>
-              <td className="p-2"> {product.weight} g</td>
+              <td className="p-2"> {productData.weight} g</td>
             </tr>
             <tr className="border border-slate-200 text-left">
               <th className="border border-slate-200 p-2">Dimension</th>
               <td className="p-2">
                 {" "}
-                {product.height} x {product.width} x 123 mm
+                {productData.height} x {productData.width} x 123 mm
               </td>
             </tr>
             <tr className="border border-slate-200 text-left">
@@ -106,12 +116,12 @@ function Informations({ product }) {
   );
 }
 
-function ProductReviews() {
-  return (
-    <AnimatedPages>
-      <form>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-      </form>
-    </AnimatedPages>
-  );
-}
+// function ProductReviews() {
+//   return (
+//     <AnimatedPages>
+//       <form>
+//         <textarea name="" id="" cols="30" rows="10"></textarea>
+//       </form>
+//     </AnimatedPages>
+//   );
+// }

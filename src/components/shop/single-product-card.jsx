@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { useStore } from "@/appStore";
 import { useToast } from "../ui/use-toast";
@@ -8,13 +9,19 @@ import { Link } from "react-router-dom";
 function SingleProductCard({ product }) {
   const { productsAddedToCart, updateCart } = useStore();
   const { toast } = useToast();
+  const [productData, setProductData] = useState(product);
+  const [numberOfProduct, setNumberOfProduct] = useState(1);
+
+  useEffect(() => {
+    setProductData(product);
+  }, [product]);
 
   function addToCart() {
-    const newCart = [...productsAddedToCart, product];
+    const newCart = [...productsAddedToCart, productData];
     updateCart(newCart);
     toast({
       title: "Produit ajouté au panier avec succes",
-      description: product.name,
+      description: productData.name,
       action: (
         <ToastAction altText="See Cart">
           <Link to={"./cart"}>Voir le Panier</Link>
@@ -22,31 +29,31 @@ function SingleProductCard({ product }) {
       ),
     });
   }
-  const [numberOfProduct, setNumberOfProduct] = useState(1);
+ 
 
   function addNumberOfProduct(e) {
     e.preventDefault();
     setNumberOfProduct(numberOfProduct + 1);
-    setTotalPrice(totalPrice + product.price);
+    setTotalPrice(totalPrice + productData.price);
   }
   function removeNumberOfProduct(e) {
     if (numberOfProduct !== 1) {
       e.preventDefault();
       setNumberOfProduct(numberOfProduct - 1);
-      setTotalPrice(totalPrice - product.price);
+      setTotalPrice(totalPrice - productData.price);
     }
   }
 
-  const [totalPrice, setTotalPrice] = useState(product.price);
+  const [totalPrice, setTotalPrice] = useState(productData.price);
 
   return (
     <div className="md:flex-row flex-col flex justify-center gap-6 py-12 max-w-7xl m-auto">
       <div className=" w-10/12  md:w-4/12 m-auto">
-        <img className="rounded-2xl" src={product.images} alt={product.name} />
+        <img className="rounded-2xl" src={productData.Images} alt={productData.name} />
       </div>
       <div className="w-10/12 md:w-4/12 m-auto">
         <div className="flex items-start flex-col justify-start gap-7 pb-12 border-b border-solid border-slate-700">
-          <h3 className="text-3xl m-auto md:m-0"> {product.name} </h3>
+          <h3 className="text-3xl m-auto md:m-0"> {productData.name} </h3>
           <p className="flex items-center justify-start gap-6 m-auto md:m-0">
             {" "}
             <span className="text-3xl font-bold">$ {totalPrice}</span> +
