@@ -5,12 +5,12 @@ import {
   AnimatedPages,
   Loading,
 } from "../components";
-import { productsData } from "@/data";
+// import { productsData } from "@/data";
 import { useState, useEffect } from "react";
 import { fetchData } from "@/utils/fetch-data";
 
 function Shop() {
-  const [products, setProducts] = useState(productsData);
+  const [products, setProducts] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
   const productsDataURI = `http://localhost:3000/api/products?number=12&pages=${pages}`;

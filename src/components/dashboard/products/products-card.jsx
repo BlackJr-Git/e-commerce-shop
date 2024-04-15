@@ -7,13 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-function DashboardProductCard({ productData }) {
+function DashboardProductCard({ productData, setProduct }) {
   // console.log(productData.id);
   function displayProductsDetails() {
-    console.log(productData);
-  } 
+    setProduct(productData);
+  }
   return (
-    <Card className="flex flex-1  min-w-48 flex-col justify-between items-center p-1" onClick={displayProductsDetails}>
+    <Card
+      className="flex flex-1  min-w-48 flex-col justify-between items-center p-1"
+      onClick={displayProductsDetails}
+    >
       <CardContent className="w-full p-0">
         <img
           className="rounded-2xl"
@@ -23,11 +26,9 @@ function DashboardProductCard({ productData }) {
       </CardContent>
       <CardHeader className="w-full p-0">
         <CardTitle className="font-bold text-center text-sm md:text-base px-2">
-          {" "}
           {productData.name}{" "}
         </CardTitle>
-        <CardDescription className="text-xl text-center text-base font-semibold w-full px-2 py-3">
-          {" "}
+        <CardDescription className="text-center text-base font-semibold w-full px-2 py-3">
           {`$ ${productData.price}`}{" "}
         </CardDescription>
       </CardHeader>
