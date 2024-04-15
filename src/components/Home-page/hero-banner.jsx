@@ -25,13 +25,13 @@ function HeroBanner() {
           <div className="flex flex-col gap-3">
             <Link to={"/boutique"}>
               {" "}
-              <Button className="font-bold text-xl  h-12">
+              <Button className="font-bold text-xl  h-12 w-full">
                 Acheter Maintenant
               </Button>{" "}
             </Link>{" "}
             <Link to={"/boutique"}>
               {" "}
-              <Button className="w-full text-slate-50" variant="outline">
+              <Button className="w-full text-slate-50 bg-transparent" variant="outline">
                 {" "}
                 Voir Plus{" "}
               </Button>{" "}

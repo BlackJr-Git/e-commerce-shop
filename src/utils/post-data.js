@@ -1,41 +1,17 @@
+// mailjet 
 
-/**
- *
- * Run:
- *
- */
-let PRIVATE_KEY = "" ;
-let PUBLIC_KEY = "" ;
+import axios from "axios";
 
+// let postUrl = "https://twitter-api-6zi0.onrender.com/api/tweets/add";
 
-const mailjet = require('node-mailjet').connect(
-    PUBLIC_KEY,
-    PRIVATE_KEY 
-  )
-  const request = mailjet.post('send', { version: 'v3.1' }).request({
-    Messages: [
-      {
-        From: {
-          Email: '$SENDER_EMAIL',
-          Name: 'Me',
-        },
-        To: [
-          {
-            Email: '$RECIPIENT_EMAIL',
-            Name: 'You',
-          },
-        ],
-        Subject: 'My first Mailjet Email!',
-        TextPart: 'Greetings from Mailjet!',
-        HTMLPart:
-          '<h3>Dear passenger 1, welcome to <a href="https://www.mailjet.com/">Mailjet</a>!</h3><br />May the delivery force be with you!',
-      },
-    ],
-  })
-  request
-    .then(result => {
-      console.log(result.body)
-    })
-    .catch(err => {
-      console.log(err.statusCode)
-})
+async function postData(product , postUrl) {
+  try {
+    const response = await axios.put(postUrl, product);
+    alert("le produit a été mise a jour");
+  } catch (error) {
+    console.error("Une erreur s'est produite:", error);
+    alert("Une erreur s'est produite lors de l'envoi des données");
+  }
+}
+
+export default postData;  

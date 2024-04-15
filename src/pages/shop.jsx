@@ -53,7 +53,7 @@ function Shop() {
           ) : (
             <>
               <Products productData={products.products} />
-              <PaginationComponent setPages={setPages} />
+              <PaginationComponent setPages={setPages} pages={pages} />
             </>
           )}
         </div>
@@ -74,12 +74,12 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-function PaginationComponent({ setPages }) {
+function PaginationComponent({ setPages,pages }) {
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" />
+          <PaginationPrevious onClick={() => setPages(pages -1)} />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink onClick={() => setPages(1)}>1</PaginationLink>
@@ -94,9 +94,9 @@ function PaginationComponent({ setPages }) {
           <PaginationEllipsis />
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#" />
+          <PaginationNext onClick={() => setPages(pages + 1)} />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
   );
-}
+} 
