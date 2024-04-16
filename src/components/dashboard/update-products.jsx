@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { PopUp } from "..";
 import { useForm } from "react-hook-form";
 import postData from "@/utils/post-data";
 import deleteData from "@/utils/delete-product";
@@ -24,7 +25,7 @@ function UpdateProducts({ productsData }) {
   };
 
   const deleteProduct = () => {
-    console.log(deleteUrl); 
+    console.log(deleteUrl);
     deleteData(deleteUrl);
     // location.reload()
   };
@@ -68,7 +69,12 @@ function UpdateProducts({ productsData }) {
         />
         <Button>Mettre a jour</Button>
       </form>
-      <Button variant="destructive" onClick={deleteProduct} >Supprimer</Button> 
+      {/* <Button variant="destructive" onClick={deleteProduct} >Supprimer</Button>  */}
+      <PopUp
+        handleClick={deleteProduct}
+        text={"Supprimer le produit"}
+        button_variant={"destructive"}
+      />
     </>
   );
 }
