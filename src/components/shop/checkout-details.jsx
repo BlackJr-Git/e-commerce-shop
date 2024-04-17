@@ -12,8 +12,8 @@ function CheckoutDetails({ registerFunction }) {
   }, [productsAddedToCart]);
 
   return (
-    <div className="md:w-2/5 m-auto w-4/5">
-      <div className="max-w-6xl m-auto p-7 mb-6 border-2 border-slate-300">
+    <div className="md:w-2/5 m-auto w-4/5 ">
+      <div className="max-w-6xl m-auto p-7 mb-6 border-2 border-slate-300 rounded-2xl">
         <table className="w-full">
           <thead className="w-full font-bold border-b border-slate-200">
             <tr colSpan={"2"} className="py-6 text-xl">
@@ -48,7 +48,7 @@ function CheckoutDetails({ registerFunction }) {
         </table>
         <p className="py-3">Paiement a la livraison </p>
         <div className="before:content-[''] before:w-5 before:h-5 before:block before:mx-5 before:my-1 before:border-l-[16px] before:border-l-transparent before:border-b-[16px] before:border-b-slate-200 before:border-r-[16px] before:border-r-transparent">
-          <p className="bg-slate-200 p-3">
+          <p className="bg-slate-200 p-3 rounded-2xl">
             Payer en argent comptant à la livraison.
           </p>
         </div>

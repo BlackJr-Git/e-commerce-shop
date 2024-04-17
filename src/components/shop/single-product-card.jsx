@@ -44,7 +44,7 @@ function SingleProductCard({ product }) {
     }
   }
 
-  const [totalPrice, setTotalPrice] = useState(productData.price);
+  const [totalPrice, setTotalPrice] = useState(productData.price); 
 
   return (
     <div className="md:flex-row flex-col flex justify-center gap-6 py-12 max-w-7xl m-auto">

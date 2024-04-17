@@ -17,17 +17,19 @@ function Pcard({ productData }) {
   const { productsAddedToCart, updateCart } = useStore();
   const { toast } = useToast();
   function addToCart() {
-    const newCart = [...productsAddedToCart, productData];
-    updateCart(newCart);
-    toast({
-      title: "Produit ajouté au panier avec succes",
-      description: productData.name,
-      action: (
-        <ToastAction altText="See Cart">
-          <Link to={"./cart"}>Voir le Panier</Link>
-        </ToastAction>
-      ),
-    });
+    if (!productsAddedToCart.includes(productData)) {
+      const newCart = [...productsAddedToCart, productData];
+      updateCart(newCart);
+      toast({
+        title: "Produit ajouté au panier avec succes",
+        description: productData.name,
+        action: (
+          <ToastAction altText="See Cart">
+            <Link to={"./cart"}>Voir le Panier</Link>
+          </ToastAction>
+        ),
+      });
+    }
   }
 
   return (

@@ -64,7 +64,7 @@ function ServiceSection({ flexType, ServiceTitle, description, image, id,bgColor
         <div className="md:w-1/2  p-6 ">
           <h2 className="text-4xl font-bold py-6 text-center md:text-left"> {ServiceTitle} </h2>
           <p className="py-6">{description}</p>
-          <Button className="font-semibold text-xl h-11">Faire un devis</Button>
+          <Button className="font-semibold text-base h-11">Faire un devis</Button>
         </div>
         <div className="md:w-1/2">
           <img

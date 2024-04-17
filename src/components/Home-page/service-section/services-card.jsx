@@ -30,7 +30,7 @@ function ServiceCard({ serviceTitle, description, icon, link }) {
       </CardHeader>
       <CardFooter className="flex items-center justify-center">
         <Link to={link} className="w-full">
-          <Button className="font-bold">En Savoir Plus</Button>
+          <Button className="font-bold w-full">En Savoir Plus</Button>
         </Link>
       </CardFooter>
     </Card>

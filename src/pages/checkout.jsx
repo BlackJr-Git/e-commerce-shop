@@ -56,9 +56,9 @@ function Checkout() {
           {productsAddedToCart[0] ? (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col md:flex-row items-start justify-start m-auto"
+              className="flex flex-col md:flex-row gap-6 items-start justify-start m-auto"
             >
-              <div className="md:w-3/5 p-6 w-full ">
+              <div className="md:w-3/5 px-6 w-full ">
                 <h2 className="text-xl font-bold py-6">
                   Details de facturation
                 </h2>
@@ -84,7 +84,7 @@ export default Checkout;
 function CheckoutUserInfo() {
   const { currentUser } = useStore();
   return (
-    <div className="border-2 border-slate-300 p-6">
+    <div className="border-2 border-slate-300 p-6 rounded-2xl">
       <table className="w-full">
         <tbody>
           <tr className="py-6 border-b border-slate-300">

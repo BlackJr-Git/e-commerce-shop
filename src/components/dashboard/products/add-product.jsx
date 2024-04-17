@@ -1,19 +1,10 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogFooter,
-} from "@/components/ui/dialog";
-
+import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { AddProductForm } from "..";
 import { useState } from "react";
 
-function AddProduct({ handleClick, text, button_variant }) {
+function AddProduct() {
   const [open, setOpen] = useState(false);
   const {
     register,
@@ -21,9 +12,27 @@ function AddProduct({ handleClick, text, button_variant }) {
     formState: { errors },
   } = useForm();
 
-  const addProduct = (formData, e) => {
-    // e.preventDefault();
-    console.log(formData);
+  const addProduct = async (formData, e) => {
+    e.preventDefault();
+    // console.log(formData); 
+    formData.Images = formData.Images[0];
+    // console.log(formData); 
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/products/add",
+        formData,
+        // {
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //   },
+        // }
+      );
+      alert("le produit a été ajoutée");
+    } catch (error) {
+      console.error("Une erreur s'est produite:", error);
+      alert("Une erreur s'est produite lors de l'envoi des données");
+    }
   };
 
   const handleClickOpen = () => {
@@ -44,7 +53,7 @@ function AddProduct({ handleClick, text, button_variant }) {
               <Button variant={"outline"} onClick={handleClickOpen}>
                 Cancel
               </Button>
-              <Button className="w-48" type="submit" >
+              <Button className="w-48" type="submit">
                 Ajouter
               </Button>
             </div>

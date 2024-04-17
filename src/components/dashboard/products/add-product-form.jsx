@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -6,11 +5,11 @@ function AddProductForm({ registerFunction }) {
   return (
     <div className="flex flex-col gap-3 w-full">
       <div>
-        <label htmlFor="image">Images</label>
+        <label htmlFor="Images">Images</label>
         <Input
           type="file"
           className="bg-slate-100"
-          {...registerFunction("image", {
+          {...registerFunction("Images", {
             required: "le prix de votre produit ne peut pas etre vide",
             maxLength: 180,
             minLenght: 1,
@@ -86,11 +85,11 @@ function AddProductForm({ registerFunction }) {
       </div>
 
       <div>
-        <label htmlFor="categories">Category</label>
+        <label htmlFor="Categories">Category</label>
         <Input
           type="text"
           className="bg-slate-100"
-          {...registerFunction("categories", {
+          {...registerFunction("Categories", {
             required: "donner une categorie a votre produit",
             maxLength: 180,
             minLenght: 1,
