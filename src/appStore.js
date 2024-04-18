@@ -21,10 +21,18 @@ export const useStore = create((set) => ({
   updateUser(newUser){
     set({currentUser : newUser})
   },
+
   productsAddedToCart: [] , 
   updateCart(newCart){
     set({productsAddedToCart : newCart})
   }, 
+
+  orderItems : [] ,
+  updateOrder(newOrder){
+    set({orderItems : newOrder})
+  }
 }));
+
+
 
 
