@@ -51,16 +51,15 @@ function CartTable() {
 }
 
 function CartProduct({ product }) {
-  const { productsAddedToCart, updateCart } = useStore();
+  const { productsAddedToCart, updateCart, orderItems, updateOrder } =
+    useStore();
   const { toast } = useToast();
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
   const [subTotal, setSubTotal] = useState(product.price);
 
   function deleteProductFromCart() {
-    let newCart = productsAddedToCart.filter(
-      (element) => element.ID !== product.ID
-    );
-    updateCart(newCart);
+    updateOrder(orderItems.filter((item) => item.productId !== product.ID));
+    updateCart(productsAddedToCart.filter((item) => item.ID !== product.ID));
     toast({
       variant: "destructive",
       title: "Produits supprimer du panier",
@@ -68,31 +67,44 @@ function CartProduct({ product }) {
     });
   }
 
-  function addNumberOfProduct(e) {
-    e.preventDefault();
-    setQuantity(quantity + 1);
-    setSubTotal(subTotal + product.price);
+  const quantity =
+    orderItems.find((item) => item.productId === product.ID)?.quantity || 0;
+
+  // useEffect(() => {
+  //   setQuantity(1);
+  //   setSubTotal(product.price);
+  // })
+
+  function addQuantity() {
+    const newOrder = orderItems.find(
+      (item) => item.productId === product.ID 
+    );
+    newOrder.quantity++;
+    setSubTotal(newOrder.price * newOrder.quantity);
   }
-  function removeNumberOfProduct(e) {
-    if (quantity !== 1) {
-      e.preventDefault();
-      setQuantity(quantity - 1);
-      setSubTotal(subTotal - product.price);
+  function removeNumberOfProduct() {
+    if (quantity > 1) {
+      const newOrder = orderItems.find((item) => item.productId === product.ID);
+      newOrder.quantity--;
+      setSubTotal(newOrder.price * newOrder.quantity);
     }
   }
   return (
     <div className=" flex border border-slate-300 text-left  items-center  w-full rounded-xl ">
-      
       <div className="flex items-center gap-3 h-full p-3  md:w-[30%] ">
         <div className="flex items-center justify-left h-full">
-          <img className=" md:w-20 w-40 rounded-xl" src={product.Images} alt="" />
+          <img
+            className=" md:w-20 w-40 rounded-xl"
+            src={product.Images}
+            alt=""
+          />
         </div>
         <div>
           <p className="font-semibold">{product.name}</p>
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row w-[70%] items-center"> 
+      <div className="flex flex-col md:flex-row w-[70%] items-center">
         <div className="md:w-[30%]  h-full flex items-center p-3">
           <p className="font-semibold">{product.price}</p>
         </div>
@@ -108,7 +120,7 @@ function CartProduct({ product }) {
             <p className="bg-white px-4 rounded-xl"> {quantity} </p>
             <button
               className="bg-slate-200 border-l border-solid border-slate-700 px-3 rounded-xl"
-              onClick={addNumberOfProduct}
+              onClick={addQuantity}
             >
               +
             </button>

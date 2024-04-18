@@ -7,12 +7,12 @@ import { cartPriceSum } from "@/utils";
 import { useToast } from "./ui/use-toast";
 
 function SideCart({ className, handleClick }) {
-  const { productsAddedToCart } = useStore();
+  const { productsAddedToCart , orderItems } = useStore();
   const [totalPrice, setTotalPrice] = useState(0);
-  
-  useEffect(() => {
-    setTotalPrice(cartPriceSum(productsAddedToCart));
-  }, [productsAddedToCart]);
+
+  // useEffect(() => {
+  //   setTotalPrice(cartPriceSum(orderItems));
+  // }, [orderItems , totalPrice]);
 
   return (
     <div className={className}>
@@ -36,7 +36,7 @@ function SideCart({ className, handleClick }) {
 
           <div className="h-14 border-t border-slate-200 px-3 flex items-center justify-between">
             <p className="font-semibold">Sous-total : </p>{" "}
-            <p className="font-semibold">$ {totalPrice} </p>
+            <p className="font-semibold">$ {cartPriceSum(orderItems)} </p>
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 border-t border-slate-200 py-3">
@@ -47,8 +47,21 @@ function SideCart({ className, handleClick }) {
               {" "}
               <Link className="w-full" onClick={handleClick} to={"/checkout"}>COMMANDER</Link>{" "}
             </Button> */}
-            <button className="w-11/12 font-medium border border-slate-100 rounded-xl p-1 shadow-md"> <Link className="w-full" onClick={handleClick} to={"/cart"}> Voir le panier </Link></button>
-            <button className="w-11/12 font-bold bg-primary p-2 rounded-xl shadow-lg" onClick={handleClick}><Link className="w-full" onClick={handleClick} to={"/checkout"}>COMMANDER</Link></button>
+            <button className="w-11/12 font-medium border border-slate-100 rounded-xl p-1 shadow-md">
+              {" "}
+              <Link className="w-full" onClick={handleClick} to={"/cart"}>
+                {" "}
+                Voir le panier{" "}
+              </Link>
+            </button>
+            <button
+              className="w-11/12 font-bold bg-primary p-2 rounded-xl shadow-lg"
+              onClick={handleClick}
+            >
+              <Link className="w-full" onClick={handleClick} to={"/checkout"}>
+                COMMANDER
+              </Link>
+            </button>
           </div>
         </>
       ) : (
@@ -61,20 +74,23 @@ function SideCart({ className, handleClick }) {
 export default SideCart;
 
 function SideCartProduct({ product }) {
-  const { productsAddedToCart, updateCart } = useStore();
-  const { toast } = useToast() 
+  const { productsAddedToCart, updateCart, orderItems, updateOrder } =
+    useStore();
+  const { toast } = useToast();
 
   function deleteProductFromCart() {
-    let newCart = productsAddedToCart.filter(
-      (element) => element.ID !== product.ID
-    );
-    updateCart(newCart);
+    updateOrder(orderItems.filter((item) => item.productId !== product.ID));
+    updateCart(productsAddedToCart.filter((item) => item.ID !== product.ID));
+
     toast({
-      variant : "destructive",
-      title: "Produits supprimer du panier",
-      description: product.name ,
-    })
+      variant: "destructive",
+      title: "Produit supprimé du panier",
+      description: product.name,
+    });
   }
+
+  const quantity =
+    orderItems.find((item) => item.productId === product.ID)?.quantity || 0;
 
   return (
     <div className=" mx-3 flex items-center justify-between gap-4 border-b border-slate-200 p-2 w-full">
@@ -85,6 +101,7 @@ function SideCartProduct({ product }) {
         <div>
           <p className="font-semibold">{product.name}</p>
           <p className="">$ {product.price} </p>
+          <p>Quantité : {quantity}</p>
         </div>
       </div>
       <button

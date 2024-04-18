@@ -22,8 +22,6 @@ function Pcard({ productData }) {
       const newCart = [...productsAddedToCart, productData];
       updateCart(newCart);
 
-      console.log(productsAddedToCart);
-
       const orderItem = {
         productId: productData.ID,
         price: productData.price,
@@ -33,9 +31,7 @@ function Pcard({ productData }) {
       const newOrder = [...orderItems, orderItem];
       updateOrder(newOrder);
 
-      console.log(orderItems);
     } else {
-      console.log(orderItems);
       const newOrder = orderItems.find(
         (item) => item.productId === productData.ID
       );

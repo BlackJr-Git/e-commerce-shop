@@ -1,9 +1,10 @@
-function cartPriceSum(listOfProducts) {
+
+function cartPriceSum(listOfOrders) {
   let totalPrice = 0;
-  listOfProducts.forEach((product) => {
-    totalPrice = totalPrice + product.price;
+  listOfOrders.forEach((order) => {
+    totalPrice = totalPrice + (order.price * order.quantity);
   });
   return totalPrice
 }
 
-export default cartPriceSum;
+export default cartPriceSum; 
