@@ -22,7 +22,8 @@ export default UserAvatar;
 
 function AvatarPopover() {
   const { currentUser, updateUser } = useStore();
-  function deconnectCurrentUser() {
+  function deconnectCurrentUser(e) {
+    e.preventDefault();
     let newUser = {
       name: "",
       firstName: "",
@@ -35,11 +36,10 @@ function AvatarPopover() {
       township: "",
       avatar: "",
     };
-    // console.log(newUser);
+    console.log(newUser);
     updateUser(newUser);
+    console.log(currentUser);
   }
-
-
 
   const links = [
     {
