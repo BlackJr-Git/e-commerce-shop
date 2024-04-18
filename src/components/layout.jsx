@@ -8,7 +8,7 @@ import { Toaster } from "./ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function Layout() {
-  const { updateUser } = useStore();
+  const { updateUser , updateCart , updateOrder } = useStore();
   const [displayCart, setDisplayCart] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -34,6 +34,21 @@ function Layout() {
 
     fetchData();
   }, [updateUser]);
+
+
+  useEffect(() => {
+    const cart = sessionStorage.getItem('cart');
+    const order = sessionStorage.getItem('order');
+    if (cart) {
+      const parsedData = JSON.parse(cart);
+      updateCart(parsedData);
+    }
+
+    if (order) {
+      const parsedData = JSON.parse(order);
+      updateOrder(parsedData);
+    }
+  }, [updateCart , updateOrder]);
 
   function toggleCart() {
     setDisplayCart(!displayCart);

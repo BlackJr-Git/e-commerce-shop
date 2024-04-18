@@ -21,21 +21,23 @@ function Pcard({ productData }) {
     if (!productsAddedToCart.includes(productData)) {
       const newCart = [...productsAddedToCart, productData];
       updateCart(newCart);
-
       const orderItem = {
         productId: productData.ID,
         price: productData.price,
         quantity: 1,
       };
-
       const newOrder = [...orderItems, orderItem];
       updateOrder(newOrder);
 
+      sessionStorage.setItem("cart", JSON.stringify(newCart));
+      sessionStorage.setItem("order", JSON.stringify(newOrder));
     } else {
       const newOrder = orderItems.find(
         (item) => item.productId === productData.ID
       );
       newOrder.quantity = newOrder.quantity + 1;
+
+      sessionStorage.setItem("order", JSON.stringify(orderItems));
     }
 
     toast({
