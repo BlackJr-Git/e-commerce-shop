@@ -6,16 +6,18 @@ import { CheckoutForm, CheckoutDetails } from "@/components";
 import { useStore } from "@/appStore";
 import { Button } from "@/components/ui/button";
 import { AnimatedPages } from "@/components";
+import { cartPriceSum } from "@/utils";
+import axios from "axios";
 
 function Checkout() {
-  const { currentUser, productsAddedToCart } = useStore();
+  const { currentUser, productsAddedToCart, orderItems } = useStore();
   // eslint-disable-next-line no-unused-vars
   const [formData, setFormData] = useState({
     name: "",
     firstName: "",
     country: "",
-    adress: "",
-    adress2: "",
+    address: "",
+    address2: "",
     city: "",
     township: "",
     phone: "",
@@ -27,11 +29,29 @@ function Checkout() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues: formData });
+  } = useForm({ defaultValues: currentUser });
 
-  const onSubmit = (data) => {
-    console.log("data :", data);
+  const onSubmit = async (data) => {
+    // console.log("data :", data);
+    // console.log(orderItems);
+
+    const order = {
+      userId: currentUser.id,
+      total: cartPriceSum(orderItems),
+      orderItems: orderItems,
+    };
+
+    try {
+      const response = await axios.post("http://localhost:3000/api/orders/add", order);
+      alert("la commande a été faite avec succes");
+    } catch (error) {
+      console.error("Une erreur s'est produite:", error);
+      alert("Une erreur s'est produite lors de l'envoi des données");
+    }
+
+    // console.log(order);
   };
+
   return (
     <AnimatedPages>
       <main className="bg-slate-100">
@@ -111,11 +131,11 @@ function CheckoutUserInfo() {
           </tr>
           <tr className="py-6">
             <td className="py-3 font-semibold">Adresse Complete : </td>
-            <td className="text-right"> {currentUser.adress} </td>
+            <td className="text-right"> {currentUser.address} </td>
           </tr>
           <tr className="py-6">
             <td></td>
-            <td className="text-right"> {currentUser.adress2} </td>
+            <td className="text-right"> {currentUser.address2} </td>
           </tr>
         </tbody>
       </table>

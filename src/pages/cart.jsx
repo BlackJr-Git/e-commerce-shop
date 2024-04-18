@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/appStore";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cartPriceSum } from "@/utils";
 import { AnimatedPages } from "@/components";
 import { useToast } from "@/components/ui/use-toast";
@@ -54,8 +54,9 @@ function CartProduct({ product }) {
   const { productsAddedToCart, updateCart, orderItems, updateOrder } =
     useStore();
   const { toast } = useToast();
-  // const [quantity, setQuantity] = useState(1);
-  const [subTotal, setSubTotal] = useState(product.price);
+  const quantity =
+    orderItems.find((item) => item.productId === product.ID)?.quantity || 0;
+  const [subTotal, setSubTotal] = useState(product.price * quantity);
 
   function deleteProductFromCart() {
     updateOrder(orderItems.filter((item) => item.productId !== product.ID));
@@ -67,18 +68,13 @@ function CartProduct({ product }) {
     });
   }
 
-  const quantity =
-    orderItems.find((item) => item.productId === product.ID)?.quantity || 0;
-
   // useEffect(() => {
   //   setQuantity(1);
   //   setSubTotal(product.price);
   // })
 
   function addQuantity() {
-    const newOrder = orderItems.find(
-      (item) => item.productId === product.ID 
-    );
+    const newOrder = orderItems.find((item) => item.productId === product.ID);
     newOrder.quantity++;
     setSubTotal(newOrder.price * newOrder.quantity);
   }
@@ -143,42 +139,39 @@ function CartProduct({ product }) {
 }
 
 function TotalCart() {
-  const { productsAddedToCart } = useStore();
-  // const [totalPrice , setTotalPrice ] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0);
-  useEffect(() => {
-    setTotalPrice(cartPriceSum(productsAddedToCart));
-  }, [productsAddedToCart]);
+  const { orderItems } = useStore();
 
   return (
     <div className="max-w-6xl p-7 border border-slate-200 rounded-2xl mx-3">
       <table className="w-full h-96">
         <thead className="w-full text-2xl font-bold border-b border-slate-200">
-          <td colSpan={"2"}>Panier Total</td>
+          <tr><td colSpan={"2"}>Panier Total</td></tr>
         </thead>
         <tbody>
           <tr className="border-b border-slate-200 ">
             <td className="w-40">Sous-Total</td>
-            <td className="">$ {totalPrice} </td>
+            <td className="">$ {cartPriceSum(orderItems)} </td>
           </tr>
           <tr className="border-b border-slate-200">
             <td>Expedition</td>
             <td className="">
-              <tr className="font-semibold">Kinshasa</tr>
-              <tr>Livraison Gratuite</tr>
+              <div className="font-semibold">Kinshasa</div>
+              <div>Livraison Gratuite</div>
             </td>
           </tr>
           <tr className="border-b border-slate-200">
             <td>TOTAL</td>
-            <td>$ {totalPrice}</td>
+            <td>$ {cartPriceSum(orderItems)}</td>
           </tr>
         </tbody>
-        <tfoot>
-          <td colSpan={"2"}>
-            <Button className="font-semibold w-full p-6">
-              <Link to={"/checkout"}>COMMANDER</Link>
-            </Button>
-          </td>
+        <tfoot className="w-full py-3">
+          <tr colSpan={"2"} className="w-full mt-3">
+            <td className="w-full" colSpan={"2"}>
+              <Button className="font-semibold w-full p-6">
+                <Link to={"/checkout"}>COMMANDER</Link>
+              </Button>
+            </td>
+          </tr>
         </tfoot>
       </table>
     </div>

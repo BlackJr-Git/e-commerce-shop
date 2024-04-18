@@ -5,11 +5,11 @@ import { cartPriceSum } from "@/utils";
 import { useState, useEffect } from "react";
 
 function CheckoutDetails({ registerFunction }) {
-  const { productsAddedToCart } = useStore();
+  const { productsAddedToCart, orderItems } = useStore();
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
-    setTotalPrice(cartPriceSum(productsAddedToCart));
-  }, [productsAddedToCart]);
+    setTotalPrice(cartPriceSum(orderItems));
+  }, [orderItems]);
 
   return (
     <div className="md:w-2/5 m-auto w-4/5 ">
@@ -34,7 +34,9 @@ function CheckoutDetails({ registerFunction }) {
           <tfoot className="w-full">
             <tr className="border-b border-slate-200 ">
               <td className="w-40 py-6 font-medium">Sous-Total</td>
-              <td className=" py-6 text-right">$ {totalPrice} </td>
+              <td className=" py-6 text-right">
+                $ {cartPriceSum(orderItems)}{" "}
+              </td>
             </tr>
             <tr className="border-b border-slate-200">
               <td className="py-6 font-medium">Expedition</td>
@@ -42,7 +44,7 @@ function CheckoutDetails({ registerFunction }) {
             </tr>
             <tr className="border-b border-slate-200">
               <td className="py-6 font-bold">TOTAL</td>
-              <td className="py-6 text-right">$ {totalPrice} </td>
+              <td className="py-6 text-right">$ {cartPriceSum(orderItems)} </td>
             </tr>
           </tfoot>
         </table>
@@ -79,9 +81,17 @@ function CheckoutDetails({ registerFunction }) {
 }
 
 function ProductCard({ product }) {
+  const { orderItems } = useStore();
+
+  const quantity =
+    orderItems.find((item) => item.productId === product.ID)?.quantity || 0;
   return (
     <tr className="">
-      <td className="py-3"> {product.name} </td>
+      <td className="py-3">
+        {" "}
+        {product.name} <br /> <span className="font-semibold">X</span>{" "}
+        {quantity}{" "}
+      </td>
       <td className="py-3 text-right">$ {product.price} </td>
     </tr>
   );
