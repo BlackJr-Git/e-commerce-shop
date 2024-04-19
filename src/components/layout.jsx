@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom/dist";
 import Menu from "./header/menu";
 import { useEffect, useState } from "react";
 import { useStore } from "@/appStore";
-// import user from "@/data/users";
 import { Toaster } from "./ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -35,7 +34,6 @@ function Layout() {
     fetchData();
   }, [updateUser]);
 
-
   useEffect(() => {
     const cart = sessionStorage.getItem('cart');
     const order = sessionStorage.getItem('order');
@@ -48,14 +46,14 @@ function Layout() {
       const parsedData = JSON.parse(order);
       updateOrder(parsedData);
     }
-  }, [updateCart , updateOrder]);
+  }, [updateCart , updateOrder]); 
 
   function toggleCart() {
     setDisplayCart(!displayCart);
     setMobileMenuOpen(false);
   }
 
-  function removeCart() {
+  function closeCart() {
     setDisplayCart(false);
   }
 
@@ -69,21 +67,13 @@ function Layout() {
         setMobileMenuOpen={setMobileMenuOpen}
       />
       <Outlet />
-      {displayCart ? (
-        <SideCart
-          handleClick={removeCart}
-          className={
-            "ease-in duration-500 z-[100]  md:h-screen h-dvh w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"
-          }
-        />
-      ) : (
-        <SideCart
-          handleClick={removeCart}
-          className={
-            "ease-in duration-500 z-[100] translate-x-full h-dvh  md:h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400"
-          }
-        />
-      )}
+      <SideCart
+        handleClick={closeCart}
+        className={`ease-in duration-500 z-[100] h-dvh  md:h-screen w-96 bg-slate-50 fixed top-0 right-0 flex flex-col justify-between pb-6 border-l border-slate-400 transform transition-transform ${
+          displayCart ? "translate-x-0" : "translate-x-full"
+        }`}
+      />
+
       <Toaster />
       <Footer />
     </>
