@@ -43,6 +43,7 @@ function Checkout() {
 
     try {
       const response = await axios.post("http://localhost:3000/api/orders/add", order);
+      console.log(response);
       alert("la commande a été faite avec succes");
     } catch (error) {
       console.error("Une erreur s'est produite:", error);
