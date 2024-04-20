@@ -4,31 +4,32 @@
  *
  * @return {JSX.Element} The top selling products component
  */
+
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Loading } from "..";
 function TopSellingProducts() {
-  const topSellingProducts = [
-    {
-      id: 1,
-      name: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      price: 109.95,
-      quantity: 3,
-    },
-    {
-      id: 2,
-      name: "Mens Casual Premium Slim Fit T-Shirts",
-      image:
-        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-      price: 22.3,
-      quantity: 1,
-    },
-    {
-      id: 3,
-      name: "Mens Cotton Jacket",
-      image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-      price: 55.99,
-      quantity: 2,
-    },
-  ];
+  const [topSellingProducts, setTopSellingProducts] = useState([]);
+
+  useEffect(() => {
+    try {
+      const TOP_SELLING_PRODUCTS_URI =
+        "http://localhost:3000/api/products?number=4";
+      const loadProductsData = async () => {
+        try {
+          const data = await axios.get(TOP_SELLING_PRODUCTS_URI);
+          setTopSellingProducts(data.data.products);
+        } catch (error) {
+          console.error("Une erreur s'est produite:", error);
+        }
+      };
+
+      loadProductsData();
+    } catch (error) {
+      console.error("Une erreur s'est produite:", error);
+    }
+  }, []);
+
   return (
     <div className="h-[35%] bg-slate-100 rounded-2xl p-3">
       <div className="flex items-center justify-between h-12 mb-3">
@@ -40,9 +41,15 @@ function TopSellingProducts() {
         </select>
       </div>
       <div className="flex flex-col gap-3">
-        {topSellingProducts.map((product) => (
-          <TopSellingProduct key={product.id} product={product} />
-        ))}
+        {topSellingProducts ? (
+          <>
+            {topSellingProducts.map((product) => (
+              <TopSellingProduct key={product.ID} product={product} />
+            ))}
+          </>
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   );
@@ -52,12 +59,17 @@ export default TopSellingProducts;
 
 function TopSellingProduct({ product }) {
   return (
-    <div className="flex items-center justify-between h-12 ">
+    <div className="flex items-center justify-between h-10 bg-slate-300 rounded-xl px-3">
       <div className="flex items-center gap-3">
         <div className="w-16">
-          <img className="w-8 max-w-full" src={product.image} alt="" />
+          <img
+            className="w-8 max-w-full rounded-lg"
+            src={product.Images}
+            alt=""
+          />
         </div>
         <p>{product.name}</p>
+        {/* <p>{product.price}</p> */}
       </div>
     </div>
   );
