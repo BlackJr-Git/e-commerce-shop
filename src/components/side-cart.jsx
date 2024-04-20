@@ -7,7 +7,7 @@ import { cartPriceSum } from "@/utils";
 import { useToast } from "./ui/use-toast";
 
 function SideCart({ className, handleClick }) {
-  const { productsAddedToCart , orderItems } = useStore();
+  const { productsAddedToCart, orderItems } = useStore();
   // useEffect(() => {
   //   setTotalPrice(cartPriceSum(orderItems));
   // }, [orderItems , totalPrice]);
@@ -77,8 +77,18 @@ function SideCartProduct({ product }) {
   const { toast } = useToast();
 
   function deleteProductFromCart() {
-    updateOrder(orderItems.filter((item) => item.productId !== product.ID));
-    updateCart(productsAddedToCart.filter((item) => item.ID !== product.ID));
+    const newCart = productsAddedToCart.filter(
+      (item) => item.ID !== product.ID
+    );
+    const newOrder = orderItems.filter((item) => item.productId !== product.ID);
+
+    updateOrder(newOrder);
+    updateCart(newCart);
+
+    // console.log(newCart);
+    // console.log(newOrder);
+    sessionStorage.setItem("cart", JSON.stringify(newCart));
+    sessionStorage.setItem("order", JSON.stringify(newOrder));
 
     toast({
       variant: "destructive",

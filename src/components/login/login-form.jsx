@@ -14,17 +14,20 @@ function LoginForm() {
   async function onSubmit(data) {
     console.log(data);
     try {
-        const response = await axios.post("http://localhost:3000/api/auth/signin", data);
-        console.log(response);
-        alert("vous etes connecté avec succes");
-      } catch (error) {
-        console.error("Une erreur s'est produite:", error);
-        alert("Une erreur s'est produite lors de la connexion");
-      }
+      const response = await axios.post(
+        "http://localhost:3000/api/auth/signin",
+        data
+      );
+      console.log(response);
+      alert("vous etes connecté avec succes");
+    } catch (error) {
+      console.error("Une erreur s'est produite:", error);
+      alert("Une erreur s'est produite lors de la connexion");
+    }
   }
 
   return (
-    <div className="md:w-1/2 w-full h-full flex flex-col items-center justify-center gap-12"> 
+    <div className="md:w-1/2 w-full h-full flex flex-col items-center justify-center gap-12">
       <div className="flex flex-col gap-6 h-full">
         <h1 className="text-4xl font-bold text-left w-72">Connexion</h1>
         <div>

@@ -37,12 +37,13 @@ function Layout() {
   useEffect(() => {
     const cart = sessionStorage.getItem('cart');
     const order = sessionStorage.getItem('order');
-    if (cart) {
+    
+    if (cart !== undefined || cart !== null) {
       const parsedData = JSON.parse(cart);
       updateCart(parsedData);
     }
 
-    if (order) {
+    if (order !== undefined || order !== null) {
       const parsedData = JSON.parse(order);
       updateOrder(parsedData);
     }
