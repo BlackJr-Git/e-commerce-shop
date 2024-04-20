@@ -36,9 +36,8 @@ function AvatarPopover() {
       township: "",
       avatar: "",
     };
-    console.log(newUser);
     updateUser(newUser);
-    console.log(currentUser);
+    sessionStorage.removeItem("currentUser");
   }
 
   const links = [

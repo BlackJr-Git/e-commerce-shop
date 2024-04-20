@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useStore } from "@/appStore";
 
 function LoginForm() {
+  const { updateUser } = useStore();
   const {
     register,
     handleSubmit,
@@ -18,7 +20,9 @@ function LoginForm() {
         "http://localhost:3000/api/auth/signin",
         data
       );
-      console.log(response);
+      console.log(response.data);
+      updateUser(response.data);
+      sessionStorage.setItem("currentUser", JSON.stringify(response.data));
       alert("vous etes connecté avec succes");
     } catch (error) {
       console.error("Une erreur s'est produite:", error);

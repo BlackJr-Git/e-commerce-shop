@@ -7,47 +7,34 @@ import { Toaster } from "./ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function Layout() {
-  const { updateUser , updateCart , updateOrder } = useStore();
+  const { updateUser, updateCart, updateOrder } = useStore();
   const [displayCart, setDisplayCart] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    let initialData = "http://localhost:3000/api/users/1";
-    async function fetchData() {
-      try {
-        const response = await fetch(initialData);
+    const currentUser = sessionStorage.getItem("currentUser");
+    if (!currentUser) {
+      return;
+    } 
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        updateUser(data);
-        sessionStorage.setItem("currentUser", JSON.stringify(data)); 
-        return data;
-      } catch (error) {
-        console.error("Erreur lors de la récupération des données:", error);
-        throw error;
-      }
-    }
-
-    fetchData();
+    const parsedData = JSON.parse(currentUser);
+    updateUser(parsedData);
   }, [updateUser]);
 
   useEffect(() => {
-    const cart = sessionStorage.getItem('cart');
-    const order = sessionStorage.getItem('order');
-    
-    if (cart !== undefined || cart !== null) {
+    const cart = sessionStorage.getItem("cart");
+    const order = sessionStorage.getItem("order");
+
+    if (cart) {
       const parsedData = JSON.parse(cart);
       updateCart(parsedData);
     }
 
-    if (order !== undefined || order !== null) {
+    if (order) {
       const parsedData = JSON.parse(order);
       updateOrder(parsedData);
     }
-  }, [updateCart , updateOrder]); 
+  }, [updateCart, updateOrder]);
 
   function toggleCart() {
     setDisplayCart(!displayCart);
