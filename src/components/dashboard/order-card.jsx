@@ -123,9 +123,9 @@ function ActionPopover({ id }) {
   return (
     <Popover>
       <PopoverTrigger>
-        <button className="w-10 bg-slate-100 rounded-xl flex items-center justify-center p-1 h-full">
+        <div className="w-10 bg-slate-100 rounded-xl flex items-center justify-center p-1 h-full">
           <EllipsisHorizontalCircleIcon className="w-8" />
-        </button>
+        </div>
       </PopoverTrigger>
       <PopoverContent>
         <div className="m-3 px-3"> Orders </div>
