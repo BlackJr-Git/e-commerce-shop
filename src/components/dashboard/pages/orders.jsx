@@ -1,0 +1,64 @@
+import { useEffect, useState } from "react";
+import { OrderCard } from "..";
+import { DashboardHeader, Loading } from "../..";
+import { fetchData } from "@/utils/fetch-data";
+
+function Orders() {
+  const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [pages, setPages] = useState(1);
+  const ordersDataURI = `http://localhost:3000/api/orders?number=12&pages=${pages}`;
+
+  useEffect(() => {
+    const loadOrdersData = async () => {
+      setIsLoading(true);
+      try {
+        const data = await fetchData(ordersDataURI);     
+        setOrders(data.orders);
+        console.log(data.orders);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      } finally {
+        // 
+      }
+    };
+
+    loadOrdersData();
+  }, [ordersDataURI]);
+
+  return (
+    <div className="w-full h-full">
+      <DashboardHeader title={"Orders"} />
+      <div className="w-full h-[90%] rounded-xl flex flex-col gap-3">
+        <div className="w-full h-24 bg-blue-200 rounded-xl">
+          <p>Order header</p>
+        </div>
+        <div className="w-full h-[90%] rounded-xl ">
+          <div className="w-full h-[90%] bg-slate-50 rounded-xl p-3 flex flex-col">
+            <header className="flex w-full border-b border-b-slate-300 h-12 mb-6 p-3">
+              <div className="w-[15%]">ID</div>
+              <div className="w-[15%]">Date</div>
+              <div className="w-[15%]">Customer</div>
+              <div className="w-[15%]">Status</div>
+              <div className="w-[15%]">Items</div>
+              <div className="w-[15%]">Total</div>
+              <div className="w-[10%]">Actions</div>
+            </header>
+            {isLoading ? (
+             <Loading />
+            ) : (
+              <div className="flex flex-col gap-3">
+                {orders.map((order) => (
+                  <OrderCard key={order.id} data={order} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Orders;

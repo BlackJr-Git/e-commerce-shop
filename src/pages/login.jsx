@@ -11,7 +11,7 @@ function Login() {
   return (
     <AnimatedPages>
       {currentUser.id ? (
-        <Navigate to="/" replace />
+        <Navigate to="/" replace /> 
       ) : (
         <section className="bg-slate-100">
           <div className="max-w-7xl m-auto p-12">

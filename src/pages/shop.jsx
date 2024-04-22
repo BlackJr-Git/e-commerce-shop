@@ -33,7 +33,7 @@ function Shop() {
   function searchProduct(data) {
     console.log(data.search);
     setProducts(
-      productsData.filter((product) =>
+      products.filter((product) =>
         product.name.toLowerCase().includes(data.search.toLowerCase())
       )
     );

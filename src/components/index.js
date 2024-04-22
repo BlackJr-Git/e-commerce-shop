@@ -51,3 +51,4 @@ export { default as EarningAnalytics } from "./dashboard/earning-analytics";
 export { default as TopSellingProducts } from "./dashboard/top-selling";
 export { default as NumbersCard } from "./dashboard/numbers-card";
 export { default as ProductsDashboard } from "./dashboard/pages/products-dashboard";
+export { default as Orders } from "./dashboard/pages/orders";
