@@ -15,7 +15,6 @@ function Orders() {
       try {
         const data = await fetchData(ordersDataURI);     
         setOrders(data.orders);
-        console.log(data.orders);
         setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch data:", error);
