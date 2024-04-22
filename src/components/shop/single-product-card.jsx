@@ -29,7 +29,6 @@ function SingleProductCard({ product }) {
       ),
     });
   }
- 
 
   function addNumberOfProduct(e) {
     e.preventDefault();
@@ -44,12 +43,16 @@ function SingleProductCard({ product }) {
     }
   }
 
-  const [totalPrice, setTotalPrice] = useState(productData.price); 
+  const [totalPrice, setTotalPrice] = useState(productData.price);
 
   return (
     <div className="md:flex-row flex-col flex justify-center gap-6 py-12 max-w-7xl m-auto">
       <div className=" w-10/12  md:w-4/12 m-auto">
-        <img className="rounded-2xl" src={productData.Images} alt={productData.name} />
+        <img
+          className="rounded-2xl"
+          src={productData.Images}
+          alt={productData.name}
+        />
       </div>
       <div className="w-10/12 md:w-4/12 m-auto">
         <div className="flex items-start flex-col justify-start gap-7 pb-12 border-b border-solid border-slate-700">

@@ -5,6 +5,7 @@ import "./index.css";
 import "../app/globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { DashboardLayout, Layout,ProductsDashboard,Orders } from "./components/index.js";
+import { OrderDetails , OrderList } from "./components/dashboard";
 import {
   Home,
   Shop,
@@ -78,7 +79,16 @@ const router = createBrowserRouter([
         element: <ProductsDashboard />
       },{
         path: "/dashboard/orders",
-        element: <Orders />
+        element: <Orders />,
+        children : [
+          {
+            path: "/dashboard/orders",
+            element: <OrderList />},
+          {
+            path: "/dashboard/orders/:ID",
+            element: <OrderDetails /> 
+          }
+        ]
       }
     ]
   },

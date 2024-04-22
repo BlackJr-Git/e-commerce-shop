@@ -5,7 +5,6 @@ import {
   AnimatedPages,
   Loading,
 } from "../components";
-// import { productsData } from "@/data";
 import { useState, useEffect } from "react";
 import { fetchData } from "@/utils/fetch-data";
 
@@ -74,12 +73,12 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-function PaginationComponent({ setPages,pages }) {
+function PaginationComponent({ setPages, pages }) {
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious onClick={() => setPages(pages -1)} />
+          <PaginationPrevious onClick={() => setPages(pages - 1)} />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink onClick={() => setPages(1)}>1</PaginationLink>
@@ -99,4 +98,4 @@ function PaginationComponent({ setPages,pages }) {
       </PaginationContent>
     </Pagination>
   );
-} 
+}

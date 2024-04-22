@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { OrderCard } from "..";
 import { DashboardHeader, Loading } from "../..";
 import { fetchData } from "@/utils/fetch-data";
+import { AnimatedPages } from "../..";
+import { Outlet } from "react-router-dom";
+
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -34,26 +37,7 @@ function Orders() {
           <p>Order header</p>
         </div>
         <div className="w-full h-[90%] rounded-xl ">
-          <div className="w-full h-[90%] bg-slate-50 rounded-xl p-3 flex flex-col">
-            <header className="flex w-full border-b border-b-slate-300 h-12 mb-6 p-3">
-              <div className="w-[15%]">ID</div>
-              <div className="w-[15%]">Date</div>
-              <div className="w-[15%]">Customer</div>
-              <div className="w-[15%]">Status</div>
-              <div className="w-[15%]">Items</div>
-              <div className="w-[15%]">Total</div>
-              <div className="w-[10%]">Actions</div>
-            </header>
-            {isLoading ? (
-             <Loading />
-            ) : (
-              <div className="flex flex-col gap-3">
-                {orders.map((order) => (
-                  <OrderCard key={order.id} data={order} />
-                ))}
-              </div>
-            )}
-          </div>
+          <Outlet /> 
         </div>
       </div>
     </div>
@@ -61,3 +45,5 @@ function Orders() {
 }
 
 export default Orders;
+
+
