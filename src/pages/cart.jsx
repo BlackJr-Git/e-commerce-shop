@@ -142,7 +142,7 @@ function TotalCart() {
   const { orderItems } = useStore();
 
   return (
-    <div className="max-w-6xl p-7 border border-slate-200 rounded-2xl mx-3">
+    <div className="max-w-6xl p-7 border border-slate-200 rounded-2xl mx-3 pt-24">
       <table className="w-full h-96">
         <thead className="w-full text-2xl font-bold border-b border-slate-200">
           <tr><td colSpan={"2"}>Panier Total</td></tr>

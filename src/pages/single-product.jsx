@@ -37,7 +37,7 @@ function SingleProduct() {
       {isLoading ? (
         <Loading />
       ) : (
-        <main className="">
+        <main className="pt-24">
         <div className="bg-slate-100">
           <SingleProductCard product={product} />
         </div>

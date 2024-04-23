@@ -3,7 +3,7 @@
 function NumbersCard({ bgColor, title, amount, icon }) {
   return (
     <div
-      className={`flex flex-col items-center justify-center p-3 ${bgColor} h-full w-full rounded-2xl`}
+      className={`flex flex-col items-center justify-center p-3 ${bgColor} h-full w-full rounded-2xl drop-shadow-md`}
     >
       <div className="flex items-center h-1/2 w-full gap-3 ">
         {icon}

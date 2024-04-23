@@ -21,7 +21,7 @@ function UserAvatar() {
 export default UserAvatar;
 
 function AvatarPopover() {
-  const { currentUser, updateUser } = useStore();
+  const { currentUser, updateUser, updateOrder, updateCart } = useStore();
   function deconnectCurrentUser(e) {
     e.preventDefault();
     let newUser = {
@@ -37,7 +37,11 @@ function AvatarPopover() {
       avatar: "",
     };
     updateUser(newUser);
+    updateOrder([]);
+    updateCart([]);
     sessionStorage.removeItem("currentUser");
+    sessionStorage.removeItem("cart");
+    sessionStorage.removeItem("order");
   }
 
   const links = [

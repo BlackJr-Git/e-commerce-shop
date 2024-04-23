@@ -16,7 +16,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { NavLink, Link } from "react-router-dom";
 
-const products = [
+const services = [
   {
     name: "Developpement Web",
     description: "Get a better understanding of your traffic",
@@ -58,7 +58,7 @@ export default function Menu({
   // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white px-4">
+    <header className="bg-white px-4 fixed z-50 w-full"> 
       <nav
         className="mx-auto flex max-w-7xl xl:max-w-screen-2xl items-center justify-between py-6  "
         aria-label="Global"
@@ -99,7 +99,7 @@ export default function Menu({
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
-                  {products.map((item) => (
+                  {services.map((item) => (
                     <div
                       key={item.name}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
@@ -208,7 +208,7 @@ export default function Menu({
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
+                        {[...services, ...callsToAction].map((item) => (
                           <Link
                             key={item.name}
                             to={item.link}

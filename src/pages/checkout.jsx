@@ -32,9 +32,6 @@ function Checkout() {
   } = useForm({ defaultValues: currentUser });
 
   const onSubmit = async (data) => {
-    // console.log("data :", data);
-    // console.log(orderItems);
-
     const order = {
       userId: currentUser.id,
       total: cartPriceSum(orderItems),
@@ -49,13 +46,11 @@ function Checkout() {
       console.error("Une erreur s'est produite:", error);
       alert("Une erreur s'est produite lors de l'envoi des données");
     }
-
-    // console.log(order);
   };
 
   return (
     <AnimatedPages>
-      <main className="bg-slate-100">
+      <main className="bg-slate-100 pt-24">
         <div className="max-w-6xl m-auto">
           <h1 className="text-4xl text-center font-bold py-12">
             Confirmation de la commande
@@ -67,7 +62,7 @@ function Checkout() {
               <>
                 <ion-icon name="person"></ion-icon>
                 <p>Déjà client ?</p>{" "}
-                <Link className="font-medium" to={"./"}>
+                <Link className="font-medium text-blue-500" to={"/login"}>
                   Cliquez ici pour vous connecter
                 </Link>
               </>

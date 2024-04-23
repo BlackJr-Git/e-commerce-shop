@@ -5,7 +5,7 @@ import { PageBanner, OurTeam, FollowUs, AnimatedPages } from "@/components";
 function APropos() {
   return (
     <AnimatedPages>
-      <main>
+      <main className="pt-24">
         <PageBanner title={"A Propos"} />
         <AboutSection />
         <OurTeam />

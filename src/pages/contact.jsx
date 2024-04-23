@@ -8,7 +8,7 @@ import {
 function Contact() {
   return (
     <AnimatedPages>
-      <main className="">
+      <main className="pt-24">
         <div className="bg-slate-100">
           <PageBanner
             title={"Contact"}

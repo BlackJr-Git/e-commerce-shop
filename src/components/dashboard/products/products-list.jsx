@@ -30,7 +30,7 @@ function ProductsList({ setProduct }) {
   }, [productsDataURI]);
 
   return (
-    <div className="bg-slate-50 h-[90%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll">
+    <div className="bg-slate-50 h-[78%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll">
       {isLoading ? (
         <Loading />
       ) : (

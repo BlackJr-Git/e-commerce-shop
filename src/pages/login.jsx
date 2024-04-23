@@ -13,7 +13,7 @@ function Login() {
       {currentUser.id ? (
         <Navigate to="/" replace /> 
       ) : (
-        <section className="bg-slate-100">
+        <section className="bg-slate-100 pt-24">
           <div className="max-w-7xl m-auto p-12">
             <div className="bg-slate-50 h-auto rounded-xl flex flex-col md:flex-row p-3 items-center">
               <div className="md:w-1/2 hidden md:block  w-full h-full bg-primary/50 rounded-xl">

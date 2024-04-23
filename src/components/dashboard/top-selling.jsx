@@ -31,7 +31,7 @@ function TopSellingProducts() {
   }, []);
 
   return (
-    <div className="h-[35%] bg-slate-100 rounded-2xl p-3">
+    <div className="h-[35%] bg-slate-50 rounded-2xl p-3 drop-shadow-md">
       <div className="flex items-center justify-between h-12 mb-3">
         <h2 className="font-bold">Top Selling Products</h2>
         <select name="" id="" className="p-1 px-3">
@@ -59,7 +59,7 @@ export default TopSellingProducts;
 
 function TopSellingProduct({ product }) {
   return (
-    <div className="flex items-center justify-between h-10 bg-slate-300 rounded-xl px-3">
+    <div className="flex items-center justify-between h-10 bg-slate-200 rounded-xl px-1">
       <div className="flex items-center gap-3">
         <div className="w-16">
           <img

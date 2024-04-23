@@ -36,18 +36,18 @@ function EarningAnalytics() {
     ],
     datasets: [
       {
-        label: "Total Amount of sales",
-        data: [1200, 1900, 3459, 4207, 2459, 3229, 1250, 1999, 3439, 5235, 4229, 5179], 
-        borderWidth: 1,
-        backgroundColor: [
-          "#00cccb"
+        label: "Total Revenue",
+        data: [
+          1200, 1900, 3459, 4207, 2459, 3229, 1250, 1999, 3439, 5235, 4229,
+          5179,
         ],
-        
-      }
+        borderWidth: 1,
+        backgroundColor: ["#00cccb"],
+      },
     ],
   };
   const options = {
-    responsive : true, 
+    responsive: true,
     scales: {
       y: {
         beginAtZero: true,
@@ -56,7 +56,7 @@ function EarningAnalytics() {
   };
 
   return (
-    <div className="h-[45%] bg-slate-50 rounded-2xl flex items-center justify-center">
+    <div className="h-[53%] bg-slate-50 rounded-2xl flex items-center justify-center drop-shadow-md">
       <Bar data={data} options={options} />
     </div>
   );

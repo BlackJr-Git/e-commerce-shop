@@ -49,7 +49,7 @@ function Home() {
 
   return (
     <AnimatedPages>
-      <main className="relative">
+      <main className="pt-24">
         <HeroBanner />
         <Services />
         <div className="bg-slate-100">
