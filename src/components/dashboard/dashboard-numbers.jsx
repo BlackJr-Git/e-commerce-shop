@@ -8,7 +8,16 @@ import {
 
 function DashboardNumbers() {
   const [totalOrders, setTotalOrders] = useState(0);
-  const [totalSalesAmount, setTotalSalesAmount] = useState(0);
+  const [revenue, setRevenue] = useState(0);
+  const [totalSales, setTotalSales] = useState(0);
+
+  function saleProductCount(orders) {
+    let count = 0;
+    orders.forEach((element) => {
+      count = count + element.orderItems.length;
+    });
+    setTotalSales(count);
+  }
 
   useEffect(() => {
     const fetchTotalSales = async () => {
@@ -16,7 +25,9 @@ function DashboardNumbers() {
         const response = await fetch("http://localhost:3000/api/sales");
         const data = await response.json();
         setTotalOrders(data.totalOrders);
-        setTotalSalesAmount(data.totalSales);
+        setRevenue(data.totalSales);
+        setTotalSales(data.orders.length);
+        saleProductCount(data.orders);
       } catch (error) {
         console.log(error);
       }
@@ -27,14 +38,14 @@ function DashboardNumbers() {
   return (
     <div className="h-[20%] rounded-2xl flex items-center gap-3 justify-between">
       <NumbersCard
-        amount={`$ ${totalSalesAmount}`}
+        amount={`${totalSales}`}
         title={"TOTAL SALES"}
         icon={<ReceiptPercentIcon className="w-8" />}
         bgColor={"bg-green-300"}
       />
       <NumbersCard
-        amount={"$ 4565.56"}
-        title={"TOTAL EARNINGS"}
+        amount={`$ ${revenue}`}
+        title={"REVENUE"}
         icon={<CurrencyDollarIcon className="w-8" />}
         bgColor={"bg-yellow-200"}
       />

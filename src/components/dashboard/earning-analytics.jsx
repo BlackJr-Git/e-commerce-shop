@@ -42,10 +42,12 @@ function EarningAnalytics() {
         backgroundColor: [
           "#00cccb"
         ],
-      },
+        
+      }
     ],
   };
   const options = {
+    responsive : true, 
     scales: {
       y: {
         beginAtZero: true,
