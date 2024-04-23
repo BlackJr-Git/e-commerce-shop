@@ -4,7 +4,7 @@ import { OrderCard } from "..";
 import { Loading } from "@/components";
 
 function OrderList() {
-    const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
   const ordersDataURI = `http://localhost:3000/api/orders?number=12&pages=${pages}`;
@@ -13,13 +13,13 @@ function OrderList() {
     const loadOrdersData = async () => {
       setIsLoading(true);
       try {
-        const data = await fetchData(ordersDataURI);     
+        const data = await fetchData(ordersDataURI);
         setOrders(data.orders);
         setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       } finally {
-        // 
+        //
       }
     };
 
@@ -41,7 +41,7 @@ function OrderList() {
       ) : (
         <div className="flex flex-col gap-3">
           {orders.map((order) => (
-            <OrderCard key={order.id} data={order} />
+            <OrderCard key={order.id} data={order} /> 
           ))}
         </div>
       )}
