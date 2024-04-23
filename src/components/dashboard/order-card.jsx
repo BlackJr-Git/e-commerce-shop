@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "@/utils/fetch-data";
 import { dateFormatter } from "@/utils";
-import axios from "axios";
+import { OrderStatusSelect } from ".";
 import {
   EllipsisHorizontalCircleIcon,
   DocumentMagnifyingGlassIcon,
@@ -11,10 +11,6 @@ import {
 function OrderCard({ data }) {
   const [customer, setCustomer] = useState({});
   const customerBaseURI = `http://localhost:3000/api/users/${data.userId}`;
-  const [selectSate, setSelectState] = useState({
-    status: data.status,
-    color: "",
-  });
 
   useEffect(() => {
     const loadCustomerData = async () => {
@@ -29,47 +25,6 @@ function OrderCard({ data }) {
     loadCustomerData();
   }, [customerBaseURI]);
 
-  useEffect(() => {
-    setSelectState({
-      color:
-        data.status === "livré"
-          ? "text-green-600 bg-green-100"
-          : data.status === "expedié"
-          ? "text-yellow-600 bg-yellow-100"
-          : data.status === "annulé"
-          ? "text-red-600 bg-red-100"
-          : "",
-    });
-  }, [data.status]);
-
-  async function changeOrderStatus(status) {
-    const statusObject = {
-      status: status,
-    };
-
-    setSelectState({
-      color:
-        data.status === "livré"
-          ? "text-green-600 bg-green-100"
-          : data.status === "expedié"
-          ? "text-yellow-600 bg-yellow-100"
-          : data.status === "annulé"
-          ? "text-red-600 bg-red-100"
-          : "",
-    });
-
-    try {
-      const response = await axios.put(
-        `http://localhost:3000/api/orders//update/${data.id}`,
-        statusObject
-      );
-      //   alert("la commande a été mis a jour avec succes");
-    } catch (error) {
-      console.error("Une erreur s'est produite:", error);
-      alert("Une erreur s'est produite lors de l'envoi des données");
-    }
-  }
-
   return (
     <div className="flex w-full bg-slate-100 p-3 rounded-xl">
       <p className="w-[15%]">{data.id}</p>
@@ -79,18 +34,7 @@ function OrderCard({ data }) {
         {customer.firstName} {customer.name}{" "}
       </p>
       <form className="w-[15%]">
-        <select
-          defaultValue={data.status}
-          className={`p-1 rounded-lg ${selectSate.color}`}
-          onChange={(e) => {
-            changeOrderStatus(e.target.value);
-          }}
-        >
-          <option value="en attente">en attente</option>
-          <option value="expedié">expedié</option>
-          <option value="livré">livré</option>
-          <option value="annulé">annulé</option>
-        </select>
+        <OrderStatusSelect data={data} />
       </form>
       <p className="w-[15%]">{data.orderItems.length} Items</p>
       <p className="w-[15%]">$ {data.total}</p>
@@ -112,7 +56,7 @@ import {
 import { Link } from "react-router-dom";
 
 function ActionPopover({ id }) {
-  const notifications = [
+  const actions = [
     {
       name: "Details",
       href: `${id}`,
@@ -129,7 +73,7 @@ function ActionPopover({ id }) {
       </PopoverTrigger>
       <PopoverContent>
         <div className="m-3 px-3"> Orders </div>
-        {notifications.map((item) => (
+        {actions.map((item) => (
           <div
             key={item.name}
             className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"

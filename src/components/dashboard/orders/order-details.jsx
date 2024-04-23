@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "@/components";
 import { dateFormatter, cartPriceSum } from "@/utils";
+import { CustommerDetails, OrderStatusSelect } from "..";
 
 function OrderDetails() {
   const [order, setOrder] = useState([]);
@@ -21,12 +22,11 @@ function OrderDetails() {
         setOrder(data);
         setCustomer(data.user);
         setOrderItems(data.orderItems);
-        console.log(data.orderItems);
         setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       } finally {
-        //
+        setIsLoading(false);
       }
     };
 
@@ -40,7 +40,7 @@ function OrderDetails() {
         <div className="h-[65vh] w-full flex gap-3">
           <div className="w-1/2 h-full bg-slate-100 rounded-xl p-3">
             <h2 className="mb-6 text-xl font-semibold">Order Details</h2>
-            <div className="border-y-2 border-slate-400 py-6 flex justify-between">
+            <div className="border-y border-slate-200 py-6 flex justify-between">
               <div>
                 <p>
                   Order ID : <span className="font-semibold">{order.id}</span>
@@ -48,10 +48,16 @@ function OrderDetails() {
                 <p>Order Date : {dateFormatter(order.createdAt)}</p>
               </div>
               <div>
-                <p> Status : <span className="font-semibold">{order.status}</span> </p>
+                <p>
+                  {" "}
+                  Status :{" "}
+                  <span className="font-semibold">
+                    <OrderStatusSelect data={order} />
+                  </span>{" "}
+                </p>
               </div>
             </div>
-            <div className="border-b-2 border-slate-400 py-6">
+            <div className="border-b border-slate-200 py-6">
               <p className="mb-3">Products</p>
               <div className="flex flex-col gap-3 overflow-y-scroll max-h-[22vh]">
                 {orderItems.map((orderItem) => (
@@ -86,7 +92,7 @@ function OrderDetails() {
                 ))}
               </div>
             </div>
-            <div className="py-6 border-b-2 border-slate-400">
+            <div className="py-6 border-b border-slate-200">
               <p className="flex items-center justify-between w-full my-3">
                 Subtotal :{" "}
                 <span className=" font-semibold">
@@ -94,7 +100,7 @@ function OrderDetails() {
                 </span>
               </p>
               <p className="flex items-center justify-between w-full">
-                shipment cost :{" "}
+                Shipment cost :{" "}
                 <span className="text-green-500 font-semibold">{"Free"}</span>{" "}
               </p>
             </div>
@@ -108,9 +114,7 @@ function OrderDetails() {
             </div>
           </div>
 
-          <div className="w-1/2 h-full bg-slate-100 rounded-xl p-3">
-            <h2 className=" mb-6 text-xl font-semibold">Customer Details</h2>
-          </div>
+          <CustommerDetails customer={customer} />
         </div>
       )}
     </AnimatedPages>

@@ -7,5 +7,7 @@ export { default as AddProduct } from "./products/add-product";
 export { default as AddProductForm } from "./products/add-product-form";
 export { default as OrderCard } from "./order-card";
 export { default as OrderDetails } from "./orders/order-details";
-export {default as OrderList } from "./orders/order-list";
+export { default as OrderList } from "./orders/order-list";
+export { default as CustommerDetails } from "./orders/customer-details";
+export { default as OrderStatusSelect } from "./orders/order-statut-select";
 // export { default as Orders } from "./pages/orders";
