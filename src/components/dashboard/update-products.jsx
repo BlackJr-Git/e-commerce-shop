@@ -2,9 +2,11 @@
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { PopUp } from "..";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import postData from "@/utils/post-data";
 import deleteData from "@/utils/delete-product";
+import { fetchData } from "@/utils/fetch-data";
+import { useEffect, useState } from "react";
 
 function UpdateProducts({ productsData }) {
   const {
@@ -20,14 +22,14 @@ function UpdateProducts({ productsData }) {
     e.preventDefault();
     formData.price = parseInt(formData.price);
     postData(formData, postUrl);
-    console.log(formData);
+    location.reload();
     // reset({ tweetInput: "" });
   };
 
   const deleteProduct = () => {
     console.log(deleteUrl);
     deleteData(deleteUrl);
-    // location.reload()
+    location.reload();
   };
 
   return (
@@ -41,6 +43,7 @@ function UpdateProducts({ productsData }) {
           type="text"
           className="bg-slate-100"
           defaultValue={productsData.name}
+          // value={productsData.name}
           {...register("name", {
             required: "le nom du produit doit etre vide",
             maxLength: 180,
@@ -55,8 +58,9 @@ function UpdateProducts({ productsData }) {
           Price
         </label>
         <Input
-          className="bg-slate-100"
+          className="bg-slate-100" 
           defaultValue={productsData.price}
+          // value={productsData.price}
           {...register("price", {
             required: "le prix de votre produit ne peut pas etre vide",
             maxLength: 180,

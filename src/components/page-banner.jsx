@@ -5,7 +5,7 @@ function PageBanner({ title, description }) {
   return (
     <section className=" bg-slate-100 py-12 -z-10">
       <div
-        className={`max-w-7xl m-auto xl:max-w-screen-2xl  rounded-2xl flex items-center justify-center md:h-[80vh] h-[60vh] bg-[url(${NawtechService})] bg-center bg-cover  -z-50 page-banner`}
+        className={`max-w-7xl m-auto xl:max-w-screen-2xl  rounded-2xl flex items-center justify-center md:h-[60vh] h-[60vh] bg-[url(${NawtechService})] bg-center bg-cover  -z-50 page-banner`}
       >
         <div className="w-full h-full bg-black  rounded-2xl bg-opacity-60 flex items-center justify-center flex-col gap-6 ">
           <h1 className="text-5xl font-bold text-slate-50 z-10 "> {title} </h1>

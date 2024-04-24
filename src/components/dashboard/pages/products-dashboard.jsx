@@ -4,9 +4,27 @@ import { useState } from "react";
 // import { Input } from "@/components/ui/input";
 import { Input } from "@/components/ui/input";
 // import ImageUpload from "@/utils/image-upload";
+import { useEffect } from "react";
+import { fetchData } from "@/utils/fetch-data";
+
 
 function ProductsDashboard() {
-  const [productData, setProducts] = useState({});
+  const [productData, setProducts] = useState({}); 
+  // const [firstProduct, setFirstProduct] = useState({});
+
+  const firstProductsUrl = `http://localhost:3000/api/products?number=1`;
+
+  useEffect(() => {
+    const loadProductsData = async () => {
+      try {
+        const data = await fetchData(firstProductsUrl);
+        setProducts(data.products[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    loadProductsData();
+  }, [firstProductsUrl]);
 
   return (
     <div className="h-full w-full ">
@@ -19,7 +37,7 @@ function ProductsDashboard() {
         <ProductsList setProduct={setProducts} />
         <div className="h-[78%] w-[30%] bg-slate-50 rounded-2xl p-3 flex flex-col gap-3">
           <div className="w-full bg-red-500 rounded-xl">
-            <img className="rounded-xl" src={productData.Images} alt="" />
+            <img className="rounded-xl" src={productData.Images} alt="" /> 
           </div>
           <UpdateProducts productsData={productData} />
         </div>

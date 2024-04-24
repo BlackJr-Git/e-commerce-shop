@@ -32,20 +32,18 @@ function LatestOrders() {
         <Loading />
       ) : (
         <>
-          {orders
-            .map((order) => (
-              <Link to={`/dashboard/orders/${order.id}`} key={order.id}>
-                <div className="bg-slate-100 w-full h-12 rounded-xl p-3 flex items-center justify-between  drop-shadow-md">
-                  <div>
-                    <p>
-                      {order.user.name} {order.user.firstName}
-                    </p>
-                  </div>
-                  <p className="font-semibold">$ {order.total}</p>
+          {orders.map((order) => (
+            <Link to={`/dashboard/orders/${order.id}`} key={order.id}>
+              <div className="bg-slate-100 w-full h-12 rounded-xl p-3 flex items-center justify-between  drop-shadow-md">
+                <div>
+                  <p>
+                    {order.user.name} {order.user.firstName}
+                  </p>
                 </div>
-              </Link>
-            ))
-            .reverse()}
+                <p className="font-semibold">$ {order.total}</p>
+              </div>
+            </Link>
+          ))}
         </>
       )}
     </div>

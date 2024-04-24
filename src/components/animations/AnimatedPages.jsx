@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
-// import { children } from "react";
 
 const animations = {
   initial: { opacity: 0, x: 100 },
@@ -15,7 +14,7 @@ function AnimatedPages({ children }) {
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{duration:1}}
+      transition={{duration:.5}}
     >
       {children}
     </motion.div>
