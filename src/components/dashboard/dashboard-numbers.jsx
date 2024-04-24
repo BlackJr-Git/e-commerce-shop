@@ -13,8 +13,13 @@ function DashboardNumbers() {
 
   function saleProductCount(orders) {
     let count = 0;
+    let orderItems = [];
     orders.forEach((element) => {
-      count = count + element.orderItems.length;
+      orderItems = orderItems.concat(element.orderItems);
+    });
+
+    orderItems.forEach((element) => {
+      count = count + element.quantity;
     });
     setTotalSales(count);
   }

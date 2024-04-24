@@ -2,8 +2,11 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import axios from "axios";
+import { useStore } from "@/appStore";
+import { Navigate } from "react-router-dom";
 
 function SignUpForm() {
+  const { currentUser } = useStore();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -52,20 +55,30 @@ function SignUpForm() {
     }
   }
   return (
-    <div className="w-1/2 flex flex-col items-center justify-center gap-6">
-      <div className="header">
-        <h1>{FormTitles[page]}</h1>
-      </div>
-      <div>{stepDisplay()}</div>
-      <div className="flex gap-3 justify-between w-80">
-        <Button className="w-36" onClick={() => page > 0 && setPage(page - 1)}>
-          Prev
-        </Button>
-        <Button className="w-36" onClick={onSubmit}>
-          {page === FormTitles.length - 1 ? "Submit" : "Next"}
-        </Button>
-      </div>
-    </div>
+    <>
+      {currentUser.id ? (
+        <Navigate to="/" replace />
+      ) : (
+        <div className="w-full h-full flex flex-col items-center justify-center gap-6">
+          <div className="header">
+            <h1>{FormTitles[page]}</h1>
+          </div>
+
+          <div>{stepDisplay()}</div>
+          <div className="flex gap-3 justify-between w-96">
+            <Button
+              className="w-40"
+              onClick={() => page > 0 && setPage(page - 1)}
+            >
+              Prev
+            </Button>
+            <Button className="w-40" onClick={onSubmit}>
+              {page === FormTitles.length - 1 ? "Submit" : "Next"}
+            </Button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

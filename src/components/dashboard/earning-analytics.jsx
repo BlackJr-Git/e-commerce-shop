@@ -48,6 +48,11 @@ function EarningAnalytics() {
   };
   const options = {
     responsive: true,
+    animation: {
+      duration: 1000, // durée de l'animation en millisecondes
+      easing: 'easeOutBounce', // type d'effet d'animation
+      onComplete: () => console.log('Animation completed!') // callback à la fin de l'animation
+    },
     scales: {
       y: {
         beginAtZero: true,

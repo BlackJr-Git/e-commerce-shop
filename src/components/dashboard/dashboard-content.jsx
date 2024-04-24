@@ -1,5 +1,4 @@
 import { DashboardNumbers, EarningAnalytics, TopSellingProducts } from "..";
-import { OrderList } from ".";
 import { LatestOrders } from ".";
 
 function DashboardContent() {
