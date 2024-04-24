@@ -18,6 +18,7 @@ import {
   APropos,
   Contact,
   Dashboard,
+  SignUp,
 } from "./pages/index.js"; 
 
 const router = createBrowserRouter([
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
       {
         path: "*",

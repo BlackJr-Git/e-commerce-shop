@@ -26,7 +26,7 @@ function HeaderIcons({ handleClick }) {
           {productsAddedToCart.length}{" "}
         </div>
       </div>
-      {currentUser.name ? <UserAvatar /> : <Icon iconName={"person-outline"} />}
+      {currentUser.name ? <UserAvatar /> : <Icon iconName={"person-outline"} />} 
     </div>
   );
 }
@@ -41,3 +41,4 @@ function MenuSearchBar() {
     </div>
   )
 }
+
