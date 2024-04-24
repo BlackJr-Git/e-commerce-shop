@@ -38,6 +38,7 @@ export { default as ContactInfoCard } from "./contact/contact-info-card";
 export { default as Loading } from "./animations/loading";
 export { default as PopUp } from "./alert-dialog";
 export { default as LoginForm } from "./login/login-form";
+export { default as LoginPopover } from "./header/login-popover";
 
 // DASHBOARD
 

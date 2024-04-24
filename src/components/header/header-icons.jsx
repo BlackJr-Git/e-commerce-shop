@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import { Icon } from "../";
 import { useStore } from "@/appStore";
-import { UserAvatar } from "../";
+import { UserAvatar, LoginPopover } from "../";
 import { useState } from "react";
 
 function HeaderIcons({ handleClick }) {
   const { currentUser, productsAddedToCart } = useStore();
-  const [isActive , setIsActive ] = useState(false)
+  const [isActive, setIsActive] = useState(false);
   function toggleSearchBar() {
-    setIsActive(!isActive)
+    setIsActive(!isActive);
   }
   return (
     <div className="flex w-40 items-center justify-between">
@@ -26,7 +26,7 @@ function HeaderIcons({ handleClick }) {
           {productsAddedToCart.length}{" "}
         </div>
       </div>
-      {currentUser.name ? <UserAvatar /> : <Icon iconName={"person-outline"} />} 
+      {currentUser.name ? <UserAvatar /> : <LoginPopover />}
     </div>
   );
 }
@@ -35,10 +35,9 @@ export default HeaderIcons;
 
 // DROPDOWN MENU
 function MenuSearchBar() {
-  return(
+  return (
     <div className="absolute rounded-2xl flex items-center justify-center border border-slate-200 -right-3">
-      <input type="search" className="rounded-2xl bg-transparent px-2"/>
+      <input type="search" className="rounded-2xl bg-transparent px-2" />
     </div>
-  )
+  );
 }
-
