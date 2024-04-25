@@ -49,6 +49,8 @@ function SignUpForm() {
           console.error("Une erreur s'est produite:", error);
           alert("Une erreur s'est produite lors de l'envoi des données");
         }
+      } else if (page === FormTitles.length - 2) {
+        setPage((currPage) => currPage + 1);
       } else {
         setPage((currPage) => currPage + 1);
       }

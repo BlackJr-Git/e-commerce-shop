@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedPages } from "@/components";
 import { cartPriceSum } from "@/utils";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 function Checkout() {
   const { currentUser, productsAddedToCart, orderItems } = useStore();
@@ -39,7 +40,10 @@ function Checkout() {
     };
 
     try {
-      const response = await axios.post("http://localhost:3000/api/orders/add", order);
+      const response = await axios.post(
+        "http://localhost:3000/api/orders/add",
+        order
+      );
       console.log(response);
       alert("la commande a été faite avec succes");
     } catch (error) {
@@ -50,47 +54,34 @@ function Checkout() {
 
   return (
     <AnimatedPages>
-      <main className="bg-slate-100 pt-24">
-        <div className="max-w-6xl m-auto">
-          <h1 className="text-4xl text-center font-bold py-12">
-            Confirmation de la commande
-          </h1>
-          <div className="flex items-center gap-3 p-6 border-t-4 border-slate-600">
-            {currentUser.name ? (
-              <></>
+      {currentUser.id ? (
+        <main className="bg-slate-100 pt-24">
+          <div className="max-w-6xl m-auto">
+            <h1 className="text-4xl text-center font-bold py-12">
+              Confirmation de la commande
+            </h1>
+
+            {productsAddedToCart[0] ? (
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col md:flex-row gap-6 items-start justify-start m-auto"
+              >
+                <div className="md:w-3/5 px-6 w-full ">
+                  <h2 className="text-xl font-bold py-6">
+                    Details de facturation
+                  </h2>
+                  <CheckoutUserInfo />
+                </div>
+                <CheckoutDetails registerFunction={register}></CheckoutDetails>
+              </form>
             ) : (
-              <>
-                <ion-icon name="person"></ion-icon>
-                <p>Déjà client ?</p>{" "}
-                <Link className="font-medium text-blue-500" to={"/login"}>
-                  Cliquez ici pour vous connecter
-                </Link>
-              </>
+              <EmptyCartMessage></EmptyCartMessage>
             )}
           </div>
-
-          {productsAddedToCart[0] ? (
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col md:flex-row gap-6 items-start justify-start m-auto"
-            >
-              <div className="md:w-3/5 px-6 w-full ">
-                <h2 className="text-xl font-bold py-6">
-                  Details de facturation
-                </h2>
-                {currentUser.name ? (
-                  <CheckoutUserInfo />
-                ) : (
-                  <CheckoutForm registerFunction={register}></CheckoutForm>
-                )}
-              </div>
-              <CheckoutDetails registerFunction={register}></CheckoutDetails>
-            </form>
-          ) : (
-            <EmptyCartMessage></EmptyCartMessage>
-          )}
-        </div>
-      </main>
+        </main>
+      ) : (
+        <Navigate to="/login" replace />
+      )}
     </AnimatedPages>
   );
 }
