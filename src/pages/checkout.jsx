@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { CheckoutForm, CheckoutDetails } from "@/components";
+import { CheckoutDetails } from "@/components";
 import { useStore } from "@/appStore";
 import { Button } from "@/components/ui/button";
 import { AnimatedPages } from "@/components";
