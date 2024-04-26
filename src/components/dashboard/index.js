@@ -11,4 +11,5 @@ export { default as OrderList } from "./orders/order-list";
 export { default as CustommerDetails } from "./orders/customer-details";
 export { default as OrderStatusSelect } from "./orders/order-statut-select";
 export { default as LatestOrders } from "./orders/latest-orders";
+export { default as UploadImage } from "./products/upload-image";
 // export { default as Orders } from "./pages/orders";

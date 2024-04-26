@@ -1,24 +1,17 @@
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import { UploadImage } from "..";
 
-function AddProductForm({ registerFunction }) {
+function AddProductForm({ registerFunction, setImageUrl, imageUrl }) {
   return (
     <div className="flex flex-col gap-3 w-full">
       <div>
         <label htmlFor="Images">Images</label>
-        <Input
-          type="file"
-          className="bg-slate-100"
-          {...registerFunction("Images", {
-            required: "le prix de votre produit ne peut pas etre vide",
-            maxLength: 180,
-            minLenght: 1,
-            pattern: {
-              value: /\S/,
-              message: "Ajouter un un prix a votre produit",
-            },
-          })}
-        />
+        <div className="flex gap-3">
+          {/* <label htmlFor="Images">Images</label> */}
+          <UploadImage setImageUrl={setImageUrl} />
+          <img className="w-40 rounded-xl" src={imageUrl} alt="" />
+        </div>
       </div>
 
       <div>
@@ -99,11 +92,11 @@ function AddProductForm({ registerFunction }) {
 
       <div className="flex gap-3">
         <div>
-          <label htmlFor="weight">weight</label>
+          <label htmlFor="weigth">weight</label>
           <Input
             type="text"
             className="bg-slate-100"
-            {...registerFunction("weight", {
+            {...registerFunction("weigth", {
               maxLength: 180,
               minLenght: 1,
               pattern: {
@@ -147,11 +140,11 @@ function AddProductForm({ registerFunction }) {
         </div>
 
         <div>
-          <label htmlFor="width">lenght</label>
+          <label htmlFor="length">lenght</label>
           <Input
             type="text"
             className="bg-slate-100"
-            {...registerFunction("width", {
+            {...registerFunction("length", {
               maxLength: 180,
               minLenght: 1,
               pattern: {
