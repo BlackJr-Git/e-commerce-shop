@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { useStore } from "@/appStore";
 import { Loading } from "..";
 import { dateFormatter } from "@/utils";
-import {
-    ArrowDownOnSquareIcon
-  } from "@heroicons/react/24/outline";
+import { ArrowDownOnSquareIcon } from "@heroicons/react/24/outline";
 
 function UserOrderHistory() {
   const [orders, setOrders] = useState([]);
@@ -15,7 +13,7 @@ function UserOrderHistory() {
     const loadOrdersData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/orders/user/${currentUser.id}`
+          `http://localhost:3000/api/orders/user/${currentUser.id}?number=6`
         );
         const data = await response.json();
         setIsLoading(false);
@@ -45,7 +43,23 @@ function UserOrderHistory() {
               <div className="flex w-full bg-slate-100 p-3 rounded-xl items-center">
                 <p className="w-[18%]">{order.id}</p>
                 <p className="w-[18%]"> {dateFormatter(order.createdAt)}</p>
-                <div className="w-[18%]">{order.status}</div>
+                <div
+                  className={`w-[18%] rounded-xl flex items-center`}
+                >
+                  <span
+                    className={`rounded-xl py-1 px-2 w-20 ${
+                      order.status === "livré"
+                        ? "bg-green-200 text-green-600"
+                        : order.status === "expedié"
+                        ? "bg-yellow-200 text-yellow-600"
+                        : order.status === "en attente" 
+                        ? "bg-slate-200 text-slate-600 text-xs"
+                        : "bg-red-200 text-red-600"
+                    }`}
+                  >
+                    {order.status}
+                  </span>
+                </div>
                 <p className="w-[18%]">{order.orderItems.length} Items</p>
                 <p className="w-[18%]">$ {order.total}</p>
                 <button className="w-[10%] flex items-center justify-center">
@@ -60,4 +74,4 @@ function UserOrderHistory() {
   );
 }
 
-export default UserOrderHistory; 
+export default UserOrderHistory;
