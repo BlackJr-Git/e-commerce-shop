@@ -13,7 +13,7 @@ function Cart() {
   return (
     <AnimatedPages>
       <main className="bg-slate-100">
-        <h1 className="text-4xl text-center font-bold py-12">Panier</h1>
+        <h1 className="text-4xl text-center font-bold pt-32 ">Panier</h1>
 
         <div className="max-w-7xl m-auto md:flex justify-center gap-6 py-12 ">
           {productsAddedToCart[0] ? <CartTable /> : <EmptyCartMessage />}
@@ -180,7 +180,7 @@ function TotalCart() {
 
 function EmptyCartMessage() {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 pb-24">
+    <div className="flex flex-col items-center justify-center gap-6 pb-24 h-[45vh] pt-32">
       <p className="text-2xl">Votre panier est vide</p>
       <Button className="max-w-96">
         {" "}

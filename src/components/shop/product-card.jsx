@@ -17,6 +17,7 @@ function Pcard({ productData }) {
   const { productsAddedToCart, updateCart, orderItems, updateOrder } =
     useStore();
   const { toast } = useToast();
+  
   function addToCart() {
     if (!productsAddedToCart.includes(productData)) {
       const newCart = [...productsAddedToCart, productData];

@@ -7,18 +7,41 @@ import { ToastAction } from "../ui/toast";
 import { Link } from "react-router-dom";
 
 function SingleProductCard({ product }) {
-  const { productsAddedToCart, updateCart } = useStore();
+  const { productsAddedToCart, updateCart , orderItems, updateOrder } = useStore();
   const { toast } = useToast();
   const [productData, setProductData] = useState(product);
-  const [numberOfProduct, setNumberOfProduct] = useState(1);
+  // const [numberOfProduct, setNumberOfProduct] = useState(1);
+  const quantity =
+    orderItems.find((item) => item.productId === product.ID)?.quantity || 1;
+  const [subTotal, setSubTotal] = useState(product.price * quantity);
 
   useEffect(() => {
     setProductData(product);
   }, [product]);
 
   function addToCart() {
-    const newCart = [...productsAddedToCart, productData];
-    updateCart(newCart);
+    if (!productsAddedToCart.includes(productData)) {
+      const newCart = [...productsAddedToCart, productData];
+      updateCart(newCart);
+      const orderItem = {
+        productId: productData.ID,
+        price: productData.price,
+        quantity: 1,
+      };
+      const newOrder = [...orderItems, orderItem];
+      updateOrder(newOrder);
+
+      sessionStorage.setItem("cart", JSON.stringify(newCart));
+      sessionStorage.setItem("order", JSON.stringify(newOrder));
+    } else {
+      const newOrder = orderItems.find(
+        (item) => item.productId === productData.ID
+      );
+      newOrder.quantity = newOrder.quantity + 1;
+
+      sessionStorage.setItem("order", JSON.stringify(orderItems));
+    }
+
     toast({
       title: "Produit ajouté au panier avec succes",
       description: productData.name,
@@ -30,16 +53,16 @@ function SingleProductCard({ product }) {
     });
   }
 
-  function addNumberOfProduct(e) {
-    e.preventDefault();
-    setNumberOfProduct(numberOfProduct + 1);
-    setTotalPrice(totalPrice + productData.price);
+  function addQuantity() {
+    const newOrder = orderItems.find((item) => item.productId === product.ID);
+    newOrder.quantity++;
+    setSubTotal(newOrder.price * newOrder.quantity);
   }
-  function removeNumberOfProduct(e) {
-    if (numberOfProduct !== 1) {
-      e.preventDefault();
-      setNumberOfProduct(numberOfProduct - 1);
-      setTotalPrice(totalPrice - productData.price);
+  function removeNumberOfProduct() {
+    if (quantity > 1) {
+      const newOrder = orderItems.find((item) => item.productId === product.ID);
+      newOrder.quantity--;
+      setSubTotal(newOrder.price * newOrder.quantity);
     }
   }
 
@@ -71,10 +94,10 @@ function SingleProductCard({ product }) {
             >
               -
             </button>
-            <p className="bg-white px-4"> {numberOfProduct} </p>
+            <p className="bg-white px-4"> {quantity} </p>
             <button
               className="bg-slate-200 border-l border-solid border-slate-700 px-3"
-              onClick={addNumberOfProduct}
+              onClick={addQuantity}
             >
               +
             </button>

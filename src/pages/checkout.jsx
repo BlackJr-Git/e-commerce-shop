@@ -11,7 +11,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 function Checkout() {
-  const { currentUser, productsAddedToCart, orderItems } = useStore();
+  const { currentUser, productsAddedToCart, orderItems, updateCart , updateOrder } = useStore();
   // eslint-disable-next-line no-unused-vars
   const [formData, setFormData] = useState({
     name: "",
@@ -45,6 +45,10 @@ function Checkout() {
         order
       );
       console.log(response);
+      updateCart([]);
+      updateOrder([]);
+      sessionStorage.setItem("cart", JSON.stringify([]));
+      sessionStorage.setItem("order", JSON.stringify([]));
       alert("la commande a été faite avec succes");
     } catch (error) {
       console.error("Une erreur s'est produite:", error);
