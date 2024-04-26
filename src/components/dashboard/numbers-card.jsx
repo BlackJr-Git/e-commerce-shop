@@ -10,7 +10,7 @@ function NumbersCard({ bgColor, title, amount, icon }) {
         <p>{title}</p>
       </div>
       <div className="flex flex-col  justify-center h-1/2 w-full">
-        <p className="text-3xl font-bold">{amount}</p>
+        <p className="text-3xl font-bold ml-1">{amount}</p>
       </div>
     </div>
   );

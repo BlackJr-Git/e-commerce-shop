@@ -47,13 +47,11 @@ function AvatarPopover() {
   const links = [
     {
       name: "Paramètres",
-      // description: "Speak directly to your customers",
-      href: "#",
+      href: "/settings",
       icon: CogIcon,
     },
     {
       name: "Déconnexion",
-      // description: "Your customers’ data will be safe and secure",
       href: "#",
       icon: ArrowRightStartOnRectangleIcon,
       handleClick: deconnectCurrentUser,
@@ -93,6 +91,7 @@ function AvatarPopover() {
             <div className="flex-auto" onClick={item.handleClick}>
               <Link
                 href={item.href}
+                to={item.href}
                 className="block font-semibold text-gray-900"
               >
                 {item.name}

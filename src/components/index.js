@@ -39,7 +39,10 @@ export { default as Loading } from "./animations/loading";
 export { default as PopUp } from "./alert-dialog";
 export { default as LoginForm } from "./login/login-form";
 export { default as LoginPopover } from "./header/login-popover";
-export { default as SignUpForm } from "./signup/signup-form"
+export { default as SignUpForm } from "./signup/signup-form";
+export { default as UserDetails } from "./user-settings/customer-details";
+export { default as UserOrders } from "./user-settings/user-orders";
+export { default as OrderHistoryList } from "./user-settings/order-history-list";
 
 // DASHBOARD
 

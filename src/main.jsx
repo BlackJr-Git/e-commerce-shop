@@ -19,6 +19,7 @@ import {
   Contact,
   Dashboard,
   SignUp,
+  UserSettings,
 } from "./pages/index.js"; 
 
 const router = createBrowserRouter([
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/settings",
+        element: <UserSettings />,
       },
       {
         path: "*",

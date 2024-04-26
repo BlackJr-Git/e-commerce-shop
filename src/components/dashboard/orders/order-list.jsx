@@ -7,7 +7,7 @@ function OrderList() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
-  const ordersDataURI = `http://localhost:3000/api/orders?number=12&pages=${pages}`;
+  const ordersDataURI = `http://localhost:3000/api/orders?number=8&pages=${pages}`; 
 
   useEffect(() => {
     const loadOrdersData = async () => {
