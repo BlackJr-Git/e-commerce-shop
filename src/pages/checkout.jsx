@@ -11,8 +11,14 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 function Checkout() {
-  const { currentUser, productsAddedToCart, orderItems, updateCart , updateOrder } = useStore();
-  // eslint-disable-next-line no-unused-vars
+  const {
+    currentUser,
+    productsAddedToCart,
+    orderItems,
+    updateCart,
+    updateOrder,
+  } = useStore();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     firstName: "",
@@ -44,11 +50,16 @@ function Checkout() {
         "http://localhost:3000/api/orders/add",
         order
       );
-      console.log(response);
-      updateCart([]);
-      updateOrder([]);
-      sessionStorage.setItem("cart", JSON.stringify([]));
-      sessionStorage.setItem("order", JSON.stringify([]));
+
+      if (response.status === 201) {
+        updateCart([]);
+        updateOrder([]);
+        sessionStorage.setItem("cart", JSON.stringify([]));
+        sessionStorage.setItem("order", JSON.stringify([]));
+        setIsSubmitted(true);
+      }
+
+      // Navigate("/order/");
       alert("la commande a été faite avec succes");
     } catch (error) {
       console.error("Une erreur s'est produite:", error);
@@ -56,36 +67,40 @@ function Checkout() {
     }
   };
 
+  if (isSubmitted) {
+    return <Navigate to="/checkout-sucess" />;
+  }
+
+  if (!currentUser.id) {
+    return <Navigate to="/login" replace />;
+  }
+
   return (
     <AnimatedPages>
-      {currentUser.id ? (
-        <main className="bg-slate-100 pt-24">
-          <div className="max-w-6xl m-auto">
-            <h1 className="text-4xl text-center font-bold py-12">
-              Confirmation de la commande
-            </h1>
+      <main className="bg-slate-100 pt-24">
+        <div className="max-w-6xl m-auto">
+          <h1 className="text-4xl text-center font-bold py-12">
+            Confirmation de la commande
+          </h1>
 
-            {productsAddedToCart[0] ? (
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col md:flex-row gap-6 items-start justify-start m-auto"
-              >
-                <div className="md:w-3/5 px-6 w-full ">
-                  <h2 className="text-xl font-bold py-6">
-                    Details de facturation
-                  </h2>
-                  <CheckoutUserInfo />
-                </div>
-                <CheckoutDetails registerFunction={register}></CheckoutDetails>
-              </form>
-            ) : (
-              <EmptyCartMessage></EmptyCartMessage>
-            )}
-          </div>
-        </main>
-      ) : (
-        <Navigate to="/login" replace />
-      )}
+          {productsAddedToCart[0] ? (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col md:flex-row gap-6 items-start justify-start m-auto"
+            >
+              <div className="md:w-3/5 px-6 w-full ">
+                <h2 className="text-xl font-bold py-6">
+                  Details de facturation
+                </h2>
+                <CheckoutUserInfo />
+              </div>
+              <CheckoutDetails registerFunction={register}></CheckoutDetails>
+            </form>
+          ) : (
+            <EmptyCartMessage></EmptyCartMessage>
+          )}
+        </div>
+      </main>
     </AnimatedPages>
   );
 }
@@ -136,7 +151,7 @@ function CheckoutUserInfo() {
 
 function EmptyCartMessage() {
   return (
-    <div className="flex items-center justify-center gap-6 pb-24">
+    <div className="flex items-center justify-center gap-6 pb-24 h-[45vh]">
       <p className="text-2xl">Votre panier est vide</p>
       <Button className="max-w-96">
         {" "}

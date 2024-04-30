@@ -11,3 +11,4 @@ export { default as Contact } from "./contact";
 export { default as Dashboard } from "./dashboard";
 export { default as SignUp } from "./signup";
 export { default as UserSettings } from "./user-settings";
+export { default as SucessOrder } from "./sucess-order";

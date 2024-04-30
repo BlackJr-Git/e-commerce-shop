@@ -26,6 +26,7 @@ import {
   Dashboard,
   SignUp,
   UserSettings,
+  SucessOrder
 } from "./pages/index.js";
 
 const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
+        path: "/checkout-sucess",
+        element: <SucessOrder />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -85,7 +90,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute />,  // Utilisez PrivateRoute ici
+    element: <PrivateRoute />,
     children: [
       {
         path: "/dashboard",

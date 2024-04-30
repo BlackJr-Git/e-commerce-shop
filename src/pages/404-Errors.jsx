@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Errors404() {
   return (
     <AnimatedPages>
-    <div className="m-auto max-w-7xl p-6 pt-24">
+    <div className="m-auto max-w-7xl p-6 pt-24 h-[65vh]">
       <h1 className="text-2xl font-bold text-center p-6"> Erreur 404 - Page Non Trouvée </h1>
       <p className="px-12 py-6">
         Nous sommes désolés, mais la page que vous recherchez semble
