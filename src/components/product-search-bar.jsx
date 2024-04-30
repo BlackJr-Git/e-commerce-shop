@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 // import { productsData } from "@/data";
 
 function ProductSearchBar({searchProduct}) {
@@ -17,21 +19,21 @@ function ProductSearchBar({searchProduct}) {
 
   return (
     <form onSubmit={handleSubmit(searchProduct)} className="flex flex-col gap-2">
-      <input
+      <Input
         {...register("search", {
           required: "Ce champ est obligatoire",
         })}
-        className="w-60 rounded-lg h-8 p-2"
+        className="bg-slate-50"
         placeholder="Rechercher un produit"
         type="search"
         name="search"
       />
-      <button
+      <Button
         type="submit"
-        className="bg-primary text-primary-foreground shadow w-60 hover:bg-primary/70 rounded-lg font-semibold"
+        className="w-60 hover:bg-primary/70 font-semibold"
       >
         Rechercher
-      </button>
+      </Button>
     </form>
   );
 }
