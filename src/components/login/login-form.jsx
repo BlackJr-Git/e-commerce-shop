@@ -21,8 +21,9 @@ function LoginForm() {
         data
       );
       console.log(response.data);
-      updateUser(response.data);
-      sessionStorage.setItem("currentUser", JSON.stringify(response.data));
+      updateUser(response.data.user);
+      sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
+      sessionStorage.setItem("token", response.data.token);
       alert("vous etes connecté avec succes");
     } catch (error) {
       console.error("Une erreur s'est produite:", error);

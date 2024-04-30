@@ -4,8 +4,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../app/globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { DashboardLayout, Layout,ProductsDashboard,Orders } from "./components/index.js";
-import { OrderDetails , OrderList } from "./components/dashboard";
+import {
+  DashboardLayout,
+  Layout,
+  ProductsDashboard,
+  Orders,
+  PrivateRoute
+} from "./components/index.js";
+import { OrderDetails, OrderList } from "./components/dashboard";
 import {
   Home,
   Shop,
@@ -20,7 +26,7 @@ import {
   Dashboard,
   SignUp,
   UserSettings,
-} from "./pages/index.js"; 
+} from "./pages/index.js";
 
 const router = createBrowserRouter([
   {
@@ -79,28 +85,25 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
-    children : [
+    element: <PrivateRoute />,  // Utilisez PrivateRoute ici
+    children: [
       {
-        path: "/dashboard/home",
-        element: <Dashboard />,
-      },{
-        path: "/dashboard/products",
-        element: <ProductsDashboard />
-      },{
-        path: "/dashboard/orders",
-        element: <Orders />,
-        children : [
+        path: "/dashboard",
+        element: <DashboardLayout />,
+        children: [
+          { path: "/dashboard/home", element: <Dashboard /> },
+          { path: "/dashboard/products", element: <ProductsDashboard /> },
           {
             path: "/dashboard/orders",
-            element: <OrderList />},
-          {
-            path: "/dashboard/orders/:ID",
-            element: <OrderDetails /> 
-          }
-        ]
-      }
-    ]
+            element: <Orders />,
+            children: [
+              { path: "/dashboard/orders", element: <OrderList /> },
+              { path: "/dashboard/orders/:ID", element: <OrderDetails /> },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ]);
 

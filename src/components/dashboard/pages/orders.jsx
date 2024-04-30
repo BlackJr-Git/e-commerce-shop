@@ -8,8 +8,8 @@ function Orders() {
       <div className="w-full h-full">
         <DashboardHeader title={"Orders"} />
         <div className="w-full h-[90%] rounded-xl flex flex-col gap-3">
-          <div className="w-full h-24 bg-blue-200 rounded-xl">
-            <p>Order header</p>
+          <div className="w-full h-24 bg-blue-200 rounded-xl p-3 flex items-center">
+            <h2 className=""> Orders </h2> 
           </div>
           <div className="w-full h-[80vh] rounded-xl"> 
             <Outlet />
@@ -20,4 +20,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default Orders; 

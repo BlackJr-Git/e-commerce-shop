@@ -9,17 +9,23 @@ import { useState, useEffect } from "react";
 import { fetchData } from "@/utils/fetch-data";
 
 function Shop() {
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
-  const productsDataURI = `http://localhost:3000/api/products?number=12&pages=${pages}`;
+  const [search, setSearch] = useState("");
+  const baseURL = `http://localhost:3000/api/products?number=12&pages=${pages}`;
+  const productsDataURI = search
+    ? `http://localhost:3000/api/products?number=12&pages=${pages}&name=${search}`
+    : baseURL;
 
   useEffect(() => {
     const loadProductsData = async () => {
       setIsLoading(true);
       try {
         const data = await fetchData(productsDataURI);
-        setProducts(data);
+        setProducts(data.products);
+        console.log(data.products);
+        // console.log(search);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       } finally {
@@ -29,13 +35,14 @@ function Shop() {
 
     loadProductsData();
   }, [productsDataURI]);
+
   function searchProduct(data) {
-    console.log(data.search);
-    setProducts(
-      products.filter((product) =>
-        product.name.toLowerCase().includes(data.search.toLowerCase())
-      )
-    );
+    setSearch(data.search);
+    // setProducts(
+    //   products.filter((product) =>
+    //     product.name.toLowerCase().includes(data.search.toLowerCase())
+    //   )
+    // );
   }
 
   return (
@@ -51,7 +58,7 @@ function Shop() {
             <Loading />
           ) : (
             <>
-              <Products productData={products.products} />
+              <Products productData={products} />
               <PaginationComponent setPages={setPages} pages={pages} />
             </>
           )}

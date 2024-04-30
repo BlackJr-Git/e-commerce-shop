@@ -14,7 +14,7 @@ function DashboardProductCard({ productData, setProduct }) {
   }
   return (
     <Card
-      className="flex flex-1  min-w-48 flex-col justify-between items-center p-1"
+      className="flex flex-1  min-w-48 max-w-48 max-h-72 flex-col justify-between items-center p-1"
       onClick={displayProductsDetails}
     >
       <CardContent className="w-full p-0">

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { ProductCard } from "..";
 
-// let productsData = data.filter((product) => product.price != "" ) ;
 
 function Products({ title, productData }) {
   return (

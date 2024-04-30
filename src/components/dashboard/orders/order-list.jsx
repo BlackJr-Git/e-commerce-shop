@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { fetchData } from "@/utils/fetch-data";
 import { OrderCard } from "..";
 import { Loading } from "@/components";
+import { PaginationComponent } from "@/components";
 
 function OrderList() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
-  const ordersDataURI = `http://localhost:3000/api/orders?number=8&pages=${pages}`; 
+  const ordersDataURI = `http://localhost:3000/api/orders?number=7&pages=${pages}`;
 
   useEffect(() => {
     const loadOrdersData = async () => {
@@ -15,11 +16,10 @@ function OrderList() {
       try {
         const data = await fetchData(ordersDataURI);
         setOrders(data.orders);
-        setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       } finally {
-        //
+        setIsLoading(false);
       }
     };
 
@@ -39,12 +39,13 @@ function OrderList() {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mb-6">
           {orders.map((order) => (
-            <OrderCard key={order.id} data={order} /> 
+            <OrderCard key={order.id} data={order} />
           ))}
         </div>
       )}
+      <PaginationComponent pages={pages} setPages={setPages} />
     </div>
   );
 }

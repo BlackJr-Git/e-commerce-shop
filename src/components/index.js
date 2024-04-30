@@ -43,6 +43,8 @@ export { default as SignUpForm } from "./signup/signup-form";
 export { default as UserDetails } from "./user-settings/customer-details";
 export { default as UserOrders } from "./user-settings/user-orders";
 export { default as OrderHistoryList } from "./user-settings/order-history-list";
+export { default as PaginationComponent } from "./pagination";
+export { default as PrivateRoute } from "./private-routes";
 
 // DASHBOARD
 

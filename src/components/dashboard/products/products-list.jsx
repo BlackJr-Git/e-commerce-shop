@@ -2,6 +2,7 @@ import { DashboardProductCard } from "..";
 import { useState, useEffect } from "react";
 import { fetchData } from "@/utils/fetch-data";
 import { Loading } from "@/components";
+import { PaginationComponent } from "@/components";
 
 //
 
@@ -9,7 +10,7 @@ function ProductsList({ setProduct }) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
-  const productsDataURI = `http://localhost:3000/api/products?number=12&pages=${pages}`;
+  const productsDataURI = `http://localhost:3000/api/products?number=8&pages=${pages}`;
 
   useEffect(() => {
     const loadProductsData = async () => {
@@ -30,7 +31,8 @@ function ProductsList({ setProduct }) {
   }, [productsDataURI]);
 
   return (
-    <div className="bg-slate-50 h-[78%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll">
+    <>
+    <div className="bg-slate-50 h-[75%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll">
       {isLoading ? (
         <Loading />
       ) : (
@@ -40,10 +42,14 @@ function ProductsList({ setProduct }) {
             key={product.ID}
             setProduct={setProduct}
           />
-        ))
+        )) 
       )}
+      <PaginationComponent setPages={setPages} pages={pages} />
     </div>
+    </>
   );
 }
 
 export default ProductsList;
+
+
