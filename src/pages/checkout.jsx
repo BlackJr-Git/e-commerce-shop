@@ -48,7 +48,9 @@ function Checkout() {
     try {
       const response = await axios.post(
         "http://localhost:3000/api/orders/add",
-        order
+        order, {
+          withCredentials: true,
+        }
       );
 
       if (response.status === 201) {

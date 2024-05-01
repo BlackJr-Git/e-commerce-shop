@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import postData from "@/utils/post-data";
 import deleteData from "@/utils/delete-product";
 import { Checkbox } from "@/components/ui/checkbox";
+// import Cookies from "js-cookie";
 
 function UpdateProducts({ productsData }) {
   const {
@@ -23,7 +24,7 @@ function UpdateProducts({ productsData }) {
       e.preventDefault();
       formData.price = parseInt(formData.price);
       postData(formData, postUrl);
-      location.reload();
+      // location.reload();
       reset();
     } catch (error) {
       console.log(error);
@@ -102,7 +103,11 @@ function UpdateProducts({ productsData }) {
         </div>
 
         <div className="flex items-center gap-3">
-          <Checkbox id="isHighlighted" {...register("isHighlighted")} defaultChecked={productsData.isHighlighted} />
+          <Checkbox
+            id="isHighlighted"
+            {...register("isHighlighted")}
+            defaultChecked={productsData.isHighlighted}
+          />
 
           <label
             htmlFor="isHighlighted"
@@ -112,7 +117,11 @@ function UpdateProducts({ productsData }) {
           </label>
         </div>
         <div className="flex items-center gap-3">
-          <Checkbox id="isVisible" {...register("isVisible")} defaultChecked={productsData.isVisible} /> 
+          <Checkbox
+            id="isVisible"
+            {...register("isVisible")}
+            defaultChecked={productsData.isVisible}
+          />
 
           <label
             htmlFor="isVisible"

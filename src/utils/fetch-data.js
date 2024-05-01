@@ -2,7 +2,10 @@
 
 async function fetchData(initialData) {
     try {
-      const response = await fetch(initialData);
+      const response = await fetch(initialData , {
+        method: 'GET',
+        credentials: 'include',
+      });
   
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`) ;
