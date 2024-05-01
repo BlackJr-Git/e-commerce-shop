@@ -14,13 +14,16 @@ function LoginForm() {
   } = useForm({});
 
   async function onSubmit(data) {
-    console.log(data);
+    // console.log(data);
     try {
       const response = await axios.post(
         "http://localhost:3000/api/auth/signin",
-        data
+        data,
+        {
+          withCredentials: true,
+        }
       );
-      console.log(response.data);
+      // console.log(response.data);
       updateUser(response.data.user);
       sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
       sessionStorage.setItem("token", response.data.token);
@@ -78,7 +81,9 @@ function LoginForm() {
             />
             <div className="w-80 flex items-center justify-end h-1 m-1">
               {errors.password && (
-                <p className="text-red-500 text-sm">{errors.password.message}</p>
+                <p className="text-red-500 text-sm">
+                  {errors.password.message}
+                </p>
               )}
             </div>
             <Link to={"/"} className="text-blue-500 font-semibold mt-2">
@@ -93,7 +98,7 @@ function LoginForm() {
         <p className="">
           Pas encore de compte ?{" "}
           <Link to={"/signup"} className="text-blue-500 font-semibold">
-            S'enregistrer
+            S&apos;enregistrer
           </Link>
         </p>
       </div>

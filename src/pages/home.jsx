@@ -7,9 +7,8 @@ import {
   WhyUs,
   Warranty,
   Loading,
+  AnimatedPages,
 } from "../components";
-// import { productsData } from "@/data";
-import { AnimatedPages } from "../components";
 import { fetchData } from "@/utils/fetch-data";
 
 function Home() {
@@ -39,13 +38,6 @@ function Home() {
 
     loadProductsData();
   }, []);
-
-  // useEffect(() => {
-  //   console.log("productsData :", productsData.products);
-  // }, [productsData]);
-
-  // let productsDisplay = productsData.products
-  // console.log(productsDisplay);
 
   return (
     <AnimatedPages>

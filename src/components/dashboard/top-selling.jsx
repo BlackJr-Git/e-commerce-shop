@@ -14,11 +14,12 @@ function TopSellingProducts() {
   useEffect(() => {
     try {
       const TOP_SELLING_PRODUCTS_URI =
-        "http://localhost:3000/api/products?number=4";
+        "http://localhost:3000/api/sales/best-sellers?number=4";
       const loadProductsData = async () => {
         try {
           const data = await axios.get(TOP_SELLING_PRODUCTS_URI);
-          setTopSellingProducts(data.data.products);
+          setTopSellingProducts(data.data.sales);
+          console.log(data.data.sales);
         } catch (error) {
           console.error("Une erreur s'est produite:", error);
         }
@@ -34,17 +35,12 @@ function TopSellingProducts() {
     <div className="h-[35%] bg-slate-50 rounded-2xl p-3 drop-shadow-md">
       <div className="flex items-center justify-between h-12 mb-3">
         <h2 className="font-bold">Top Selling Products</h2>
-        <select name="" id="" className="p-1 px-3">
-          <option value="week">This Week</option>
-          <option value="month">This month</option>
-          <option value="year">This year</option>
-        </select>
       </div>
       <div className="flex flex-col gap-3">
         {topSellingProducts ? (
           <>
             {topSellingProducts.map((product) => (
-              <TopSellingProduct key={product.ID} product={product} />
+              <TopSellingProduct key={product.ID} productData={product} quantity={product.itemCount} />
             ))}
           </>
         ) : (
@@ -57,10 +53,26 @@ function TopSellingProducts() {
 
 export default TopSellingProducts;
 
-function TopSellingProduct({ product }) {
+function TopSellingProduct({ productData , quantity}) {
+  const [product , setProduct] = useState({})
+  // console.log(productData);
+
+  useEffect (() => {
+    async function loadProductsData() {
+      try {
+        const data = await axios.get(`http://localhost:3000/api/products/${productData.ID}`)
+        setProduct(data.data)
+      } catch (error) {
+        console.log(error); 
+      }
+    }
+    loadProductsData()
+  }, [productData.ID])
+
+
   return (
     <div className="flex items-center justify-between h-10 bg-slate-200 rounded-xl px-1">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 justify-between  w-full pr-3">
         <div className="w-16">
           <img
             className="w-8 max-w-full rounded-lg"
@@ -69,8 +81,10 @@ function TopSellingProduct({ product }) {
           />
         </div>
         <p>{product.name}</p>
-        {/* <p>{product.price}</p> */}
+        <p>$ {product.price}</p>
+        <p>{quantity}</p>
       </div>
     </div>
   );
 }
+

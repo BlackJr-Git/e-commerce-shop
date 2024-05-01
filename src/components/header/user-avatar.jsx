@@ -1,4 +1,5 @@
 import { useStore } from "@/appStore";
+import Cookies from "js-cookie";
 import {
   CogIcon,
   ArrowRightStartOnRectangleIcon,
@@ -42,6 +43,7 @@ function AvatarPopover() {
     sessionStorage.removeItem("currentUser");
     sessionStorage.removeItem("cart");
     sessionStorage.removeItem("order");
+    Cookies.remove("token");
   }
 
   const links = [

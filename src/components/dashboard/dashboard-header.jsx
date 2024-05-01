@@ -9,8 +9,6 @@ function DashboardHeader({ title }) {
       <h1 className="font-bold text-2xl"> {title} </h1>
 
       <div className="flex gap-6">
-        {/* <MagnifyingGlassIcon /> */}
-        <Input className="bg-slate-100" placeholder="Search here" />
         <NotificationPopover />
         <UserAvatar />
       </div>

@@ -1,8 +1,4 @@
-// mailjet
-
 import axios from "axios";
-
-// let postUrl = "https://twitter-api-6zi0.onrender.com/api/tweets/add";
 
 async function deleteData(postUrl) {
   try {
