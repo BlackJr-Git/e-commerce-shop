@@ -40,7 +40,10 @@ function OrderStatusSelect({ data }) {
     try {
       const response = await axios.put(
         `http://localhost:3000/api/orders//update/${data.id}`,
-        statusObject
+        statusObject,
+        {
+          withCredentials: true,
+        }
       );
       //   alert("la commande a été mis a jour avec succes");
     } catch (error) {

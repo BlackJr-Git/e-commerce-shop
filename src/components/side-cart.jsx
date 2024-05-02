@@ -2,15 +2,11 @@
 import { Button } from "./ui/button";
 import { useStore } from "@/appStore";
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
 import { cartPriceSum } from "@/utils";
 import { useToast } from "./ui/use-toast";
 
 function SideCart({ className, handleClick }) {
   const { productsAddedToCart, orderItems } = useStore();
-  // useEffect(() => {
-  //   setTotalPrice(cartPriceSum(orderItems));
-  // }, [orderItems , totalPrice]);
 
   return (
     <div className={className}>
@@ -38,13 +34,6 @@ function SideCart({ className, handleClick }) {
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 border-t border-slate-200 py-3">
-            {/* <Button onClick={handleClick} variant="outline" className="w-11/12 font-medium">
-              <Link className="w-full" onClick={handleClick} to={"/cart"}> Voir le panier </Link>
-            </Button> */}
-            {/* <Button onClick={handleClick} className="w-11/12 font-bold">
-              {" "}
-              <Link className="w-full" onClick={handleClick} to={"/checkout"}>COMMANDER</Link>{" "}
-            </Button> */}
             <button className="w-11/12 font-medium border border-slate-100 rounded-xl p-1 shadow-md">
               {" "}
               <Link className="w-full" onClick={handleClick} to={"/cart"}>

@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useStore } from "@/appStore";
+import { useToast } from "@/components/ui/use-toast";
 
 function LoginForm() {
   const { updateUser } = useStore();
+  const { toast } = useToast();
   const {
     register,
     handleSubmit,
@@ -27,10 +29,16 @@ function LoginForm() {
       updateUser(response.data.user);
       sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
       sessionStorage.setItem("token", response.data.token);
-      alert("vous etes connecté avec succes");
+      toast({
+        title: "Connecté avec succes",
+      });
     } catch (error) {
       console.error("Une erreur s'est produite:", error);
-      alert("Une erreur s'est produite lors de la connexion");
+      toast({
+        variant: "destructive",
+        title: "Erreur lors de la connexion",
+        description: error.response.data,
+      });
     }
   }
 

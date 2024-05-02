@@ -14,7 +14,10 @@ function UserOrderHistory() {
       try {
         const response = await fetch(
           `http://localhost:3000/api/orders/user/${currentUser.id}?number=6`
-        );
+        , {
+          method: 'GET',
+          credentials: 'include',
+        });
         const data = await response.json();
         setIsLoading(false);
         setOrders(data);

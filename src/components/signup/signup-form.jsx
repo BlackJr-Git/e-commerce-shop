@@ -5,9 +5,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useStore } from "@/appStore";
 import { Navigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 
 function SignUpForm() {
   const { currentUser } = useStore();
+  const { toast } = useToast();
+  const [redirect, setRedirect] = useState(false);
   const methods = useForm({
     defaultValues: {
       name: "",
@@ -20,7 +23,8 @@ function SignUpForm() {
       city: "",
       township: "",
       password: "",
-      avatar: "https://link-to-default-avatar.png",
+      avatar:
+        "https://res.cloudinary.com/devhqdrwl/image/upload/v1713983564/Users_Avatars/mdijirvhladlipqfmcgh.png",
     },
   });
   const { handleSubmit, reset } = methods;
@@ -49,11 +53,18 @@ function SignUpForm() {
           data
         );
         console.log(response);
-        alert("Votre compte a ete cree avec sucees");
+        toast({
+          title: "Votre compte a ete crée avec sucees",
+        });
         reset();
+        setRedirect(true);
       } catch (error) {
         console.error("Error:", error);
-        alert("Failed to submit data");
+        toast({
+          variant: "destructive",
+          title: "Erreur lors de la creation du compte",
+          description: error.response.data,
+        });
       }
     } else {
       onNext();
@@ -62,6 +73,10 @@ function SignUpForm() {
 
   if (currentUser.id) {
     return <Navigate to="/" replace />;
+  }
+
+  if (redirect) {
+    return <Navigate to="/login" replace />;
   }
 
   const ActiveStep = stepsComponents[page];
