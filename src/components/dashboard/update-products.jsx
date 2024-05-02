@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import postData from "@/utils/post-data";
 import deleteData from "@/utils/delete-product";
 import { Checkbox } from "@/components/ui/checkbox";
-// import Cookies from "js-cookie";
 
 function UpdateProducts({ productsData }) {
   const {
@@ -24,7 +23,7 @@ function UpdateProducts({ productsData }) {
       e.preventDefault();
       formData.price = parseInt(formData.price);
       postData(formData, postUrl);
-      // location.reload();
+      location.reload();
       reset();
     } catch (error) {
       console.log(error);
@@ -47,11 +46,11 @@ function UpdateProducts({ productsData }) {
         className="flex flex-col gap-3"
         onSubmit={handleSubmit(handleClick)}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 justify-between">
           <label htmlFor="name">Name</label>
           <Input
             type="text"
-            className="bg-slate-100"
+            className="bg-slate-100 w-60"
             defaultValue={productsData.name}
             // value={productsData.name}
             {...register("name", {
@@ -66,12 +65,12 @@ function UpdateProducts({ productsData }) {
           />
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 justify-between">
           <label type="text" htmlFor="price">
             Price
           </label>
           <Input
-            className="bg-slate-100"
+            className="bg-slate-100 w-60"
             defaultValue={productsData.price}
             // value={productsData.price}
             {...register("price", {
@@ -86,12 +85,12 @@ function UpdateProducts({ productsData }) {
           />
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 justify-between">
           <label type="text" htmlFor="price">
             Categories
           </label>
           <Input
-            className="bg-slate-100"
+            className="bg-slate-100 w-60"
             defaultValue={productsData.Categories}
             // value={productsData.price}
             {...register("Categories", {
@@ -131,7 +130,7 @@ function UpdateProducts({ productsData }) {
           </label>
         </div>
 
-        <Button>Mettre a jour</Button>
+        <Button className="mt-12">Mettre a jour</Button>
       </form>
       {/* <Button variant="destructive" onClick={deleteProduct} >Supprimer</Button>  */}
       <PopUp

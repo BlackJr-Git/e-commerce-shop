@@ -13,10 +13,6 @@ function ProductSearchBar({searchProduct}) {
 
   const { register, handleSubmit } = useForm({ defaultValues: searchValue });
 
-  // const onSubmit = (data) => {
-  //   searchProduct(data)
-  // };
-
   return (
     <form onSubmit={handleSubmit(searchProduct)} className="flex flex-col gap-2">
       <Input

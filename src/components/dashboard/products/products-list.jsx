@@ -6,19 +6,22 @@ import { PaginationComponent } from "@/components";
 
 //
 
-function ProductsList({ setProduct }) {
-  const [products, setProducts] = useState([]);
+function ProductsList({ setProduct , search }) {
+  const [products, setProducts] = useState([]); 
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
-  const productsDataURI = `http://localhost:3000/api/products?number=8&pages=${pages}`;
+
+  const baseURL = `http://localhost:3000/api/products?number=8&pages=${pages}`;
+  const productURI = search
+    ? `http://localhost:3000/api/products?number=8&pages=${pages}&name=${search}`
+    : baseURL;
 
   useEffect(() => {
     const loadProductsData = async () => {
       setIsLoading(true);
       try {
-        const data = await fetchData(productsDataURI);
+        const data = await fetchData(productURI);
         setProducts(data.products);
-        // console.log("products :", data);
         setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch data:", error);
@@ -28,7 +31,7 @@ function ProductsList({ setProduct }) {
     };
 
     loadProductsData();
-  }, [productsDataURI]);
+  }, [productURI]);
 
   return (
     <>

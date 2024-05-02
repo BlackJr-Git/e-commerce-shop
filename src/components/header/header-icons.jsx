@@ -2,20 +2,20 @@
 import { Icon } from "../";
 import { useStore } from "@/appStore";
 import { UserAvatar, LoginPopover } from "../";
-import { useState } from "react";
+// import { useState } from "react";
 
 function HeaderIcons({ handleClick }) {
   const { currentUser, productsAddedToCart } = useStore();
-  const [isActive, setIsActive] = useState(false);
-  function toggleSearchBar() {
-    setIsActive(!isActive);
-  }
+  // const [isActive, setIsActive] = useState(false);
+  // function toggleSearchBar() {
+  //   setIsActive(!isActive);
+  // }
   return (
     <div className="flex w-40 items-center justify-between">
-      <div className="flex items-center justify-center cursor-pointer relative">
+      {/* <div className="flex items-center justify-center cursor-pointer relative">
         <Icon handleClick={toggleSearchBar} iconName={"search-outline"} />
         {isActive && <MenuSearchBar />}
-      </div>
+      </div> */}
       <div
         onClick={handleClick}
         className="relative flex items-center justify-center cursor-pointer"

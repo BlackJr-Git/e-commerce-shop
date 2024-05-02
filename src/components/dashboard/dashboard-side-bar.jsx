@@ -5,7 +5,7 @@ import {
   DevicePhoneMobileIcon,
   ShoppingBagIcon,
   CreditCardIcon,
-  ChartPieIcon,
+  // ChartPieIcon,
   CogIcon,
   ArrowRightStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
@@ -66,7 +66,7 @@ function DashboardSideBar() {
           </div>
         </NavLink>
 
-        <NavLink
+        {/* <NavLink
           to={"/dashboard/reports"}
           className={({ isActive }) =>
             isActive ? "bg-primary rounded-xl font-semibold w-full" : "w-full"
@@ -76,7 +76,7 @@ function DashboardSideBar() {
             <ChartPieIcon className="w-8" />
             <p>Reports</p>
           </div>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
           to={"/dashboard/settings"}
