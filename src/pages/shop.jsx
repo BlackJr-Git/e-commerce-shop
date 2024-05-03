@@ -14,9 +14,9 @@ function Shop() {
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
   const [search, setSearch] = useState("");
-  const baseURL = `http://localhost:3000/api/products?number=12&pages=${pages}`;
+  const baseURL = `${import.meta.env.VITE_API_URI}/api/products?number=12&pages=${pages}`;
   const productsDataURI = search
-    ? `http://localhost:3000/api/products?number=12&pages=${pages}&name=${search}`
+    ? `${import.meta.env.VITE_API_URI}/api/products?number=12&pages=${pages}&name=${search}`
     : baseURL;
 
   useEffect(() => {
@@ -25,7 +25,6 @@ function Shop() {
       try {
         const data = await fetchData(productsDataURI);
         setProducts(data.products);
-        // console.log(search);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       } finally {

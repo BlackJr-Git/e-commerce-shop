@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function LatestOrders() {
   const [orders, setOrders] = useState({});
-  const ordersDataURI = "http://localhost:3000/api/orders?number=6";
+  const ordersDataURI = `${import.meta.env.VITE_API_URI}/api/orders?number=6`;
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -39,6 +39,7 @@ function LatestOrders() {
                     {order.user.name} {order.user.firstName}
                   </p>
                 </div>
+                <div className={`text-sm w-4 h-4 rounded-full ${order.status === "livré" ? "bg-green-500" : order.status === "annulé" ? "bg-red-500" : order.status === "expedié" ? "bg-yellow-500" : "bg-slate-500"} font-semibold`}></div>
                 <p className="font-semibold">$ {order.total}</p>
               </div>
             </Link>

@@ -60,7 +60,7 @@ function TopSellingProduct({ productData , quantity}) {
   useEffect (() => {
     async function loadProductsData() {
       try {
-        const data = await axios.get(`http://localhost:3000/api/products/${productData.ID}`)
+        const data = await axios.get(`${import.meta.env.VITE_API_URI}/api/products/${productData.ID}`)
         setProduct(data.data)
       } catch (error) {
         console.log(error); 

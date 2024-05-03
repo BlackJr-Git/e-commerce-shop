@@ -49,7 +49,7 @@ function SignUpForm() {
     if (page === FormTitles.length - 1) {
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/users/add",
+          `${import.meta.env.VITE_API_URI}/api/users/add`,
           data
         );
         console.log(response);

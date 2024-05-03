@@ -12,7 +12,7 @@ function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const currentUser = sessionStorage.getItem("currentUser");
+    const currentUser = sessionStorage.getItem("currentUser"); 
     if (!currentUser) {
       return;
     } 

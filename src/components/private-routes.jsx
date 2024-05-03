@@ -10,9 +10,10 @@ const isAuthenticated = async () => {
   if (!token) return false;
 
   try {
-    const isAdmin = await axios.post("http://localhost:3000/api/auth/verify", {
+    const isAdmin = await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/verify`, {
       token: token,
     });
+    console.log(isAdmin.data);
     return isAdmin.data === true ? true : false;
   } catch (error) {
     return false;

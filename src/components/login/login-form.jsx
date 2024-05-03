@@ -16,16 +16,14 @@ function LoginForm() {
   } = useForm({});
 
   async function onSubmit(data) {
-    // console.log(data);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signin",
+        `${import.meta.env.VITE_API_URI}/api/auth/signin`,
         data,
         {
           withCredentials: true,
         }
       );
-      // console.log(response.data);
       updateUser(response.data.user);
       sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
       sessionStorage.setItem("token", response.data.token);
@@ -33,7 +31,6 @@ function LoginForm() {
         title: "Connecté avec succes",
       });
     } catch (error) {
-      console.error("Une erreur s'est produite:", error);
       toast({
         variant: "destructive",
         title: "Erreur lors de la connexion",

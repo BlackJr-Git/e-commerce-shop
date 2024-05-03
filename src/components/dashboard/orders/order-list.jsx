@@ -3,12 +3,13 @@ import { fetchData } from "@/utils/fetch-data";
 import { OrderCard } from "..";
 import { Loading } from "@/components";
 import { PaginationComponent } from "@/components";
+// import { useToast } from "@/components/ui/use-toast";
 
 function OrderList() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
-  const ordersDataURI = `http://localhost:3000/api/orders?number=7&pages=${pages}`;
+  const ordersDataURI = `${import.meta.env.VITE_API_URI}/api/orders?number=7&pages=${pages}`;
 
   useEffect(() => {
     const loadOrdersData = async () => {

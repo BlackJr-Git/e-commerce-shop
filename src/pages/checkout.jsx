@@ -9,6 +9,7 @@ import { AnimatedPages } from "@/components";
 import { cartPriceSum } from "@/utils";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 
 function Checkout() {
   const {
@@ -19,18 +20,7 @@ function Checkout() {
     updateOrder,
   } = useStore();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    firstName: "",
-    country: "",
-    address: "",
-    address2: "",
-    city: "",
-    township: "",
-    phone: "",
-    email: "",
-    notes: "",
-  });
+  const { toast } = useToast();
 
   const {
     register,
@@ -38,7 +28,7 @@ function Checkout() {
     formState: { errors },
   } = useForm({ defaultValues: currentUser });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     const order = {
       userId: currentUser.id,
       total: cartPriceSum(orderItems),
@@ -47,8 +37,9 @@ function Checkout() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/orders/add",
-        order, {
+        `${import.meta.env.VITE_API_URI}/api/orders/add`,
+        order,
+        {
           withCredentials: true,
         }
       );
@@ -60,12 +51,15 @@ function Checkout() {
         sessionStorage.setItem("order", JSON.stringify([]));
         setIsSubmitted(true);
       }
-
-      // Navigate("/order/");
-      alert("la commande a été faite avec succes");
+      toast({
+        title: "la commande a été faite avec succes",
+      });
     } catch (error) {
-      console.error("Une erreur s'est produite:", error);
-      alert("Une erreur s'est produite lors de l'envoi des données");
+      toast({
+        variant: "destructive",
+        title: "Une erreur s'est produite lors de l'envoi des données",
+        description: error.response.data,
+      });
     }
   };
 

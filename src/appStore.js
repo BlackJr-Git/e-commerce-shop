@@ -1,9 +1,4 @@
 import { create } from "zustand";
-// import { BradleyAvatar } from "./assets";
-// import { productsData } from "./data";
-
-// let data = productsData[0]
-
 
 export const useStore = create((set) => ({
   currentUser: {

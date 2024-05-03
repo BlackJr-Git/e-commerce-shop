@@ -15,7 +15,7 @@ function ProductsDashboard() {
   const [search, setSearch] = useState("");
   const { register, handleSubmit } = useForm();
 
-  const firstProductsUrl = `http://localhost:3000/api/products?number=1`;
+  const firstProductsUrl = `${import.meta.env.VITE_API_URI}/api/products?number=1`;
   useEffect(() => {
     const loadProductsData = async () => {
       try {

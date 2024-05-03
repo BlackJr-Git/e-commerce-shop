@@ -13,7 +13,7 @@ function UserOrderHistory() {
     const loadOrdersData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/orders/user/${currentUser.id}?number=6`
+          `${import.meta.env.VITE_API_URI}/api/orders/user/${currentUser.id}?number=6`
         , {
           method: 'GET',
           credentials: 'include',

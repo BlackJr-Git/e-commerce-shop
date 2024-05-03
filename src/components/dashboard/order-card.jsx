@@ -10,7 +10,7 @@ import {
 
 function OrderCard({ data }) {
   const [customer, setCustomer] = useState({});
-  const customerBaseURI = `http://localhost:3000/api/users/${data.userId}`;
+  const customerBaseURI = `${import.meta.env.VITE_API_URI}/api/users/${data.userId}`;
 
   useEffect(() => {
     const loadCustomerData = async () => {

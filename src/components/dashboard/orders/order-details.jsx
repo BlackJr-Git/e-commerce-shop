@@ -12,7 +12,7 @@ function OrderDetails() {
   const [customer, setCustomer] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { ID } = useParams();
-  const ordersDataURI = `http://localhost:3000/api/orders/${ID}`;
+  const ordersDataURI = `${import.meta.env.VITE_API_URI}/api/orders/${ID}`;
 
   useEffect(() => {
     const loadOrdersData = async () => {

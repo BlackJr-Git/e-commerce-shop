@@ -1,5 +1,4 @@
 function CustomerDetails({ customer }) {
-  console.log(customer);
   return (
     <div className="w-1/2 h-full bg-slate-100 rounded-xl p-3 flex flex-col gap-3">
       <h2 className=" mb-6 text-xl font-semibold">Customer Details</h2>

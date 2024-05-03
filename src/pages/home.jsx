@@ -16,7 +16,7 @@ function Home() {
   const [productsData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
-  const productsDataURI = "http://localhost:3000/api/products?number=8";
+  const productsDataURI = `${import.meta.env.VITE_API_URI}/api/products?number=8`;
 
   function removeCart() {
     setDisplayCart(false);
@@ -37,7 +37,8 @@ function Home() {
     };
 
     loadProductsData();
-  }, []);
+    console.log(`${import.meta.env.VITE_API_URI}/api/products?number=8`);
+  }, [productsDataURI]);
 
   return (
     <AnimatedPages>

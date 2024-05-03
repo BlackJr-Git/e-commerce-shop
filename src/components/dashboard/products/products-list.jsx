@@ -11,9 +11,9 @@ function ProductsList({ setProduct , search }) {
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
 
-  const baseURL = `http://localhost:3000/api/products?number=8&pages=${pages}`;
+  const baseURL = `${import.meta.env.VITE_API_URI}/api/products?number=8&pages=${pages}`;
   const productURI = search
-    ? `http://localhost:3000/api/products?number=8&pages=${pages}&name=${search}`
+    ? `h${import.meta.env.VITE_API_URI}/api/products?number=8&pages=${pages}&name=${search}`
     : baseURL;
 
   useEffect(() => {

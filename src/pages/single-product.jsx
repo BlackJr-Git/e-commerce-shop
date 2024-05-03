@@ -11,7 +11,7 @@ function SingleProduct() {
   // const [productsData, setProductData] = useState([]);
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const productsDataURI = `http://localhost:3000/api/products/${ID}`;
+  const productsDataURI = `${import.meta.env.VITE_API_URI}/api/products/${ID}`;
 
   useEffect(() => {
     const loadProductsData = async () => {

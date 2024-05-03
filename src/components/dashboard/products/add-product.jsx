@@ -37,17 +37,17 @@ function AddProduct() {
       formData.isVisible = false;
     }
 
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:3000/api/products/add",
-    //     formData
-    //   );
-    //   console.log(response);
-    //   alert("le produit a été ajoutée");
-    // } catch (error) {
-    //   console.error("Une erreur s'est produite:", error);
-    //   alert("Une erreur s'est produite lors de l'envoi des données");
-    // }
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URI}/api/products/add`,
+        formData
+      );
+      console.log(response);
+      alert("le produit a été ajoutée");
+    } catch (error) {
+      console.error("Une erreur s'est produite:", error);
+      alert("Une erreur s'est produite lors de l'envoi des données");
+    }
 
     reset();
   };

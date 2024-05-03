@@ -15,8 +15,8 @@ function UpdateProducts({ productsData }) {
     reset,
   } = useForm();
 
-  const postUrl = `http://localhost:3000/api/products/update/${productsData.ID}`;
-  const deleteUrl = `http://localhost:3000/api/products/delete/${productsData.ID}`;
+  const postUrl = `${import.meta.env.VITE_API_URI}/api/products/update/${productsData.ID}`;
+  const deleteUrl = `${import.meta.env.VITE_API_URI}/api/products/delete/${productsData.ID}`;
 
   const handleClick = (formData, e) => {
     try {
