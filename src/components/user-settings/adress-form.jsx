@@ -5,7 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { useStore } from "@/appStore";
 
-function AdressForm() {
+function AdressForm({ closeForm }) {
   const { toast } = useToast();
   const { currentUser, updateUser } = useStore();
 
@@ -13,7 +13,6 @@ function AdressForm() {
     register,
     formState: { errors },
     handleSubmit,
-    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -90,7 +89,7 @@ function AdressForm() {
       />
 
       <div className="flex gap-3 w-full">
-        <Button variant={"outline"} onClick={() => "junior"}>
+        <Button type="button" variant={"outline"} onClick={closeForm}>
           Annuler
         </Button>
         <Button className="w-[80%]">Modifier</Button>

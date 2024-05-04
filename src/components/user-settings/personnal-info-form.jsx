@@ -5,7 +5,7 @@ import { useStore } from "@/appStore";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
-function PersonnalInfoForm() {
+function PersonnalInfoForm({ closeForm }) {
   const { toast } = useToast();
   const { currentUser, updateUser } = useStore();
 
@@ -25,7 +25,6 @@ function PersonnalInfoForm() {
       console.log(response.data);
       updateUser(response.data);
       sessionStorage.setItem("currentUser", JSON.stringify(response.data));
-
     } catch (error) {
       console.error("Error:", error);
       toast({
@@ -97,7 +96,7 @@ function PersonnalInfoForm() {
         defaultValue={currentUser.email}
       />
       <div className="flex gap-3 w-full">
-        <Button variant={"outline"} type="button" onClick={() => "junior"}>
+        <Button variant={"outline"} type="button" onClick={closeForm}>
           Annuler
         </Button>
         <Button className="w-[80%]">Modifier</Button>

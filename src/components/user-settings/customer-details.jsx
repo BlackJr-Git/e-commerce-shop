@@ -7,7 +7,12 @@ import { AdressForm, PersonalInfoForm } from "..";
 function UserDetails() {
   const { currentUser } = useStore();
   const [formLayout, setFormLayout] = useState(false);
-  const [form, setForm] = useState(<AdressForm />);
+
+  const [form, setForm] = useState(null);
+
+  const closeForm = () => {
+    setFormLayout(false);
+  };
 
   return (
     <div className="w-1/2 h-full  rounded-xl flex flex-col gap-3">
@@ -74,7 +79,7 @@ function UserDetails() {
             variant="outline"
             onClick={() => {
               setFormLayout(true);
-              setForm(<PersonalInfoForm />);
+              setForm(<PersonalInfoForm closeForm={closeForm} />);
             }}
           >
             Edit
@@ -126,7 +131,7 @@ function UserDetails() {
             variant="outline"
             onClick={() => {
               setFormLayout(true);
-              setForm(<AdressForm />);
+              setForm(<AdressForm closeForm={closeForm} />);
             }}
           >
             Edit
