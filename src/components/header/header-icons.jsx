@@ -11,7 +11,7 @@ function HeaderIcons({ handleClick }) {
   //   setIsActive(!isActive);
   // }
   return (
-    <div className="flex w-40 items-center justify-between">
+    <div className="flex w-24 items-center justify-between">
       {/* <div className="flex items-center justify-center cursor-pointer relative">
         <Icon handleClick={toggleSearchBar} iconName={"search-outline"} />
         {isActive && <MenuSearchBar />}

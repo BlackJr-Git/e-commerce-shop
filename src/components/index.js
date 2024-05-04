@@ -1,3 +1,5 @@
+// import UpdateUserLayout from "./user-settings/update-user-layout";
+
 export { default as Header } from "./header/header";
 export { default as Logo } from "./ui/logo";
 export { default as Icon } from "./ui/icon";
@@ -45,6 +47,9 @@ export { default as UserOrders } from "./user-settings/user-orders";
 export { default as OrderHistoryList } from "./user-settings/order-history-list";
 export { default as PaginationComponent } from "./pagination";
 export { default as PrivateRoute } from "./private-routes";
+export { default as UpdateUserLayout } from "./user-settings/update-user-layout";
+export { default as AdressForm } from "./user-settings/adress-form";
+export { default as PersonalInfoForm } from "./user-settings/personnal-info-form";
 
 // DASHBOARD
 

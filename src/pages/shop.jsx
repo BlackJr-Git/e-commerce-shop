@@ -14,9 +14,13 @@ function Shop() {
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
   const [search, setSearch] = useState("");
-  const baseURL = `${import.meta.env.VITE_API_URI}/api/products?number=12&pages=${pages}`;
+  const baseURL = `${
+    import.meta.env.VITE_API_URI
+  }/api/products?number=12&pages=${pages}`;
   const productsDataURI = search
-    ? `${import.meta.env.VITE_API_URI}/api/products?number=12&pages=${pages}&name=${search}`
+    ? `${
+        import.meta.env.VITE_API_URI
+      }/api/products?number=12&pages=${pages}&name=${search}`
     : baseURL;
 
   useEffect(() => {

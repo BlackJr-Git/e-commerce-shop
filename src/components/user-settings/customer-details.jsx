@@ -1,10 +1,17 @@
 import { useStore } from "@/appStore";
 import { Button } from "../ui/button";
+import { UpdateUserLayout } from "..";
+import { useState } from "react";
+import { AdressForm, PersonalInfoForm } from "..";
 
 function UserDetails() {
   const { currentUser } = useStore();
+  const [formLayout, setFormLayout] = useState(false);
+  const [form, setForm] = useState(<AdressForm />);
+
   return (
     <div className="w-1/2 h-full  rounded-xl flex flex-col gap-3">
+      {formLayout && <UpdateUserLayout>{form}</UpdateUserLayout>}
       <div className="  border border-slate-200 rounded-xl w-full h-28 flex items-center p-3 gap-6 justify-between ">
         <div className="flex items-center gap-3 ">
           <div>
@@ -24,9 +31,17 @@ function UserDetails() {
           </div>
         </div>
 
-        <div>
-          <Button variant="outline">Edit</Button>
-        </div>
+        {/* <div>
+          <Button
+            variant="outline"
+            onClick={() => {
+              setFormLayout(true);
+              setForm("Login info");
+            }}
+          >
+            Edit
+          </Button>
+        </div> */}
       </div>
 
       <div className="border border-slate-200 rounded-xl w-full  flex flex-col p-3">
@@ -55,7 +70,15 @@ function UserDetails() {
               <span className="font-semibold ml-3">{currentUser.phone}</span>
             </p>
           </div>
-          <Button variant="outline">Edit</Button>
+          <Button
+            variant="outline"
+            onClick={() => {
+              setFormLayout(true);
+              setForm(<PersonalInfoForm />);
+            }}
+          >
+            Edit
+          </Button>
         </div>
       </div>
 
@@ -95,13 +118,19 @@ function UserDetails() {
                 </span>
               </p>
               <p className="">
-                <span className="font-semibold">
-                  {currentUser.address2}
-                </span>
+                <span className="font-semibold">{currentUser.address2}</span>
               </p>
             </div>
           </div>
-          <Button variant="outline">Edit</Button>
+          <Button
+            variant="outline"
+            onClick={() => {
+              setFormLayout(true);
+              setForm(<AdressForm />);
+            }}
+          >
+            Edit
+          </Button>
         </div>
       </div>
     </div>
