@@ -59,7 +59,7 @@ function ActionPopover({ id }) {
   const actions = [
     {
       name: "Details",
-      href: `details/${id}`,
+      href: `/dashboard/orders/details/${id}`,
       icon: DocumentMagnifyingGlassIcon,
     },
   ];
