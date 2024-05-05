@@ -6,14 +6,18 @@ import { PaginationComponent } from "@/components";
 
 //
 
-function ProductsList({ setProduct , search }) {
-  const [products, setProducts] = useState([]); 
+function ProductsList({ setProduct, search }) {
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
 
-  const baseURL = `${import.meta.env.VITE_API_URI}/api/products?number=8&pages=${pages}`;
+  const baseURL = `${
+    import.meta.env.VITE_API_URI
+  }/api/products?number=8&pages=${pages}`;
   const productURI = search
-    ? `${import.meta.env.VITE_API_URI}/api/products?number=8&pages=${pages}&name=${search}`
+    ? `${
+        import.meta.env.VITE_API_URI
+      }/api/products?number=8&pages=${pages}&name=${search}`
     : baseURL;
 
   useEffect(() => {
@@ -35,24 +39,22 @@ function ProductsList({ setProduct , search }) {
 
   return (
     <>
-    <div className="bg-slate-50 h-[75%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll drop-shadow-md">
-      {isLoading ? (
-        <Loading />
-      ) : (
-        products.map((product) => (
-          <DashboardProductCard
-            productData={product}
-            key={product.ID}
-            setProduct={setProduct}
-          />
-        )) 
-      )}
-      <PaginationComponent setPages={setPages} pages={pages} />
-    </div>
+      <div className="bg-slate-50 h-[75%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          products.map((product) => (
+            <DashboardProductCard
+              productData={product}
+              key={product.ID}
+              setProduct={setProduct}
+            />
+          ))
+        )}
+        <PaginationComponent setPages={setPages} pages={pages} />
+      </div>
     </>
   );
 }
 
 export default ProductsList;
-
-

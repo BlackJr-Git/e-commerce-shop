@@ -60,9 +60,9 @@ function AddProduct() {
     <>
       <Button className="w-60" onClick={handleClickOpen}>Ajouter un produit</Button>
       {open ? (
-        <div className="absolute bg-black/70 w-screen h-screen top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute bg-black/70 z-80 w-screen  h-screen top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <form
-            className="absolute bg-slate-50 p-12 rounded-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  shadow-2xl"
+            className="absolute bg-slate-50 z-99 p-12 rounded-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  shadow-2xl"
             onSubmit={handleSubmit(addProduct)}
             encType="multipart/form-data"
           >
