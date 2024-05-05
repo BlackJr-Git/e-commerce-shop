@@ -40,7 +40,7 @@ function AvatarPopover() {
     updateUser(newUser);
     updateOrder([]);
     updateCart([]);
-    sessionStorage.removeItem("currentUser");
+    sessionStorage.setItem("currentUser", JSON.stringify(newUser));
     sessionStorage.removeItem("cart");
     sessionStorage.removeItem("order");
     Cookies.remove("token");

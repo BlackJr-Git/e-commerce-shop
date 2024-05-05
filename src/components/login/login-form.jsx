@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useStore } from "@/appStore";
 import { useToast } from "@/components/ui/use-toast";
+import Cookies from "js-cookie";
 
 function LoginForm() {
   const { updateUser } = useStore();
@@ -28,6 +29,7 @@ function LoginForm() {
       updateUser(response.data.user);
       sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
       sessionStorage.setItem("token", response.data.token);
+      Cookies.set("token", response.data.token);
       toast({
         title: "Connecté avec succes",
       });

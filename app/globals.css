@@ -100,7 +100,7 @@
 
 .products-image {
   grid-area: products-image;
-  background-image: url("src/assets/images/product-image.jpg");
+  background: url("src/assets/images/product-image.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -171,4 +171,12 @@
 .active {
   color: #00cccb;
   border-bottom: 2px solid #00cccb;
+}
+
+
+.signup-image {
+  background: url("/src/assets/sign-up.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

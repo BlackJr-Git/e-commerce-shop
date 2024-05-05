@@ -7,6 +7,8 @@ import { Loading } from ".";
 const isAuthenticated = async () => {
   const token = Cookies.get("token");
 
+  console.log(token);
+
   if (!token) return false;
 
   try {
