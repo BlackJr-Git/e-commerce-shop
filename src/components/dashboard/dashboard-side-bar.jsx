@@ -12,7 +12,7 @@ import {
 
 function DashboardSideBar() {
   return (
-    <aside className="bg-slate-300 w-72 h-full rounded-l-2xl border-r-2 border-r-slate-50 p-6 flex flex-col items-center">
+    <aside className="bg-slate-300 w-72 h-full rounded-l-2xl border-r-2 border-r-slate-50 p-6 flex-col items-center hidden md:flex">
       <div className="mb-10">
         <Logo />
       </div>

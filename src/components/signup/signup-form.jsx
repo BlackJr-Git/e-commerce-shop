@@ -141,7 +141,7 @@ function LoginInfo() {
         {...register("password", { required: "Ce champ est obligatoire" })}
         type="password"
         placeholder="your password"
-        className={`w-96 h-12 bg-slate-100 ${
+        className={`md:w-96 h-12 bg-slate-100 ${
           errors.password ? "border-red-500" : ""
         }`}
       />

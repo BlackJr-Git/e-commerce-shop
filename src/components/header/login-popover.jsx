@@ -21,7 +21,6 @@ function LoginPopover() {
       name: "Cree un compte",
       href: "signup",
       icon:    UserPlusIcon,
-      handleClick: "",
     },
   ];
   return (
@@ -65,4 +64,4 @@ function LoginPopover() {
   );
 }
 
-export default LoginPopover; 
+export default LoginPopover;

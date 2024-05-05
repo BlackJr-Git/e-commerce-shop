@@ -24,6 +24,7 @@ function LoginForm() {
           withCredentials: true,
         }
       );
+      console.log(response);
       updateUser(response.data.user);
       sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
       sessionStorage.setItem("token", response.data.token);

@@ -43,7 +43,7 @@ function DashboardNumbers() {
   });
 
   return (
-    <div className="h-[12%] rounded-2xl flex items-center gap-3 justify-between">
+    <div className="md:h-[12%] rounded-2xl flex flex-col md:flex-row items-center gap-3 justify-between">
       <NumbersCard
         amount={`${totalSales}`}
         title={"TOTAL SALES"}

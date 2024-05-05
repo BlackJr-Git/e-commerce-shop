@@ -1,6 +1,6 @@
 function CustomerDetails({ customer }) {
   return (
-    <div className="w-1/2 h-full bg-slate-100 rounded-xl p-3 flex flex-col gap-3 drop-shadow-md">
+    <div className="md:w-1/2 h-full bg-slate-100 rounded-xl p-3 flex flex-col gap-3 drop-shadow-md">
       <h2 className=" mb-6 text-xl font-semibold">Customer Details</h2>
       <div className="border-y border-slate-200 py-6">
         <p className="flex justify-between">

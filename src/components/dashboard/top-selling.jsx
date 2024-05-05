@@ -33,7 +33,7 @@ function TopSellingProducts() {
   }, []);
 
   return (
-    <div className="h-[35%] bg-slate-50 rounded-2xl p-3 drop-shadow-md">
+    <div className="md:h-[35%] bg-slate-50 rounded-2xl p-3 drop-shadow-md">
       <div className="flex items-center justify-between h-12 mb-3">
         <h2 className="font-bold">Top Selling Products</h2>
       </div>

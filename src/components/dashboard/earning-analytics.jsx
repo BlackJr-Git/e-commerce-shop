@@ -61,7 +61,7 @@ function EarningAnalytics() {
   };
 
   return (
-    <div className="h-[53%] bg-slate-50 rounded-2xl flex items-center justify-center drop-shadow-md">
+    <div className="h-[53%] bg-slate-50 rounded-2xl md:flex items-center justify-center drop-shadow-md hidden ">
       <Bar data={data} options={options} />
     </div>
   );

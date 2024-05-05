@@ -46,7 +46,7 @@ function Orders() {
               </form>
             </div>
           </div>
-          <div className="w-full h-[80vh] rounded-xl">
+          <div className="w-full md:h-[80vh] rounded-xl">
             <Outlet />
           </div>
         </div>

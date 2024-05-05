@@ -9,14 +9,14 @@ import { Link } from "react-router-dom";
 function NotificationPopover() {
   const notifications = [
     {
-      name: "Paramètres",
-      // description: "Speak directly to your customers",
+      name: "Message",
+      description: "New Message",
       href: "#",
       icon: BellAlertIcon,
     },
     {
-      name: "Déconnexion",
-      // description: "Your customers’ data will be safe and secure",
+      name: "Order",
+      description: "New Order",
       href: "#",
       icon: BellAlertIcon,
       handleClick: "",
