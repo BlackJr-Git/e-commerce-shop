@@ -14,7 +14,7 @@ function ProductSearchBar({searchProduct}) {
   const { register, handleSubmit } = useForm({ defaultValues: searchValue });
 
   return (
-    <form onSubmit={handleSubmit(searchProduct)} className="flex flex-col gap-2">
+    <form onSubmit={handleSubmit(searchProduct)} className="flex flex-col gap-2 w-80">
       <Input
         {...register("search", {
           required: "Ce champ est obligatoire",
@@ -26,7 +26,7 @@ function ProductSearchBar({searchProduct}) {
       />
       <Button
         type="submit"
-        className="w-60 hover:bg-primary/70 font-semibold"
+        className="w-80 hover:bg-primary/70 font-semibold"
       >
         Rechercher
       </Button>

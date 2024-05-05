@@ -13,7 +13,7 @@ function ProductsList({ setProduct , search }) {
 
   const baseURL = `${import.meta.env.VITE_API_URI}/api/products?number=8&pages=${pages}`;
   const productURI = search
-    ? `h${import.meta.env.VITE_API_URI}/api/products?number=8&pages=${pages}&name=${search}`
+    ? `${import.meta.env.VITE_API_URI}/api/products?number=8&pages=${pages}&name=${search}`
     : baseURL;
 
   useEffect(() => {

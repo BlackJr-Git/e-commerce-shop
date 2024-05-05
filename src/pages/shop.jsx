@@ -46,11 +46,13 @@ function Shop() {
   return (
     <AnimatedPages>
       <main className="max-w-7xl xl:max-w-screen-2xl m-auto md:flex  items-start gap-6 mb-20 relative pt-32">
-        <div className="bg-slate-200 w-1/6 h-screen rounded-2xl hidden md:block py-12">
-          <ShopHeader searchProduct={searchProduct}></ShopHeader>
+        {/* <div className="bg-slate-200 w-1/6 h-screen rounded-2xl hidden md:block py-12">
           <ProductFilter />
-        </div>
+        </div> */}
         <div className="md:w-5/6 mx-auto w-full h-full">
+          <div className="p-6 w-full bg-slate-50 mb-6 rounded-xl flex items-center justify-start">
+            <ShopHeader searchProduct={searchProduct}></ShopHeader>
+          </div>
           {isLoading ? (
             <Loading />
           ) : (
