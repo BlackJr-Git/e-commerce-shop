@@ -26,7 +26,7 @@ function OrderCard({ data }) {
   }, [customerBaseURI]);
 
   return (
-    <div className="flex w-full bg-slate-100 p-3 rounded-xl">
+    <div className="flex w-full bg-slate-100 p-3 rounded-xl drop-shadow-md">
       <p className="w-[15%]">{data.id}</p>
       <p className="w-[15%]"> {dateFormatter(data.createdAt)}</p>
       <p className="w-[15%]">
@@ -38,10 +38,10 @@ function OrderCard({ data }) {
       </form>
       <p className="w-[15%]">{data.orderItems.length} Items</p>
       <p className="w-[15%]">$ {data.total}</p>
-      <button className="w-[10%] flex items-center justify-center">
+      <div className="w-[10%] flex items-center justify-center">
         {" "}
         <ActionPopover id={data.id} />{" "}
-      </button>
+      </div>
     </div>
   );
 }
@@ -59,7 +59,7 @@ function ActionPopover({ id }) {
   const actions = [
     {
       name: "Details",
-      href: `${id}`,
+      href: `details/${id}`,
       icon: DocumentMagnifyingGlassIcon,
     },
   ];

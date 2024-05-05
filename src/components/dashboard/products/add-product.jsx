@@ -58,7 +58,7 @@ function AddProduct() {
 
   return (
     <>
-      <Button onClick={handleClickOpen}>Ajouter un produit</Button>
+      <Button className="w-60" onClick={handleClickOpen}>Ajouter un produit</Button>
       {open ? (
         <div className="absolute bg-black/70 w-screen h-screen top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <form

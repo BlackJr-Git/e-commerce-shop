@@ -10,10 +10,12 @@ const isAuthenticated = async () => {
   if (!token) return false;
 
   try {
-    const isAdmin = await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/verify`, {
-      token: token,
-    });
-    console.log(isAdmin.data);
+    const isAdmin = await axios.post(
+      `${import.meta.env.VITE_API_URI}/api/auth/verify`,
+      {
+        token: token,
+      }
+    );
     return isAdmin.data === true ? true : false;
   } catch (error) {
     return false;
@@ -32,11 +34,10 @@ const PrivateRoute = () => {
     checkAuth();
   }, []);
 
-
   if (auth === null) {
-    return <Loading /> 
+    return <Loading />;
   }
-  
+
   return auth ? (
     <Outlet />
   ) : (

@@ -4,12 +4,17 @@ import { OrderCard } from "..";
 import { Loading } from "@/components";
 import { PaginationComponent } from "@/components";
 // import { useToast } from "@/components/ui/use-toast";
+import { useParams } from "react-router-dom";
 
 function OrderList() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pages, setPages] = useState(1);
-  const ordersDataURI = `${import.meta.env.VITE_API_URI}/api/orders?number=7&pages=${pages}`;
+  const { status } = useParams();
+
+  const ordersDataURI = `${
+    import.meta.env.VITE_API_URI
+  }/api/orders?number=7&pages=${pages}&status=${status}`;
 
   useEffect(() => {
     const loadOrdersData = async () => {
@@ -27,7 +32,7 @@ function OrderList() {
     loadOrdersData();
   }, [ordersDataURI]);
   return (
-    <div className="w-full h-[90%] bg-slate-50 rounded-xl p-3 flex flex-col">
+    <div className="w-full h-[90%] bg-slate-50 rounded-xl p-3 flex flex-col drop-shadow-md">
       <header className="flex w-full border-b border-b-slate-300 h-12 mb-6 p-3">
         <div className="w-[15%]">ID</div>
         <div className="w-[15%]">Date</div>
@@ -51,4 +56,4 @@ function OrderList() {
   );
 }
 
-export default OrderList;
+export default OrderList; 

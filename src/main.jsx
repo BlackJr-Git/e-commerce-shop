@@ -96,14 +96,15 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <DashboardLayout />,
         children: [
+          { path: "/dashboard/", element: <Dashboard /> },
           { path: "/dashboard/home", element: <Dashboard /> },
           { path: "/dashboard/products", element: <ProductsDashboard /> },
           {
             path: "/dashboard/orders",
             element: <Orders />,
             children: [
-              { path: "/dashboard/orders", element: <OrderList /> },
-              { path: "/dashboard/orders/:ID", element: <OrderDetails /> },
+              { path: "/dashboard/orders/:status?", element: <OrderList /> },
+              { path: "/dashboard/orders/details/:ID", element: <OrderDetails /> },
             ],
           },
         ],

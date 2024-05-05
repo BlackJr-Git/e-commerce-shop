@@ -26,13 +26,13 @@ function LatestOrders() {
   }, [ordersDataURI]);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 drop-shadow-md">
       {isLoading ? (
         <Loading />
       ) : (
         <>
           {orders.map((order) => (
-            <Link to={`/dashboard/orders/${order.id}`} key={order.id}>
+            <Link className="drop-shadow-md" to={`/dashboard/orders/${order.id}`} key={order.id}>
               <div className="bg-slate-100 w-full h-12 rounded-xl p-3 flex items-center justify-between  drop-shadow-md">
                 <div>
                   <p>

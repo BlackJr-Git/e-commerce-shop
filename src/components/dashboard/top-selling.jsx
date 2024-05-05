@@ -80,7 +80,7 @@ function TopSellingProduct({ productData, quantity }) {
   }, [productData.ID]);
 
   return (
-    <div className="flex items-center justify-between h-10 bg-slate-200 rounded-xl px-1">
+    <div className="flex items-center justify-between h-10 bg-slate-100  drop-shadow-md  rounded-xl px-1">
       <div className="flex items-center gap-3 justify-between  w-full pr-3">
         <div className="w-16">
           <img

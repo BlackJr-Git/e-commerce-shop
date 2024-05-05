@@ -5,7 +5,7 @@ import { NotificationPopover, UserAvatar } from "..";
 function DashboardHeader({ title }) {
 //   const { currentUser, updateUser } = useStore();
   return (
-    <header className="h-24 w-full flex items-center justify-between">
+    <header className="h-24 w-full flex items-center justify-between drop-shadow-md">
       <h1 className="font-bold text-2xl"> {title} </h1>
 
       <div className="flex gap-6">

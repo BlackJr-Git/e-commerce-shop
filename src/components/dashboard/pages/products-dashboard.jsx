@@ -33,7 +33,7 @@ function ProductsDashboard() {
   }
 
   return (
-    <div className="h-full w-full ">
+    <div className="h-full w-full drop-shadow-md">
       <DashboardHeader title={"Products"} />
       <div className="w-full h-24 bg-slate-50 mb-3 rounded-xl p-6 flex items-center gap-3 justify-between">
         <form

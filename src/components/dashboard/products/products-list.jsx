@@ -35,7 +35,7 @@ function ProductsList({ setProduct , search }) {
 
   return (
     <>
-    <div className="bg-slate-50 h-[75%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll">
+    <div className="bg-slate-50 h-[75%] w-[70%] rounded-2xl p-3 flex gap-3 flex-wrap overflow-y-scroll drop-shadow-md">
       {isLoading ? (
         <Loading />
       ) : (

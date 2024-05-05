@@ -1,5 +1,5 @@
 import { DashboardNumbers, EarningAnalytics, TopSellingProducts } from "..";
-import { LatestOrders } from ".";
+import { LatestOrders, LatestMessages } from ".";
 
 function DashboardContent() {
   return (
@@ -15,7 +15,8 @@ function DashboardContent() {
           <LatestOrders /> 
         </div>
         <div className="w-full h-[50%] bg-slate-50 rounded-2xl p-3 drop-shadow-md">
-          <p className="font-semibold">Latest Messages</p>
+          <p className="font-semibold mb-6">Latest Messages</p>
+          <LatestMessages />
         </div>
       </div>
     </div>

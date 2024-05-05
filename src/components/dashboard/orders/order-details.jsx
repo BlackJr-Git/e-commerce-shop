@@ -37,7 +37,7 @@ function OrderDetails() {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="h-[65vh] w-full flex gap-3">
+        <div className="h-[65vh] w-full flex gap-3 drop-shadow-md">
           <div className="w-1/2 h-full bg-slate-100 rounded-xl p-3">
             <h2 className="mb-6 text-xl font-semibold">Order Details</h2>
             <div className="border-y border-slate-200 py-6 flex justify-between">

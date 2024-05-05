@@ -43,7 +43,7 @@ function UpdateProducts({ productsData }) {
   return (
     <>
       <form
-        className="flex flex-col gap-3"
+        className="flex flex-col gap-3 drop-shadow-md"
         onSubmit={handleSubmit(handleClick)}
       >
         <div className="flex items-center gap-3 justify-between">
