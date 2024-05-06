@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 
 function SucessOrder() {
   return (
-    <div className="m-auto max-w-7xl p-6 pt-24 h-[85vh]">
+    <div className="m-auto max-w-7xl p-6 pt-24 h-[100vh]">
       <h1 className="text-2xl font-bold text-center p-6"> Commande validee </h1>
       <p className="text-center mb-6">Merci pour votre commande.</p>
       <p className="px-12 py-6 my-6">
@@ -99,7 +99,7 @@ function OrdreInfo() {
   }
 
   return (
-    <div className="w-1/2 h-full bg-slate-100 rounded-xl p-3">
+    <div className="w-1/2 h-[60vh] bg-slate-100 rounded-xl p-3">
       <h2 className="mb-6 text-xl font-semibold">Order Details</h2>
       <div className="border-y border-slate-200 py-6 flex justify-between">
         <div>
