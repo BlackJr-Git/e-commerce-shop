@@ -100,7 +100,7 @@
 
 .products-image {
   grid-area: products-image;
-  background: url("src/assets/images/product-image.jpg");
+  background: url("/src/assets/images/product-image.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
